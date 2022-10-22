@@ -73,16 +73,19 @@ function addUtente(user) {
   }
 }
 
-
 app.get("/cercaUniversitàId", (req,res) =>{
-  //prendiamo tutti gli utenti registrati nel file
-  let data = fs.readFileSync("tutors.json");
-  users = JSON.parse(data);
+  let data = fs.readFileSync("users.json");
   
-  //invoco la funzione di ricerca
-  let tutorByUniversità = linearSearch(users, req.body);
-  console.log(tutorByUniversità);
-  
+  if(data != null){
+    const tutors = JSON.parse(data);
+    console.log(req.body.università);
+    let utentiRicercati = linearSearch(tutors,req.body.università);
+    console.log(utentiRicercati);
+    res.send(utentiRicercati);
+  }
+  else{
+    console.log('Error');
+  }
 })
 
 function linearSearch(tutors, key) {
