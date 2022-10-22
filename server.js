@@ -72,6 +72,18 @@ function addUtente(user) {
   }
 }
 
+
+function linearSearch(tutors, key, comparatorCallback) {
+  const comparator = new Comparator(comparatorCallback);
+  const foundIndices = [];
+
+  tutors.forEach((element, index) => {
+    if (comparator.equal(element, key)) {
+      foundIndices.push(index);
+    }
+  });
+}
+  
 //pagina per la modifica dal database
 app.get("/deleteTutor",(req, res) => {
   res.render("deleteTutor.ejs");
