@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script src= "client.js" defer></script>
+  </head>
+
+  <body>
+    <h1 class = "logo">
+      Tutoring Università
+    </h1>
+    <h2>
+      Ricerca un Tutor Adatto a Te
+    </h2>
+    
+    <div class="search-wrapper">
+      <label for= "search"> Cerca Tutor</label><br>
+      <input type = "search" id = " search" data-search>
+      <button> Cerca</button>
+    </div>
+    
+    <div class="user-cards" data-user-cards-container></div>
+    <template data-user-template>
+      <div class="card">
+        <div class="header" data-header></div>
+        <div class="body" data-body></div>
+      </div>
+    </template>
+    <br>
+    
+    <hr> 
+    <div>
+      <div>
+        <p> Sei interessato a diventare un tutor? <a href="/register">Register</a></p>
+      </div>
+      <hr>
+      <p> Sei già un tutor? <a href="/login">Login</a></p>
+    </div>
+  </body>
+  
+</html>
