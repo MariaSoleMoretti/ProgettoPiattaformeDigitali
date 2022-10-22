@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
+var comparator = require('comparator');
 
 //dichiarazione della porta del server
 app.listen(3000);
@@ -31,7 +32,7 @@ app.get("/addTutor", (req, res) => {
 app.post("/addTutor", (req,res) =>{
   
   try {
-    //facciamo la read del file per mmodificarlo
+    //facciamo la read del file per modificarlo
     let data = fs.readFileSync("tutors.json");
     users = JSON.parse(data);
     
@@ -73,8 +74,18 @@ function addUtente(user) {
 }
 
 
-function linearSearch(tutors, key, comparatorCallback) {
-  const comparator = new Comparator(comparatorCallback);
+app.get("/cercaUniversitàId", (req,res) =>{
+  //prendiamo tutti gli utenti registrati nel file
+  let data = fs.readFileSync("tutors.json");
+  users = JSON.parse(data);
+  
+  //invoco la funzione di ricerca
+  let tutorByUniversità = linearSearch(users, req.body);
+  console.log(tutorByUniversità);
+  
+})
+
+function linearSearch(tutors, key) {
   const foundIndices = [];
 
   tutors.forEach((element, index) => {
@@ -82,6 +93,7 @@ function linearSearch(tutors, key, comparatorCallback) {
       foundIndices.push(index);
     }
   });
+  return foundIndices;
 }
   
 //pagina per la modifica dal database
