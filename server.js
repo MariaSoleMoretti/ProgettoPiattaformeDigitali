@@ -74,7 +74,7 @@ function addUtente(user) {
 }
 
 app.get("/cercaUniversitàId", (req,res) =>{
-  let data = fs.readFileSync("users.json");
+  let data = fs.readFileSync("tutors.json");
   
   if(data != null){
     const tutors = JSON.parse(data);
