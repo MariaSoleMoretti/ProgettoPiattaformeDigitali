@@ -27,21 +27,29 @@ app.get("/addTutor", (req, res) => {
   res.render("addTutor.ejs");
 });
 
-app.post("addTutor", (req,res) =>{
-  //facciamo la read del file per modificarlo
-  let data = fs.readFileSync("users.json");
-  users = JSON.parse(data);
+app.post("/addTutor", (req,res) =>{
   
-  users.push({
+  try {
+    //facciamo la read del file per mmodificarlo
+    let data = fs.readFileSync("tutors.json");
+    users = JSON.parse(data);
+    
+    users.push({
       id:        Date.now().toString(),
       name:      req.body.name,
       email:     req.body.email,
       università:req.body.università,
       corso:     req.body.corso
     });
-  console.log(users);
-  
-  addUtente(users);
+
+    addUtente(users);
+    //se tutto va bene rimandiamo alla pagina di login
+  } catch {
+    //se ci sono problemi viene reindirizzato su register
+    console.log("ERRORE");
+    console.log("Utente non salvato");
+    res.redirect("/addTutor");
+  }
 })
 
 function addUtente(user) {
@@ -50,7 +58,7 @@ function addUtente(user) {
   //salviamo l'utente nel file
   let data = JSON.stringify(user, null, 2);
   try{
-    fs.writeFileSync("users.json", data);
+    fs.writeFileSync("tutors.json", data);
     console.log("File written successfully");
     console.log(user);
   }catch(err){
@@ -59,6 +67,6 @@ function addUtente(user) {
 }
 
 //pagina per la modifica dal database
-app.get("/deleteTutor",(req, res) => {
+/*app.get("/deleteTutor",(req, res) => {
   res.render("deleteTutor.ejs");
-});
+});*/
