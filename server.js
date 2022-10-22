@@ -14,6 +14,8 @@ app.use('/public', express.static('public'));
 //permette di separare il codice javescript da quello html
 app.set("view-engine", "ejs");
 
+//dichiarazione della variabili globali
+let users = [];
 
 //homepage del sito
 app.get("/", (req, res) => {
@@ -26,10 +28,35 @@ app.get("/addTutor", (req, res) => {
 });
 
 app.post("addTutor", (req,res) =>{
-  //facciamo la read del file per mmodificarlo
-    let data = fs.readFileSync("users.json");
-    users = JSON.parse(data);
+  //facciamo la read del file per modificarlo
+  let data = fs.readFileSync("users.json");
+  users = JSON.parse(data);
+  
+  users.push({
+      id:        Date.now().toString(),
+      name:      req.body.name,
+      email:     req.body.email,
+      università:req.body.università,
+      corso:     req.body.corso
+    });
+  console.log(users);
+  
+  addUtente(users);
 })
+
+function addUtente(user) {
+  //controliamo che l'utente non sia gia registrato
+
+  //salviamo l'utente nel file
+  let data = JSON.stringify(user, null, 2);
+  try{
+    fs.writeFileSync("users.json", data);
+    console.log("File written successfully");
+    console.log(user);
+  }catch(err){
+    console.log(err);
+  }
+}
 
 //pagina per la modifica dal database
 app.get("/deleteTutor",(req, res) => {
