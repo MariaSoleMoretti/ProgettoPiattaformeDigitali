@@ -19,3 +19,19 @@ app.set("view-engine", "ejs");
 app.get("/", (req, res) => {
   res.render("home.ejs");
 });
+
+//pagina del login
+app.get("/addTutor", (req, res) => {
+  res.render("addTutor.ejs");
+});
+
+app.post("addTutor", (req,res) =>{
+  //facciamo la read del file per mmodificarlo
+    let data = fs.readFileSync("users.json");
+    users = JSON.parse(data);
+})
+
+//pagina per la modifica dal database
+app.get("/deleteTutor",(req, res) => {
+  res.render("deleteTutor.ejs");
+});
