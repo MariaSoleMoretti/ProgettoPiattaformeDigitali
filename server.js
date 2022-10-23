@@ -9,12 +9,13 @@ app.listen(3000);
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-// using app.use to serve up static CSS files in public/assets/ folder when /public link is called in ejs files
-// app.use("/route", express.static("foldername"));
-app.use('/public', express.static('public'));
 
 //permette di separare il codice javescript da quello html
 app.set("view-engine", "ejs");
+
+// using app.use to serve up static CSS files in public/assets/ folder when /public link is called in ejs files
+// app.use("/route", express.static("foldername"));
+app.use('/public', express.static('public'));
 
 //dichiarazione della variabili globali
 let users = [];
@@ -73,7 +74,7 @@ function addUtente(user) {
   }
 }
 
-app.get("/cercaUniversitàId", (req,res) =>{
+app.get("/home/cercaUniversitàId", (req,res) =>{
   let data = fs.readFileSync("tutors.json");
   
   if(data != null){
@@ -92,7 +93,7 @@ function linearSearch(tutors, key) {
   const foundIndices = [];
 
   tutors.forEach((element, index) => {
-    if (comparator.equal(element, key)) {
+    if (comparator.equal(element.università, key)) {
       foundIndices.push(index);
     }
   });
