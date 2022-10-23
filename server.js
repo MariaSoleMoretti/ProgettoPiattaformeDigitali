@@ -74,7 +74,7 @@ function addUtente(user) {
   }
 }
 
-app.get("/home/cercaUniversitàId", (req,res) =>{
+app.get("/home/cercaUniversitaId", (req,res) =>{
   let data = fs.readFileSync("tutors.json");
   
   if(data != null){
