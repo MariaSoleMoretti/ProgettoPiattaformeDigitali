@@ -78,8 +78,8 @@ app.get("/cercaUniversitàId", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
-    console.log(req.body.università);
-    let utentiRicercati = linearSearch(tutors,req.body.università);
+    console.log(req.query.università);
+    let utentiRicercati = linearSearch(tutors,req.query.università);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
