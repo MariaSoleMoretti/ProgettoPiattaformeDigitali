@@ -73,7 +73,8 @@ function addUtente(user) {
   }
 }
 
-const pulsanteRicerca = ducument.getElementB
+const pulsanteRicerca = document.getElementById("btn1");
+pulsanteRicerca.addEventListener("click","/home/cercaUniversitaId");
 
 app.get("/home/cercaUniversitaId", (req,res) =>{
   const uni = req.query.universita.toString();
