@@ -95,7 +95,7 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
 
 function linearSearch(tutors, value) {
   console.log(value);
-  return tutors.filter((tutors) => tutors.universita.toLowercase() == value.toLowercase());
+  return tutors.filter((tutors) => tutors.universita.toString().toLowercase() == value.toLowercase());
 }
 
   
