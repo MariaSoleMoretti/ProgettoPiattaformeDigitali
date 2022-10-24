@@ -73,13 +73,15 @@ function addUtente(user) {
   }
 }
 
+app.get("/endpoint", )
+
 app.get("/home/cercaUniversitaId", (req,res) =>{
   let data = fs.readFileSync("tutors.json");
   
   if(data != null){
     const tutors = JSON.parse(data);
-    console.log(tutors);
-    let utentiRicercati = linearSearch(tutors, req.query.università);
+    console.log(req.query.universita);
+    let utentiRicercati = linearSearch(tutors, req.query.universita);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
@@ -89,7 +91,8 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
 })
 
 function linearSearch(tutors, value) {
-  return tutors.filter((tutors) => tutors.univerità.toLowercase() == value.toLowercase());
+  console.log(value);
+  return tutors.filter((tutors) => tutors.univerita.toLowercase() == value.toLowercase());
 }
 
   

@@ -3,49 +3,49 @@
     "id": "1665755574596",
     "name": "Maria Sole Moretti",
     "email": "morettimariasole@gmail.com",
-    "università": "UniUrb",
+    "universita": "UniUrb",
     "corso": "Informatica Applicata"
   },
   {
     "id": "1665756160310",
     "name": "AnnaMaria",
     "email": "annamaria@libero.it",
-    "università": "UniPd",
+    "universita": "UniPd",
     "corso": "Biologia"
   },
   {
     "id": "1665756399398",
     "name": "Sabrina Pina",
     "email": "sabrinascocco3@gmail.com",
-    "università": "UniUrb",
+    "universita": "UniUrb",
     "corso": "Scienze della Comunicazione"
   },
   {
     "id": "1665756547112",
     "name": "Francesco",
     "email": "francesco@gmail.com",
-    "università": "UniBo",
+    "universita": "UniBo",
     "corso": "Economia"
   },
   {
     "id": "1665756653684",
     "name": "Marco",
     "email": "marco@libero.it",
-    "università": "UniMo",
+    "universita": "UniMo",
     "corso": "Lingue Moderne"
   },
   {
     "id": "1666449040341",
     "name": "Marika Nicotra",
     "email": "marika@gmail.com",
-    "università": "UniUrb",
+    "universita": "UniUrb",
     "corso": "ecomonia"
   },
   {
     "id": "1666538188647",
     "name": "Antonio Menghini",
     "email": "marika@gmail.com",
-    "università": "UniPa\n",
+    "universita": "UniPa\n",
     "corso": "ecomonia"
   }
 ]
