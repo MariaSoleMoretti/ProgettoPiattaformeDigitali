@@ -40,13 +40,13 @@ app.post("/addTutor", (req,res) =>{
       id:        Date.now().toString(),
       name:      req.body.name,
       email:     req.body.email,
-      universita:req.body.università,
+      universita:req.body.universita,
       corso:     req.body.corso
     });
     
     console.log(req.body.name);
     console.log(req.body.email);
-    console.log(req.body.università);
+    console.log(req.body.universita);
     console.log(req.body.corso);
 
     addUtente(users);
@@ -72,12 +72,6 @@ function addUtente(user) {
     console.log(err);
   }
 }
-
-app.get("/endpoint", (req,res)=>{
-  const n = req.query.name;
-  res.send(n);
-  res.sendStatus(200);
-})
 
 app.get("/home/cercaUniversitaId", (req,res) =>{
   const uni = req.query.universita.toString();

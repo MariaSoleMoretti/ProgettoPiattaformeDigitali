@@ -47,5 +47,12 @@
     "email": "marika@gmail.com",
     "universita": "UniPa",
     "corso": "ecomonia"
+  },
+  {
+    "id": "1666623368390",
+    "name": "Francesca Lumini",
+    "email": "Lumini@gmail.com",
+    "universita": "UniMi",
+    "corso": "giurisprudenza"
   }
 ]
