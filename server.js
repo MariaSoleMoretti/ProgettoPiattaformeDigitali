@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
-var comparator = require('comparator');
 
 //dichiarazione della porta del server
 app.listen(3000);
@@ -76,11 +75,10 @@ function addUtente(user) {
 
 app.get("/home/cercaUniversitaId", (req,res) =>{
   let data = fs.readFileSync("tutors.json");
-  const foundIndices = [];
   
   if(data != null){
     const tutors = JSON.parse(data);
-    let utentiRicercati = linearSearch(tutors,req.query.università);
+    let utentiRicercati = tutors.filter(linearSearch(),);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
@@ -89,15 +87,8 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
   }
 })
 
-function linearSearch(tutors, key) {
-  const foundIndices = [];
-
-  tutors.forEach((element, index) => {
-    if (comparator.equal(element.università, key)) {
-      foundIndices.push(index);
-    }
-  });
-  return foundIndices;
+function linearSearch(tutors, value) {
+  return tutors.univesità.toLowerCase() == value.toLowerCase();
 }
   
 //pagina per la modifica dal database
