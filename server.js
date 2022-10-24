@@ -85,9 +85,7 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
-    let utentiRicercati = tutors.filter((tutors,uni) => 
-                            tutors.universita.toString().toLowercase() === "Uniurb"
-                          );
+    let utentiRicercati = tutors.filter(linearSearch, req.query.universita);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
@@ -96,8 +94,8 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
   }
 })
 
-function linearSearch(tutors, value) {
-  if (tutors.universita.toString().toLowercase() == value.toLowercase()){
+function linearSearch(elemento, tutors) {
+  if (elemento.universita.toString().toLowerCase() === this.toLowerCase()){
     return true;
   }
 }
