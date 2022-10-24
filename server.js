@@ -73,6 +73,8 @@ function addUtente(user) {
   }
 }
 
+const pulsanteRicerca = ducument.getElementB
+
 app.get("/home/cercaUniversitaId", (req,res) =>{
   const uni = req.query.universita.toString();
   let data = fs.readFileSync("tutors.json");
