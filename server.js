@@ -73,14 +73,17 @@ function addUtente(user) {
   }
 }
 
-app.get("/endpoint", )
+app.get("/endpoint", (req,res)=>{
+  const n = req.query.name;
+  res.send(n);
+  res.sendStatus(200);
+})
 
 app.get("/home/cercaUniversitaId", (req,res) =>{
   let data = fs.readFileSync("tutors.json");
   
   if(data != null){
     const tutors = JSON.parse(data);
-    console.log(req.query.universita);
     let utentiRicercati = linearSearch(tutors, req.query.universita);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
@@ -92,7 +95,7 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
 
 function linearSearch(tutors, value) {
   console.log(value);
-  return tutors.filter((tutors) => tutors.univerita.toLowercase() == value.toLowercase());
+  return tutors.filter((tutors) => tutors.universita.toLowercase() == value.toLowercase());
 }
 
   
