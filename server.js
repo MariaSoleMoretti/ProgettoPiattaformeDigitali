@@ -40,7 +40,7 @@ app.post("/addTutor", (req,res) =>{
       id:        Date.now().toString(),
       name:      req.body.name,
       email:     req.body.email,
-      università:req.body.università,
+      universita:req.body.università,
       corso:     req.body.corso
     });
     
@@ -78,7 +78,8 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
-    let utentiRicercati = tutors.filter(linearSearch(),);
+    console.log(tutors);
+    let utentiRicercati = linearSearch(tutors, req.query.università);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
@@ -88,8 +89,9 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
 })
 
 function linearSearch(tutors, value) {
-  return tutors.univesità.toLowerCase() == value.toLowerCase();
+  return tutors.filter((tutors) => tutors.univerità.toLowercase() == value.toLowercase());
 }
+
   
 //pagina per la modifica dal database
 app.get("/deleteTutor",(req, res) => {
