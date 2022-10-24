@@ -76,10 +76,10 @@ function addUtente(user) {
 
 app.get("/home/cercaUniversitaId", (req,res) =>{
   let data = fs.readFileSync("tutors.json");
+  const foundIndices = [];
   
   if(data != null){
     const tutors = JSON.parse(data);
-    console.log(req.query.università);
     let utentiRicercati = linearSearch(tutors,req.query.università);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
