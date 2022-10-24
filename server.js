@@ -80,11 +80,14 @@ app.get("/endpoint", (req,res)=>{
 })
 
 app.get("/home/cercaUniversitaId", (req,res) =>{
+  const uni = req.query.universita.toString();
   let data = fs.readFileSync("tutors.json");
   
   if(data != null){
     const tutors = JSON.parse(data);
-    let utentiRicercati = tutors.filter(linearSearch(),req.query.universita);
+    let utentiRicercati = tutors.filter((tutors,uni) => 
+                            tutors.universita.toString().toLowercase() === "Uniurb"
+                          );
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
