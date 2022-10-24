@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
-const puppeteer = require("puppeteer");
 
 //dichiarazione della porta del server
 app.listen(3000);
@@ -95,6 +94,8 @@ function linearSearch(elemento, tutors) {
     return true;
   }
 }
+
+ const btn = document.querySelector(".btn1");
 
   
 //pagina per la modifica dal database
