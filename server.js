@@ -95,7 +95,21 @@ function linearSearch(elemento, tutors) {
   }
 }
 
- const btn = document.querySelector(".btn1");
+const button = document.getElementById('post-btn');
+
+button.addEventListener('click', async _ => {
+  try {     
+    const response = await fetch('yourUrl', {
+      method: 'post',
+      body: {
+        // Your body
+      }
+    });
+    console.log('Completed!', response);
+  } catch(err) {
+    console.error(`Error: ${err}`);
+  }
+});
 
   
 //pagina per la modifica dal database
