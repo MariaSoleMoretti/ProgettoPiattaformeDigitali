@@ -64,7 +64,6 @@ function addUtente(user) {
   try{
     fs.writeFileSync("tutors.json", data);
     console.log("File written successfully");
-    console.log(user);
   }catch(err){
     console.log(err);
   }
@@ -77,6 +76,7 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
+    console.log(tutors);
     let utentiRicercati = tutors.filter(linearSearch, req.query.universita);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
