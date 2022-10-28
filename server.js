@@ -99,3 +99,7 @@ function linearSearch(elemento, tutors) {
 app.get("/deleteTutor",(req, res) => {
   res.render("deleteTutor.ejs");
 });
+
+app.post("deleteTutor", (req,res) =>{
+  
+})
