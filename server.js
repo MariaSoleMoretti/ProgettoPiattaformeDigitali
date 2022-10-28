@@ -64,16 +64,22 @@ function addUtente(users,tutor) {
   
   //salviamo l'utente nel file
   if(esito == true){
-    //aggiungo il tutor all
+    //aggiungo il tutor all'array dei tutor
     users.push(tutor);
-    
+    //effettuo il writeback nel file
     let data = JSON.stringify(users, null, 2);
+    
     try{
       fs.writeFileSync("tutors.json", data);
       console.log("File written successfully");
     }catch(err){
       console.log(err);
     }
+  }
+}
+
+function validazioneInput(tutor){
+  
 }
 
 //api che filtra i tutor in base all'università 
