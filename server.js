@@ -45,6 +45,7 @@ app.post("/addTutor", (req,res) =>{
       corso:     req.body.corso
     });
 
+    console.log(req.body.universita);
     addUtente(users);
     console.log(users);
     

@@ -1,23 +1,34 @@
 [
   {
-    "id": "1666950858342",
-    "nome": "Antonio ",
-    "cognome": "Menghini",
-    "email": "antonio@gmail.com",
-    "corso": "ecomonia"
-  },
-  {
-    "id": "1666950954677",
-    "nome": "Marco ",
-    "cognome": "Antognini",
-    "email": "marco@gmail.com",
-    "corso": "lingue"
-  },
-  {
-    "id": "1666951797280",
+    "id": "1666951947133",
     "nome": "Maria Sole",
     "cognome": "Moretti",
     "email": "mariasole@gmail.com",
+    "universita": "UniUrb",
     "corso": "Informatica"
+  },
+  {
+    "id": "1666952078777",
+    "nome": "Anna Maria ",
+    "cognome": "Toscano",
+    "email": "annamaria@gmail.com",
+    "universita": "UniPM",
+    "corso": "Sanità"
+  },
+  {
+    "id": "1666952152079",
+    "nome": "Marco",
+    "cognome": "Menghini",
+    "email": "marco@gmail.com",
+    "universita": "UniMo",
+    "corso": "Lingue Moderne"
+  },
+  {
+    "id": "1666952573016",
+    "nome": "Marco",
+    "cognome": "Menghini",
+    "email": "marco@gmail.com",
+    "universita": "UniMo\n",
+    "corso": "Lingue Moderne"
   }
 ]
