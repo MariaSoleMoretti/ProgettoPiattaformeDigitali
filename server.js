@@ -18,6 +18,7 @@ app.use('/public', express.static('public'));
 
 //dichiarazione della variabili globali
 let users = [];
+let tutor = [];
 
 //homepage del sito
 app.get("/", (req, res) => {
@@ -36,7 +37,7 @@ app.post("/addTutor", (req,res) =>{
     let data = fs.readFileSync("tutors.json");
     users = JSON.parse(data);
     
-    users.push({
+    tutor.push({
       id:        Date.now().toString(),
       nome:      req.body.nome,
       cognome:   req.body.cognome,
@@ -44,9 +45,9 @@ app.post("/addTutor", (req,res) =>{
       universita:req.body.universita,
       corso:     req.body.corso
     });
-
-    console.log(req.body.universita);
-    addUtente(users);
+    
+    //salvataggio del tutor del database
+    addUtente(users,tutor);
     console.log(users);
     
   } catch {
@@ -57,17 +58,22 @@ app.post("/addTutor", (req,res) =>{
   }
 })
 
-function addUtente(user) {
-  //controliamo che l'utente non sia gia registrato
-
+function addUtente(users,tutor) {
+  //controllo degli input
+  let esito = validazioneInput();
+  
   //salviamo l'utente nel file
-  let data = JSON.stringify(user, null, 2);
-  try{
-    fs.writeFileSync("tutors.json", data);
-    console.log("File written successfully");
-  }catch(err){
-    console.log(err);
-  }
+  if(esito == true){
+    //aggiungo il tutor all
+    users.push(tutor);
+    
+    let data = JSON.stringify(users, null, 2);
+    try{
+      fs.writeFileSync("tutors.json", data);
+      console.log("File written successfully");
+    }catch(err){
+      console.log(err);
+    }
 }
 
 //api che filtra i tutor in base all'università 

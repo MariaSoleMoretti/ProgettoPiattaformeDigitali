@@ -16,7 +16,7 @@
     "corso": "Sanità"
   },
   {
-    "id": "1666952152079",
+    "id": "1666952748816",
     "nome": "Marco",
     "cognome": "Menghini",
     "email": "marco@gmail.com",
@@ -24,11 +24,11 @@
     "corso": "Lingue Moderne"
   },
   {
-    "id": "1666952573016",
-    "nome": "Marco",
-    "cognome": "Menghini",
-    "email": "marco@gmail.com",
-    "universita": "UniMo\n",
-    "corso": "Lingue Moderne"
+    "id": "1666952978919",
+    "nome": "Riccardo",
+    "cognome": "Camilletti",
+    "email": "riccardo@gmail.com",
+    "universita": "UniPM",
+    "corso": "Biologia"
   }
 ]
