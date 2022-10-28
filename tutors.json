@@ -1,58 +1,23 @@
 [
   {
-    "id": "1665755574596",
-    "name": "Maria Sole Moretti",
-    "email": "morettimariasole@gmail.com",
-    "universita": "UniUrb",
-    "corso": "Informatica Applicata"
-  },
-  {
-    "id": "1665756160310",
-    "name": "AnnaMaria",
-    "email": "annamaria@libero.it",
-    "universita": "UniPd",
-    "corso": "Biologia"
-  },
-  {
-    "id": "1665756399398",
-    "name": "Sabrina Pina",
-    "email": "sabrinascocco3@gmail.com",
-    "universita": "UniUrb",
-    "corso": "Scienze della Comunicazione"
-  },
-  {
-    "id": "1665756547112",
-    "name": "Francesco",
-    "email": "francesco@gmail.com",
-    "universita": "UniBo",
-    "corso": "Economia"
-  },
-  {
-    "id": "1665756653684",
-    "name": "Marco",
-    "email": "marco@libero.it",
-    "universita": "UniMo",
-    "corso": "Lingue Moderne"
-  },
-  {
-    "id": "1666449040341",
-    "name": "Marika Nicotra",
-    "email": "marika@gmail.com",
-    "universita": "UniUrb",
+    "id": "1666950858342",
+    "nome": "Antonio ",
+    "cognome": "Menghini",
+    "email": "antonio@gmail.com",
     "corso": "ecomonia"
   },
   {
-    "id": "1666538188647",
-    "name": "Antonio Menghini",
-    "email": "marika@gmail.com",
-    "universita": "UniPa",
-    "corso": "ecomonia"
+    "id": "1666950954677",
+    "nome": "Marco ",
+    "cognome": "Antognini",
+    "email": "marco@gmail.com",
+    "corso": "lingue"
   },
   {
-    "id": "1666623368390",
-    "name": "Francesca Lumini",
-    "email": "Lumini@gmail.com",
-    "universita": "UniMi",
-    "corso": "giurisprudenza"
+    "id": "1666951019923",
+    "nome": "Maria Sole",
+    "cognome": "Moretti",
+    "email": "mariasole@gmail.com",
+    "corso": "Informatica"
   }
 ]

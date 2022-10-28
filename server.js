@@ -38,19 +38,16 @@ app.post("/addTutor", (req,res) =>{
     
     users.push({
       id:        Date.now().toString(),
-      name:      req.body.name,
+      nome:      req.body.nome,
+      cognome:   req.body.cognome,
       email:     req.body.email,
       universita:req.body.universita,
       corso:     req.body.corso
     });
-    
-    console.log(req.body.name);
-    console.log(req.body.email);
-    console.log(req.body.universita);
-    console.log(req.body.corso);
 
     addUtente(users);
-    //se tutto va bene rimandiamo alla pagina di login
+    console.log(users);
+    
   } catch {
     //se ci sono problemi viene reindirizzato su register
     console.log("ERRORE");
