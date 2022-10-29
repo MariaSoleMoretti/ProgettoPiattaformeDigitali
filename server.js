@@ -12,9 +12,6 @@ app.use(express.urlencoded({extended:true}));
 //permette di separare il codice javescript da quello html
 app.set("view-engine", "ejs");
 
-// using app.use to serve up static CSS files in public/assets/ folder when /public link is called in ejs files
-// app.use("/route", express.static("foldername"));
-app.use('/public', express.static('public'));
 
 //dichiarazione della variabili globali
 let users = [];
