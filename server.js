@@ -8,15 +8,10 @@ app.listen(3000);
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-//view engine setup
-app.engine('html',require('ejs').renderFile);
-app.set('view engine', 'html');
-app.set('view', __dirname);
 
 //permette di separare il codice javescript da quello html
 app.set("view-engine", "ejs");
 
-app.use(express.static(__dirname));
 
 //dichiarazione della variabili globali
 let users = [];
