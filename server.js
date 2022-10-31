@@ -80,14 +80,51 @@ function validazioneInput(tutor){
 }
 
 //api che filtra i tutor in base all'università 
-app.get("/home/cercaUniversitaId", (req,res) =>{
+app.get("/home/cercaUniversita", (req,res) =>{
   const uni = req.query.universita.toString();
   let data = fs.readFileSync("tutors.json");
   
   if(data != null){
     const tutors = JSON.parse(data);
     console.log(tutors);
-    let utentiRicercati = tutors.filter(ricercaUniveristà, req.query.universita,1);
+    let utentiRicercati = tutors.filter(ricercaUniversità, req.query.universita);
+    console.log(utentiRicercati);
+    res.send(utentiRicercati);
+  }
+  else{
+    console.log('Error');
+  }
+})
+
+//api che filtra i tutor in base all'università e il corso
+app.get("/home/cercaUniversitaCorso", (req,res) =>{
+  const uni = req.query.universita.toString();
+  let data = fs.readFileSync("tutors.json");
+  
+  if(data != null){
+    const tutors = JSON.parse(data);
+    console.log(tutors);
+    let utentiRicercatiUni = tutors.filter(ricercaUniversità, req.query.universita);
+    let utentiRicercati = utentiRicercatiUni.filter(ricercaUniversità, req.query.corso);
+    console.log(utentiRicercati);
+    res.send(utentiRicercati);
+  }
+  else{
+    console.log('Error');
+  }
+})
+
+//api che filtra i tutor in base all'università, nome e cognome
+app.get("/home/cercaUniversitaCorso", (req,res) =>{
+  const uni = req.query.universita.toString();
+  let data = fs.readFileSync("tutors.json");
+  
+  if(data != null){
+    const tutors = JSON.parse(data);
+    console.log(tutors);
+    let utentiRicercatiUni = tutors.filter(ricercaUniversità, req.query.universita);
+    let utentiRicercatiNome = utentiRicercatiUni.filter(ricercaUniversità, req.query.nome);
+    let utentiRicercati = utentiRicercatiNome.filter(ricercaUniversità, req.query.cognome);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
@@ -98,6 +135,24 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
 
 function ricercaUniversità(elemento, tutors) {
   if (elemento.universita.toString().toLowerCase() === this.toLowerCase()){
+    return true;
+  }
+}
+
+function ricercaCorso(elemento, tutors) {
+  if (elemento.corso.toString().toLowerCase() === this.toLowerCase()){
+    return true;
+  }
+}
+
+function ricercaNome(elemento, tutors) {
+  if (elemento.nome.toString().toLowerCase() === this.toLowerCase()){
+    return true;
+  }
+}
+
+function ricercaCognome(elemento, tutors) {
+  if (elemento.cognome.toString().toLowerCase() === this.toLowerCase()){
     return true;
   }
 }
