@@ -87,7 +87,7 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
   if(data != null){
     const tutors = JSON.parse(data);
     console.log(tutors);
-    let utentiRicercati = tutors.filter(ricercaUniveristà, req.query.universita,1);
+    let utentiRicercati = tutors.filter(ricercaUniversità , req.query.universita,1);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
@@ -98,6 +98,29 @@ app.get("/home/cercaUniversitaId", (req,res) =>{
 
 function ricercaUniversità(elemento, tutors) {
   if (elemento.universita.toString().toLowerCase() === this.toLowerCase()){
+    return true;
+  }
+}
+
+//api che filtra i tutor in base all'università e il corso 
+app.get("/home/cercaUniversitaCorso", (req,res) =>{
+  const uni = req.query.universita.toString();
+  let data = fs.readFileSync("tutors.json");
+  
+  if(data != null){
+    const tutors = JSON.parse(data);
+    console.log(tutors);
+    C
+    console.log(utentiRicercati);
+    res.send(utentiRicercati);
+  }
+  else{
+    console.log('Error');
+  }
+})
+
+function ricercaCorso(elemento, tutors) {
+  if (elemento.corso.toString().toLowerCase() === this.toLowerCase()){
     return true;
   }
 }
