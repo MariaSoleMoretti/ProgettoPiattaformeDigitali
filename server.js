@@ -86,7 +86,6 @@ app.get("/home/cercaUniversita", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
-    console.log(tutors);
     let utentiRicercati = tutors.filter(ricercaUniversità, req.query.universita);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
@@ -103,9 +102,8 @@ app.get("/home/cercaUniversitaCorso", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
-    console.log(tutors);
     let utentiRicercatiUni = tutors.filter(ricercaUniversità, req.query.universita);
-    let utentiRicercati = utentiRicercatiUni.filter(ricercaUniversità, req.query.corso);
+    let utentiRicercati = utentiRicercatiUni.filter(ricercaCorso, req.query.corso);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
@@ -121,10 +119,9 @@ app.get("/home/cercaUniversitaCorso", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
-    console.log(tutors);
     let utentiRicercatiUni = tutors.filter(ricercaUniversità, req.query.universita);
-    let utentiRicercatiNome = utentiRicercatiUni.filter(ricercaUniversità, req.query.nome);
-    let utentiRicercati = utentiRicercatiNome.filter(ricercaUniversità, req.query.cognome);
+    let utentiRicercatiNome = utentiRicercatiUni.filter(ricercaNome, req.query.nome);
+    let utentiRicercati = utentiRicercatiNome.filter(ricercaCognome, req.query.cognome);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
