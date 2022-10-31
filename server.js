@@ -34,25 +34,22 @@ app.post("/addTutor", (req,res) =>{
     let data = fs.readFileSync("tutors.json");
     users = JSON.parse(data);
     
-    tutor.push({
-      id:        Date.now().toString(),
-      nome:      req.body.nome,
-      cognome:   req.body.cognome,
-      email:     req.body.email,
-      universita:req.body.universita,
-      corso:     req.body.corso
-    });
-    
     //salvataggio del tutor del database
     let esito = validazioneInput(req.body.email, users);
-    console.log(esito);
     
     if(esito == false){
       res.send("Errore! L'email non è valida");
     }
     else{
       //aggiungo il tutor all'array dei tutor
-      users.push(tutor);
+      users.push({
+        id:        Date.now().toString(),
+        nome:      req.body.nome,
+        cognome:   req.body.cognome,
+        email:     req.body.email,
+        universita:req.body.universita,
+        corso:     req.body.corso
+      });
       console.log(users);
       //effettuo il writeback nel file
       let data = JSON.stringify(users, null, 2);
@@ -72,11 +69,10 @@ app.post("/addTutor", (req,res) =>{
 //funzione di validazione dehli input, in particolare controlla se l'email è valida, cioè se cointiene
 //il carattere @, e se è gia presente nel database
 function validazioneInput(email,users){
-  console.log(email);
   let tutors = users.filter(ricercaEmail, email);
-  console.log(tutors);
   tutors.forEach((element)=>{
     if(element.email.toString().indexOf("@") != -1){
+      //devo controllare che l'email non sia già presente
       return true;
     }
     else{
