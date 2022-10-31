@@ -44,13 +44,14 @@ app.post("/addTutor", (req,res) =>{
     });
     
     //salvataggio del tutor del database
-    addUtente(users,tutor);
+    let esito = addUtente(users,tutor);
+    if(esito == false)
     console.log(users);
     
   } catch {
     //se ci sono problemi viene reindirizzato su register
     console.log("ERRORE");
-    console.log("Utente non salvato");
+    res.send("Errore! L'email non è valida");
     res.redirect("/addTutor");
   }
 })
@@ -73,12 +74,26 @@ function addUtente(users,tutor) {
       console.log(err);
     }
   }
+  return esito;
 }
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida, cioè se cointiene
 //il carattere @, e se è gia presente nel database
-function validazioneInput(tutor){
-  if(tutor.email.toString().indexOf("@") != -1)
+function validazioneInput(tutor,users){
+  let tutors = users.filter(ricercaEmail, tutor.email);
+  if((tutor.email.toString().indexOf("@") != -1)&&(tutors.lenght == 0)){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+//funzione che filtra i tutor in base alla email
+function ricercaEmail(elemento, tutors){
+  if (elemento.email.toString().toLowerCase() === this.toLowerCase()){
+    return true;
+  }
 }
 
 //api che filtra i tutor in base all'università 
