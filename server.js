@@ -45,13 +45,14 @@ app.post("/addTutor", (req,res) =>{
     
     //salvataggio del tutor del database
     let esito = addUtente(users,tutor);
-    if(esito == false)
-    console.log(users);
-    
+    console.log(esito);
+    if(esito == false){
+      res.send("Errore! L'email non è valida");
+    }
+    console.log(users);   
   } catch {
     //se ci sono problemi viene reindirizzato su register
     console.log("ERRORE");
-    res.send("Errore! L'email non è valida");
     res.redirect("/addTutor");
   }
 })
