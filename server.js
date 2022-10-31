@@ -44,7 +44,7 @@ app.post("/addTutor", (req,res) =>{
     });
     
     //salvataggio del tutor del database
-    let esito = validazioneInput(users,tutor);
+    let esito = validazioneInput(req.body.email, users);
     console.log(esito);
     
     if(esito == false){
@@ -53,6 +53,7 @@ app.post("/addTutor", (req,res) =>{
     else{
       //aggiungo il tutor all'array dei tutor
       users.push(tutor);
+      console.log(users);
       //effettuo il writeback nel file
       let data = JSON.stringify(users, null, 2);
       
@@ -71,15 +72,17 @@ app.post("/addTutor", (req,res) =>{
 //funzione di validazione dehli input, in particolare controlla se l'email è valida, cioè se cointiene
 //il carattere @, e se è gia presente nel database
 function validazioneInput(email,users){
-  conso
   console.log(email);
   let tutors = users.filter(ricercaEmail, email);
-  if((tutors.email.toString().indexOf("@") != -1)&&(tutors.length == 0)){
-    return true;
-  }
-  else{
-    return false;
-  }
+  console.log(tutors);
+  tutors.forEach((element)=>{
+    if(element.email.toString().indexOf("@") != -1){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
 }
 
 //funzione che filtra i tutor in base alla email
