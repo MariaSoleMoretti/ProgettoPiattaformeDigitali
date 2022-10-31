@@ -73,7 +73,7 @@ app.post("/addTutor", (req,res) =>{
 function validazioneInput(email,users){
   console.log(email);
   let tutors = users.filter(ricercaEmail, email);
-  if((tutors.email.toString().indexOf("@") != -1)&&(tutors.lenght == 0)){
+  if((tutors.email.toString().indexOf("@") != -1)&&(tutors.length == 0)){
     return true;
   }
   else{
