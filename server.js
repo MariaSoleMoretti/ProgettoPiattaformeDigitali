@@ -44,8 +44,10 @@ app.post("/addTutor", (req,res) =>{
     });
     
     //salvataggio del tutor del database
+    console.log(tutor);
     console.log(req.body.email);
-    let esito = addUtente(users,req.email);
+    console.log(tutor.email);
+    let esito = addUtente(users,tutor);
     console.log(esito);
     if(esito == false){
       res.send("Errore! L'email non è valida");
@@ -59,9 +61,10 @@ app.post("/addTutor", (req,res) =>{
   }
 })
 
-function addUtente(users,email) {
+function addUtente(users,tutor) {
   //controllo degli input
-  let esito = validazioneInput(email,users);
+  console.log(tutor.email);
+  let esito = validazioneInput(tutor,users);
   
   //salviamo l'utente nel file
   if(esito == true){
@@ -82,9 +85,10 @@ function addUtente(users,email) {
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida, cioè se cointiene
 //il carattere @, e se è gia presente nel database
-function validazioneInput(email,users){
-  let tutors = users.filter(ricercaEmail,email);
-  if((tutors.email.toString().indexOf("@") != -1)&&(tutors.lenght == 0)){
+function validazioneInput(tutor,users){
+  console.log(tutor.email);
+  let tutors = users.filter(ricercaEmail, tutor.email);
+  if((tutor.email.toString().indexOf("@") != -1)&&(tutors.lenght == 0)){
     return true;
   }
   else{
