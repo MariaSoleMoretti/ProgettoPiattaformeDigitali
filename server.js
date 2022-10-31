@@ -50,16 +50,17 @@ app.post("/addTutor", (req,res) =>{
       res.send("Errore! L'email non è valida");
     }
     console.log(users);   
-  } catch {
+  } catch (e){
     //se ci sono problemi viene reindirizzato su register
     console.log("ERRORE");
+    console.log(e);
     res.redirect("/addTutor");
   }
 })
 
 function addUtente(users,tutor) {
   //controllo degli input
-  let esito = validazioneInput();
+  let esito = validazioneInput(tutor,users);
   
   //salviamo l'utente nel file
   if(esito == true){
