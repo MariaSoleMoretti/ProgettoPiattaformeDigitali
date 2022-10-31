@@ -102,25 +102,30 @@ app.get("/home/cercaUniversitaCorso", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
+    //prima filtra tutti i tutor appartenenti all'università cercata
     let utentiRicercatiUni = tutors.filter(ricercaUniversità, req.query.universita);
+    //successivamente filtriamo l'array rusultante dall'operazione precedente
+    //per cercare i tutor di quella università che seguino il corso ricercato
     let utentiRicercati = utentiRicercatiUni.filter(ricercaCorso, req.query.corso);
-    console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
   else{
-    console.log('Error');
+    res.send('Error');
   }
 })
 
 //api che filtra i tutor in base all'università, nome e cognome
-app.get("/home/cercaUniversitaCorso", (req,res) =>{
+app.get("/home/cercaUniversitaNomeCognome", (req,res) =>{
   const uni = req.query.universita.toString();
   let data = fs.readFileSync("tutors.json");
   
   if(data != null){
     const tutors = JSON.parse(data);
+    //prima filtra tutti i tutor appartenenti all'università cercata
     let utentiRicercatiUni = tutors.filter(ricercaUniversità, req.query.universita);
+    //poi filtra l'array risultante dall'operazione precedente in base al nome
     let utentiRicercatiNome = utentiRicercatiUni.filter(ricercaNome, req.query.nome);
+    //infine l
     let utentiRicercati = utentiRicercatiNome.filter(ricercaCognome, req.query.cognome);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
