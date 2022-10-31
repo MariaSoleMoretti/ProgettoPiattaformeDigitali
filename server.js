@@ -75,8 +75,10 @@ function addUtente(users,tutor) {
   }
 }
 
+//funzione di validazione dehli input, in particolare controlla se l'email è valida, cioè se cointiene
+//il carattere @, e se è gia presente nel database
 function validazioneInput(tutor){
-  
+  if(tutor.email.toString().indexOf("@") != -1)
 }
 
 //api che filtra i tutor in base all'università 
@@ -86,12 +88,12 @@ app.get("/home/cercaUniversita", (req,res) =>{
   
   if(data != null){
     const tutors = JSON.parse(data);
+    //filtra i tutor in base all'università ricercata
     let utentiRicercati = tutors.filter(ricercaUniversità, req.query.universita);
-    console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
   else{
-    console.log('Error');
+    res.send('Error');
   }
 })
 
@@ -125,34 +127,38 @@ app.get("/home/cercaUniversitaNomeCognome", (req,res) =>{
     let utentiRicercatiUni = tutors.filter(ricercaUniversità, req.query.universita);
     //poi filtra l'array risultante dall'operazione precedente in base al nome
     let utentiRicercatiNome = utentiRicercatiUni.filter(ricercaNome, req.query.nome);
-    //infine l
+    //infine filtra la''array risultante in base al cognome
     let utentiRicercati = utentiRicercatiNome.filter(ricercaCognome, req.query.cognome);
     console.log(utentiRicercati);
     res.send(utentiRicercati);
   }
   else{
-    console.log('Error');
+    res.send('Error');
   }
 })
 
+//funzione per la ricerca dei tutor in base all'università
 function ricercaUniversità(elemento, tutors) {
   if (elemento.universita.toString().toLowerCase() === this.toLowerCase()){
     return true;
   }
 }
 
+//funzione per la ricerca dei tutor in base al corso
 function ricercaCorso(elemento, tutors) {
   if (elemento.corso.toString().toLowerCase() === this.toLowerCase()){
     return true;
   }
 }
 
+//funzione per la ricerca dei tutor in base al nome
 function ricercaNome(elemento, tutors) {
   if (elemento.nome.toString().toLowerCase() === this.toLowerCase()){
     return true;
   }
 }
 
+//funzione per la ricerca dei tutor in base al cognome
 function ricercaCognome(elemento, tutors) {
   if (elemento.cognome.toString().toLowerCase() === this.toLowerCase()){
     return true;
