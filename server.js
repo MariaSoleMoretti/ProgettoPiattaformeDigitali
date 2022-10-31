@@ -44,7 +44,7 @@ app.post("/addTutor", (req,res) =>{
     });
     
     //salvataggio del tutor del database
-    let esito = validazioneInput(req.body.email, users);
+    let esito = validazioneInput(users,tutor);
     console.log(esito);
     
     if(esito == false){
@@ -71,9 +71,9 @@ app.post("/addTutor", (req,res) =>{
 //funzione di validazione dehli input, in particolare controlla se l'email è valida, cioè se cointiene
 //il carattere @, e se è gia presente nel database
 function validazioneInput(email,users){
+  console.log(email);
   let tutors = users.filter(ricercaEmail, email);
-  console.log(tutors);
-  if((email.toString().indexOf("@") != -1)&&(tutors.isEmpty())){
+  if((tutors.email.toString().indexOf("@") != -1)&&(tutors.lenght == 0)){
     return true;
   }
   else{
