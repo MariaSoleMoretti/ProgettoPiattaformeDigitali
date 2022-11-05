@@ -31,10 +31,8 @@ app.get("/addTutor", (req, res) => {
 app.post("/addTutor", (req,res) =>{
   
   //salvataggio del tutor del database
-  console.log("ciao");
-  let esito = C;
-  console.log(esito);
-  if(esito==true){
+  let esito = validazioneInput(req.body.email, users);
+  if(esito == false){
       res.send("Errore! L'email non è valida");
   }
   else{
@@ -72,7 +70,6 @@ function validazioneInput(email,users){
   let tutors = users.filter(ricercaEmail, email);
   tutors.forEach((element)=>{
     if(element.email.toString().indexOf("@") != -1){
-      console.log("Email non valida!!");
       //devo controllare che l'email non sia già presente
       return true;
     }
