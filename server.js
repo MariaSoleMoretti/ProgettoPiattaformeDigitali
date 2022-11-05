@@ -22,6 +22,13 @@ app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
+app.get("/stampaTutor", (req,res)=>{
+  let data = fs.readFileSync("tutors.json");
+  users = JSON.parse(data);
+  
+  console.log(users);
+})
+
 //pagina del login
 app.get("/addTutor", (req, res) => {
   res.render("addTutor.ejs");
@@ -50,14 +57,13 @@ app.post("/addTutor", (req,res) =>{
         universita:req.body.universita,
         corso:     req.body.corso
       });
-      console.log(users);
       //effettuo il writeback nel file
       let data = JSON.stringify(users, null, 2);
       
       fs.writeFileSync("tutors.json", data);
       console.log("File written successfully");
-    }
-    console.log(users);   
+      console.log(users);
+    }   
   } catch (e){
     //se ci sono problemi viene reindirizzato su register
     console.log("ERRORE");
