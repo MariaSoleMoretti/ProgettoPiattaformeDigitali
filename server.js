@@ -22,12 +22,6 @@ app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
-app.get("/stampaTutor", (req,res)=>{
-  let data = fs.readFileSync("tutors.json");
-  users = JSON.parse(data);
-  
-  console.log(users);
-})
 
 //pagina del login
 app.get("/addTutor", (req, res) => {
