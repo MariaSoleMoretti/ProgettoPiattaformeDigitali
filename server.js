@@ -30,13 +30,34 @@ app.get("/addTutor", (req, res) => {
 
 app.post("/addTutor", (req,res) =>{
   
+  //salvataggio del tutor del database
+  let esito = validazioneInput(req.body.email, users);
+  if(esito == false){
+      res.send("Errore! L'email non è valida");
+  }
+  else{
+    //aggiungo il tutor all'array dei tutor
+    users.push({
+        id:        Date.now().toString(),
+        nome:      req.body.nome,
+        cognome:   req.body.cognome,
+        email:     req.body.email,
+        universita:req.body.universita,
+        corso:     req.body.corso
+    });
+      //effettuo il writeback nel file
+      let data = JSON.stringify(users, null, 2);
+      
+      fs.writeFileSync("tutors.json", data);
+      console.log("File written successfully");
+      console.log(users);
+    }   
+  
   try {
     //facciamo la read del file per modificarlo
     let data = fs.readFileSync("tutors.json");
     users = JSON.parse(data);
     
-    //salvataggio del tutor del database
-    let esito = validazioneInput(req.body.email, users);
     
     if(esito == false){
       res.send("Errore! L'email non è valida");
