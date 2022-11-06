@@ -68,15 +68,13 @@ app.post("/addTutor", (req,res) =>{
 //il carattere @, e se è gia presente nel database
 function validazioneInput(email,users){
   let tutors = users.filter(ricercaEmail, email);
-  tutors.forEach((element)=>{
-    if(element.email.toString().indexOf("@") != -1){
-      //devo controllare che l'email non sia già presente
-      return true;
-    }
-    else{
-      return false;
-    }
-  })
+  if(tutors != null){
+    //se in tutors sono salvati degli elementi vuol dire che la password è già presente
+    return false;
+  }
+  else{
+    //se invece è vuoto bodogna controllare che contenga il carettere @
+  }
 }
 
 //funzione che filtra i tutor in base alla email
