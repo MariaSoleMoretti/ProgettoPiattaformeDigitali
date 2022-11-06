@@ -64,19 +64,17 @@ app.post("/addTutor", (req,res) =>{
   }
 })
 
-//funzione di validazione dehli input, in particolare controlla se l'email è valida, cioè se cointiene
-//il carattere @, e se è gia presente nel database
+//funzione di validazione dehli input, in particolare controlla se l'email è valida, 
+//cioè se cointiene il carattere @, e se non è presente nel database
 function validazioneInput(email,users){
+  let esito = true;
   let tutors = users.filter(ricercaEmail, email);
-  tutors.forEach((element)=>{
-    if(element.email.toString().indexOf("@") != -1){
-      //devo controllare che l'email non sia già presente
-      return true;
-    }
-    else{
-      return false;
-    }
-  })
+  if((tutors != null) || (email.toString().indexOf("@") == -1)){
+    //se l'email è già presente oppure se l'email inserita non contiene il carettere @ l'email non è valida
+    esito = false;
+  }
+  //se non entra nell'if allora l'email è valida
+  return esito;
 }
 
 //funzione che filtra i tutor in base alla email
