@@ -32,6 +32,7 @@ app.post("/addTutor", (req,res) =>{
   
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, users);
+  console.log(esito);
   if(esito == false){
       res.send("Errore! L'email non è valida");
   }
@@ -69,7 +70,8 @@ app.post("/addTutor", (req,res) =>{
 function validazioneInput(email,users){
   let esito = true;
   let tutors = users.filter(ricercaEmail, email);
-  if((tutors != null) || (email.toString().indexOf("@") == -1)){
+  console.log(tutors);
+  if((tutors.lenght == 0) || (email.toString().indexOf("@") == -1)){
     //se l'email è già presente oppure se l'email inserita non contiene il carettere @ l'email non è valida
     esito = false;
   }
