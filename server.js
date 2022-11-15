@@ -184,11 +184,16 @@ app.delete("/home/deleteTutorById", (req,res) =>{
     const tutors = JSON.parse(data);
     
     //ricerca nell'array l'elemento con l'id richiesto
-    let idTutor = tutors.findIndex(req.body.id);
+    let idTutor = tutors.findIndex((element) => element == req.body.id);
     
     //se esiste lo elimino
     if(!isNaN(idTutor)){
       let deletedTutor = tutors.splice(idTutor,1);
+      //effettua il write back degli elementi aggiornati
+      data = JSON.stringify(tutors, null, 2);
+      fs.writeFileSync("tutors.json", data);
+      console.log("File written successfully");
+      console.log(tutors);
       res.sendStatus(200).json(deletedTutor);
     }
     else{
