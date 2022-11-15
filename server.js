@@ -18,17 +18,17 @@ let users = [];
 let tutor = [];
 
 //homepage del sito
-app.get("/", (req, res) => {
+app.get("/home", (req, res) => {
   res.render("home.ejs");
 });
 
 
 //pagina del login
-app.get("/addTutor", (req, res) => {
+app.get("home/addTutor", (req, res) => {
   res.render("addTutor.ejs");
 });
 
-app.post("/addTutor", (req,res) =>{
+app.post("home/addTutor", (req,res) =>{
   
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, users);
@@ -69,9 +69,9 @@ app.post("/addTutor", (req,res) =>{
 //cioè se cointiene il carattere @, e se non è presente nel database
 function validazioneInput(email,users){
   let esito = true;
-  let tutors = users.filter(ricercaEmail, email);
-  console.log(tutors);
-  if((tutors.lenght == 0) || (email.toString().indexOf("@") == -1)){
+  let tutorsByEmail = users.filter(ricercaEmail, email);
+  console.log(tutorsByEmail);
+  if((tutorsByEmail.lenght == 0) || (email.toString().indexOf("@") == -1)){
     //se l'email è già presente oppure se l'email inserita non contiene il carettere @ l'email non è valida
     esito = false;
   }
@@ -130,13 +130,13 @@ app.get("/home/cercaUniversitaNomeCognome", (req,res) =>{
   if(data != null){
     const tutors = JSON.parse(data);
     //prima filtra tutti i tutor appartenenti all'università cercata
-    let utentiRicercatiUni = tutors.filter(ricercaUniversità, req.query.universita);
+    let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
     //poi filtra l'array risultante dall'operazione precedente in base al nome
-    let utentiRicercatiNome = utentiRicercatiUni.filter(ricercaNome, req.query.nome);
+    let tutorsByNome = tutorsByUni.filter(ricercaNome, req.query.nome);
     //infine filtra la''array risultante in base al cognome
-    let utentiRicercati = utentiRicercatiNome.filter(ricercaCognome, req.query.cognome);
-    console.log(utentiRicercati);
-    res.send(utentiRicercati);
+    let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome);
+    console.log(tutorRicercati);
+    res.send(tutorRicercati);
   }
   else{
     res.send('Error');
@@ -172,7 +172,7 @@ function ricercaCognome(elemento, tutors) {
 }
   
 //pagina per la modifica dal database
-app.get("/deleteTutor",(req, res) => {
+app.get("/home/deleteTutor",(req, res) => {
   res.render("deleteTutor.ejs");
 });
 
