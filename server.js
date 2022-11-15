@@ -173,10 +173,10 @@ function ricercaCognome(elemento, tutors) {
 
 //funzione per la ricerca dei tutor in base all'università
 function ricercaId(elemento, tutors) {
-  if (elemento.id === this){
+  while(elemento.id === this){
     let tutor = elemento;
-    return tutor;
   }
+  return tutor;
 }
   
 //pagina per la modifica dal database
