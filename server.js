@@ -198,7 +198,6 @@ app.delete("/home/deleteTutorById", (req,res) =>{
     }
     else{
       console.log("Non esiste nessun utente con id");
-      res.sendStatus(404);
     }
   }
 })
