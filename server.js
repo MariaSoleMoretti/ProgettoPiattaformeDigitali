@@ -24,11 +24,11 @@ app.get("/home", (req, res) => {
 
 
 //pagina del login
-app.get("home/addTutor", (req, res) => {
+app.get("/home/addTutor", (req, res) => {
   res.render("addTutor.ejs");
 });
 
-app.post("home/addTutor", (req,res) =>{
+app.post("/home/addTutor", (req,res) =>{
   
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, users);
@@ -185,9 +185,10 @@ app.delete("/home/deleteTutorById", (req,res) =>{
     
     //ricerca nell'array l'elemento con l'id richiesto
     let idTutor = tutors.findIndex((element) => element == req.body.id);
+    console.log(idTutor);
     
     //se esiste lo elimino
-    if(!isNaN(idTutor)){
+    if(idTutor != -1){
       let deletedTutor = tutors.splice(idTutor,1);
       //effettua il write back degli elementi aggiornati
       data = JSON.stringify(tutors, null, 2);
@@ -198,6 +199,7 @@ app.delete("/home/deleteTutorById", (req,res) =>{
     }
     else{
       console.log("Non esiste nessun utente con id");
+      res.sendStatus(404);
     }
   }
 })

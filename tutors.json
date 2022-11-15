@@ -8,19 +8,11 @@
     "corso": "Informatica"
   },
   {
-    "id": "1666952078777",
-    "nome": "Anna Maria ",
-    "cognome": "Toscano",
-    "email": "annamaria@gmail.com",
+    "id": "1668494488943",
+    "nome": "Riccardo",
+    "cognome": "Moro",
+    "email": "riccamoro@gmail.com",
     "universita": "UniPM",
-    "corso": "Sanità"
-  },
-  {
-    "id": "1666952748816",
-    "nome": "Marco",
-    "cognome": "Menghini",
-    "email": "marco@gmail.com",
-    "universita": "UniMo",
-    "corso": "Lingue Moderne"
+    "corso": "biologia"
   }
 ]
