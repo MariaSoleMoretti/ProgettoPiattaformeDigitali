@@ -176,19 +176,24 @@ app.get("/home/deleteTutorById",(req, res) => {
   res.render("deleteTutor.ejs");
 });
 
-app.post("/home/deleteTutorById", (req,res) =>{
+app.delete("/home/deleteTutorById", (req,res) =>{
+  
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   if(data != null){
     const tutors = JSON.parse(data);
+    
     //ricerca nell'array l'elemento con l'id richiesto
     let idTutor = tutors.findIndex(req.body.id);
+    
     //se esiste lo elimino
-    if(idTutor != -1){
-      tutors.splice(idTutor,1);
+    if(!isNaN(idTutor)){
+      let deletedTutor = tutors.splice(idTutor,1);
+      res.sendStatus(200).json(deletedTutor);
     }
     else{
       console.log("Non esiste nessun utente con id");
+      res.sendStatus(404);
     }
   }
 })
