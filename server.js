@@ -172,10 +172,23 @@ function ricercaCognome(elemento, tutors) {
 }
   
 //pagina per la modifica dal database
-app.get("/home/deleteTutor",(req, res) => {
+app.get("/home/deleteTutorById",(req, res) => {
   res.render("deleteTutor.ejs");
 });
 
-app.post("deleteTutor", (req,res) =>{
-  
+app.post("/home/deleteTutorById", (req,res) =>{
+  //facciamo la read del file per modificarlo
+  let data = fs.readFileSync("tutors.json");
+  if(data != null){
+    const tutors = JSON.parse(data);
+    //ricerca nell'array l'elemento con l'id richiesto
+    let idTutor = tutors.findIndex(req.body.id);
+    //se esiste lo elimino
+    if(idTutor != -1){
+      tutors.splice(idTutor,1);
+    }
+    else{
+      console.log("Non esiste nessun utente con id");
+    }
+  }
 })
