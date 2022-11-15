@@ -170,30 +170,12 @@ function ricercaCognome(elemento, tutors) {
     return true;
   }
 }
-
-//funzione per la ricerca dei tutor in base all'università
-function ricercaId(elemento, tutors) {
-  while(elemento.id === this){
-    let tutor = elemento;
-  }
-  return tutor;
-}
   
 //pagina per la modifica dal database
-app.get("/home/deleteTutorById",(req, res) => {
+app.get("/home/deleteTutor",(req, res) => {
   res.render("deleteTutor.ejs");
 });
 
-app.post("/home/deleteTutorById", (req,res) =>{
-  //facciamo la read del file per modificarlo
-  let data = fs.readFileSync("tutors.json");
-  
-  //faccio la ricerca nell'array in base all'id
-  if(data != null){
-    const tutors = JSON.parse(data);
-    //prima filtra tutti i tutor appartenenti all'università cercata
-    let tutorsById = tutors.filter(ricercaId, req.query.id);
-  }
-  res.sendStatus(200).json(tutor);
+app.post("deleteTutor", (req,res) =>{
   
 })
