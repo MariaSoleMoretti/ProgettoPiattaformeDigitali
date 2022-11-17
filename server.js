@@ -195,11 +195,19 @@ app.delete("/home/deleteTutorById", (req,res) =>{
       fs.writeFileSync("tutors.json", data);
       console.log("File written successfully");
       console.log(tutors);
-      res.sendStatus(200).json(deletedTutor);
+      res.redirect("/approved");
     }
     else{
-      console.log("Non esiste nessun utente con id");
-      res.sendStatus(404);
+      console.log("Non esiste nessun utente con id" + deletedTutor);
+      res.redirect("/denied");
     }
   }
+})
+
+app.get("/approved", (req,res)=>{
+  res.sendstatus(200);
+})
+
+app.get("/denied", (req,res)=>{
+  res.sendstatus(404);
 })
