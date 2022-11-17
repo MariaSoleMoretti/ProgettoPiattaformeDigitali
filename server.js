@@ -57,10 +57,11 @@ app.post("/home/addTutor", (req,res) =>{
       fs.writeFileSync("tutors.json", data);
       console.log("File written successfully");
       console.log(users);
+      res.redirect("/approved");
     }catch (e){
       //se ci sono problemi viene reindirizzato su register
       console.log("ERRORE");
-      console.log(e);
+      res.redirect("/denied");
     }
   }
 })
@@ -184,8 +185,7 @@ app.delete("/home/deleteTutorById", (req,res) =>{
     const tutors = JSON.parse(data);
     
     //ricerca nell'array l'elemento con l'id richiesto
-    let idTutor = tutors.findIndex((element) => element == req.body.id);
-    console.log(idTutor);
+    let idTutor = tutors.findIndex((element) => element.id == req.body.id);
     
     //se esiste lo elimino
     if(idTutor != -1){
@@ -198,16 +198,16 @@ app.delete("/home/deleteTutorById", (req,res) =>{
       res.redirect("/approved");
     }
     else{
-      console.log("Non esiste nessun utente con id");
+      console.log("Non esiste nessun utente con id " + req.body.id);
       res.redirect("/denied");
     }
   }
 })
 
 app.get("/approved", (req,res)=>{
-  res.sendstatus(200);
+  res.sendStatus(200);
 })
 
 app.get("/denied", (req,res)=>{
-  res.sendstatus(404);
+  res.sendStatus(404);
 })
