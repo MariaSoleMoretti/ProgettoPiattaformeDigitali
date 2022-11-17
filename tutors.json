@@ -14,5 +14,37 @@
     "email": "riccamoro@gmail.com",
     "universita": "UniPM",
     "corso": "biologia"
+  },
+  {
+    "id": "1668701992882",
+    "nome": "Matilde",
+    "cognome": "Moretti",
+    "email": "matilde@gmail.com",
+    "universita": "UniPa",
+    "corso": "ecomonia"
+  },
+  {
+    "id": "1668702079403",
+    "nome": "Anna Maria",
+    "cognome": "Toscano",
+    "email": "annamaria@gmail.com",
+    "universita": "UniPM",
+    "corso": "infermieristica"
+  },
+  {
+    "id": "1668702187608",
+    "nome": "Mario",
+    "cognome": "Rossi",
+    "email": "rossimario@gmail.com",
+    "universita": "UniCam",
+    "corso": "ingegneria ambientale"
+  },
+  {
+    "id": "1668702250643",
+    "nome": "Margerita",
+    "cognome": "Mandolini",
+    "email": "mandomarghe@gmail.com",
+    "universita": "UniUrb",
+    "corso": "chimica"
   }
 ]

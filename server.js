@@ -198,7 +198,7 @@ app.delete("/home/deleteTutorById", (req,res) =>{
       res.redirect("/approved");
     }
     else{
-      console.log("Non esiste nessun utente con id" + deletedTutor);
+      console.log("Non esiste nessun utente con id");
       res.redirect("/denied");
     }
   }
