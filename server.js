@@ -68,7 +68,7 @@ app.get("/home/cercaUniversita", (req, res) => {
       ricercaUniversità,
       req.query.universita
     );
-    res.setStatus(200).json(tutorRicercati);
+    res.sendStatus(200).json(tutorRicercati);
   } else {
     res.redirect("/notFound");
   }
