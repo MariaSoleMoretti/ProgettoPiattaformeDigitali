@@ -68,11 +68,12 @@ app.get("/home/cercaUniversita", (req, res) => {
       ricercaUniversità,
       req.query.universita
     );
-    if(!tutorRicercati.isEmpty()){
+    //controllo se la ricerca ha prodotto dei risultati
+    if(tutorRicercati.length != 0){
       res.status(200).json(tutorRicercati);
     }
     else{
-      res.status(400).json({message: "La ricerca è andata a buon fine!", status: 200});
+      res.redirect("/notFound");
     }
   } else {
     res.redirect("/notFound");
@@ -97,7 +98,13 @@ app.get("/home/cercaUniversitaCorso", (req, res) => {
       ricercaCorso,
       req.query.corso
     );
-    res.setStatus(200).json(tutorRicercati);
+    //controllo se la ricerca ha prodotto dei risultati
+    if(tutorRicercati.length != 0){
+      res.status(200).json(tutorRicercati);
+    }
+    else{
+      res.redirect("/notFound");
+    }
   } else {
     res.redirect("/notFound");
   }
@@ -110,13 +117,23 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 
   if (data != null) {
     tutors = JSON.parse(data);
+    
     //prima filtra tutti i tutor appartenenti all'università cercata
     let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+    
     //poi filtra l'array risultante dall'operazione precedente in base al nome
     let tutorsByNome = tutorsByUni.filter(ricercaNome, req.query.nome);
+    
     //infine filtra la''array risultante in base al cognome
     let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome);
-    res.setStatus(200).json(tutorRicercati);
+    
+    //controllo se la ricerca ha prodotto dei risultati
+    if(tutorRicercati.length != 0){
+      res.status(200).json(tutorRicercati);
+    }
+    else{
+      res.redirect("/notFound");
+    }
   } else {
     res.redirect("/notFound");
   }
@@ -146,10 +163,10 @@ app.delete("/home/deleteTutorById", (req, res) => {
       fs.writeFileSync("tutors.json", data);
       console.log("File written successfully");
       console.log(tutors);
-      res.redirect("/ok");
+      //invia la risposta la client
+      res.status(200).json({message:"L'utente è stato rimosso!", utenteRimosso: deletedTutor});
     } else {
-      console.log("Non esiste nessun utente con id " + req.body.id);
-      res.redirect("/notFound");
+      res.status(404).json({message:"ERRORE! Non esiste nel database un utente con id "+idTutor});
     }
   }
 });
@@ -164,7 +181,7 @@ app.get("/badRequest", (req, res) => {
 });
 
 app.get("/notFound", (req, res) => {
-  res.sendStatus(404);
+  res.status(404).json({message: "La ricerca non è andata a buon fine!", status: 404});
 });
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
