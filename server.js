@@ -15,7 +15,6 @@ app.set("view-engine", "ejs");
 let users = [];
 let tutors = [];
 
-
 //homepage del sito
 app.get("/home", (req, res) => {
   res.render("home.ejs");
@@ -44,7 +43,7 @@ app.post("/home/addTutor", (req, res) => {
       cognome: req.body.cognome,
       email: req.body.email,
       universita: req.body.universita,
-      corso: req.body.corso
+      corso: req.body.corso,
     });
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
@@ -64,15 +63,11 @@ app.get("/home/cercaUniversita", (req, res) => {
   if (data != null) {
     const tutors = JSON.parse(data);
     //filtra i tutor in base all'università ricercata
-    let tutorRicercati = tutors.filter(
-      ricercaUniversità,
-      req.query.universita
-    );
+    let tutorRicercati = tutors.filter(ricercaUniversità, req.query.universita);
     //controllo se la ricerca ha prodotto dei risultati
-    if(tutorRicercati.length != 0){
+    if (tutorRicercati.length != 0) {
       res.status(200).json(tutorRicercati);
-    }
-    else{
+    } else {
       res.redirect("/notFound");
     }
   } else {
@@ -99,10 +94,9 @@ app.get("/home/cercaUniversitaCorso", (req, res) => {
       req.query.corso
     );
     //controllo se la ricerca ha prodotto dei risultati
-    if(tutorRicercati.length != 0){
+    if (tutorRicercati.length != 0) {
       res.status(200).json(tutorRicercati);
-    }
-    else{
+    } else {
       res.redirect("/notFound");
     }
   } else {
@@ -117,21 +111,20 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 
   if (data != null) {
     tutors = JSON.parse(data);
-    
+
     //prima filtra tutti i tutor appartenenti all'università cercata
     let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
-    
+
     //poi filtra l'array risultante dall'operazione precedente in base al nome
     let tutorsByNome = tutorsByUni.filter(ricercaNome, req.query.nome);
-    
+
     //infine filtra la''array risultante in base al cognome
     let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome);
-    
+
     //controllo se la ricerca ha prodotto dei risultati
-    if(tutorRicercati.length != 0){
+    if (tutorRicercati.length != 0) {
       res.status(200).json(tutorRicercati);
-    }
-    else{
+    } else {
       res.redirect("/notFound");
     }
   } else {
@@ -164,16 +157,25 @@ app.delete("/home/deleteTutorById", (req, res) => {
       console.log("File written successfully");
       console.log(tutors);
       //invia la risposta la client
-      res.status(200).json({message:"L'utente è stato rimosso!", utenteRimosso: deletedTutor});
+      res.status(200).json({
+        message: "L'utente è stato rimosso!",
+        utenteRimosso: deletedTutor,
+      });
     } else {
-      res.status(404).json({message:"ERRORE! Non esiste nel database un utente con id "+idTutor});
+      res.status(404).json({
+        message:
+          "ERRORE! Non esiste nel database un utente con id " + req.body.id,
+        status: 404,
+      });
     }
   }
 });
 
 //api per settare lo status
 app.get("/ok", (req, res) => {
-  res.sendStatus(200);
+  res
+    .status(200)
+    .json({ message: "L'operazione è andata a buon fine.", status: 200 });
 });
 
 app.get("/badRequest", (req, res) => {
@@ -181,7 +183,9 @@ app.get("/badRequest", (req, res) => {
 });
 
 app.get("/notFound", (req, res) => {
-  res.status(404).json({message: "La ricerca non è andata a buon fine!", status: 404});
+  res
+    .status(404)
+    .json({ message: "La ricerca non è andata a buon fine!", status: 404 });
 });
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
