@@ -64,22 +64,23 @@ app.put("/home/addExam", (req,res) =>{
   tutors = JSON.parse(data);
   //effettuo la ricerca del tutor corrispondente
   let tutorRicercato = tutors.filter(ricercaId, idTutor);
+  console.log(tutorRicercato);
   if(tutorRicercato == 0){
     res.redirect("/notFound");
   }
   //se il tutor è stato trovato effettuo la modifica
+  tutors.splice(idTutor, 1);
   tutorRicercato.esami.push(req.body.newExam);
   
   //effettuo il writeback
   tutors.push(tutorRicercato);
   data = JSON.stringify(tutors, null, 2);
   fs.writeFileSync("tutors.json", data);
-  
+  //mando risposta
   res.status(201).json({
     message: "Modifiche effettuate!",
     status: 201
-  })
-  
+  }) 
 });
 
 //api che filtra i tutor in base all'università
