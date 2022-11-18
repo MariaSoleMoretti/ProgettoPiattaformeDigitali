@@ -6,7 +6,7 @@
     "email": "mariasole@gmail.com",
     "universita": "UniUrb",
     "corso": "Informatica",
-    "esami": {}
+    "esami": []
   },
   {
     "id": "1668494488943",
@@ -15,7 +15,7 @@
     "email": "riccamoro@gmail.com",
     "universita": "UniPM",
     "corso": "biologia",
-    "esami": {}
+    "esami": []
   },
   {
     "id": "1668701992882",
@@ -24,7 +24,7 @@
     "email": "matilde@gmail.com",
     "universita": "UniPa",
     "corso": "ecomonia",
-    "esami": {}
+    "esami": []
   },
   {
     "id": "1668702079403",
@@ -33,7 +33,7 @@
     "email": "annamaria@gmail.com",
     "universita": "UniPM",
     "corso": "infermieristica",
-    "esami": {}
+    "esami": []
   },
   {
     "id": "1668702187608",
@@ -42,7 +42,7 @@
     "email": "rossimario@gmail.com",
     "universita": "UniCam",
     "corso": "ingegneria ambientale",
-    "esami": {}
+    "esami": []
   },
   {
     "id": "1668702898651",
@@ -51,7 +51,7 @@
     "email": "mandomarghe@gmail.com",
     "universita": "UniUrb",
     "corso": "chimica",
-    "esami": {}
+    "esami": []
   },
   {
     "id": "1668765048407",
@@ -60,7 +60,7 @@
     "email": "marcocorvatta@gmail.com",
     "universita": "UniMc",
     "corso": "chimica",
-    "esami": {}
+    "esami": []
   },
   {
     "id": "1668769794973",
@@ -69,6 +69,6 @@
     "email": "marcocorvatta@gmail.com",
     "universita": "UniMc",
     "corso": "chimica",
-    "esami": {}
+    "esami": []
   }
 ]

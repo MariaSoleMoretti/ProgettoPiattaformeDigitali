@@ -44,9 +44,7 @@ app.post("/home/addTutor", (req, res) => {
       email: req.body.email,
       universita: req.body.universita,
       corso: req.body.corso,
-      esami:{
-        
-      }
+      esami:[]  
     });
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
@@ -66,8 +64,21 @@ app.put("/home/addExam", (req,res) =>{
   tutors = JSON.parse(data);
   //effettuo la ricerca del tutor corrispondente
   let tutorRicercato = tutors.filter(ricercaId, idTutor);
+  if(tutorRicercato == 0){
+    res.redirect("/notFound");
+  }
+  //se il tutor è stato trovato effettuo la modifica
+  tutorRicercato.esami.push(req.body.newExam);
   
+  //effettuo il writeback
+  tutors.push(tutorRicercato);
+  data = JSON.stringify(tutors, null, 2);
+  fs.writeFileSync("tutors.json", data);
   
+  res.status(201).json({
+    message: "Modifiche effettuate!",
+    status: 201
+  })
   
 });
 
@@ -251,6 +262,13 @@ function ricercaNome(elemento) {
 //funzione per la ricerca dei tutor in base al cognome
 function ricercaCognome(elemento) {
   if (elemento.cognome.toString().toLowerCase() === this.toLowerCase()) {
+    return true;
+  }
+}
+
+//funzione per la ricerca dei tutor in base al cognome
+function ricercaId(elemento) {
+  if (elemento.id === this) {
     return true;
   }
 }
