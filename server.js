@@ -13,7 +13,7 @@ app.set("view-engine", "ejs");
 
 //dichiarazione della variabili globali
 let users = [];
-let tutor = [];
+let tutors = [];
 
 //homepage del sito
 app.get("/home", (req, res) => {
@@ -29,29 +29,29 @@ app.post("/home/addTutor", (req, res) => {
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, users);
   if (esito == false) {
-    console.log("Errore! L'email non è valida");
-    res.redirect("/badRequest");
+    console.log("res.setStatus(200).json(tutorRicercati);");
+    res.redirect("/badRequest").json("");
   } else {
     //facciamo la read del file per modificarlo
     let data = fs.readFileSync("tutors.json");
-    users = JSON.parse(data);
+    tutors = JSON.parse(data);
 
     //aggiungo il tutor all'array dei tutor
-    users.push({
+    tutors.push({
       id: Date.now().toString(),
       nome: req.body.nome,
       cognome: req.body.cognome,
       email: req.body.email,
-      universita: req.body.universita,
-      corso: req.body.corso,
+      universita: req.body.universita.toLowerCase(),
+      corso: req.body.corso.toLowercase()
     });
     //effettuo il writeback nel file
-    data = JSON.stringify(users, null, 2);
+    data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
 
     console.log("File written successfully");
-    console.log(users);
-    res.redirect("/approved");
+    console.log(tutors);
+    res.redirect("/ok");
   }
 });
 
@@ -63,13 +63,13 @@ app.get("/home/cercaUniversita", (req, res) => {
   if (data != null) {
     const tutors = JSON.parse(data);
     //filtra i tutor in base all'università ricercata
-    let utentiRicercati = tutors.filter(
+    let tutorRicercati = tutors.filter(
       ricercaUniversità,
       req.query.universita
     );
-    res.setStatus(200).json(utentiRicercati);
+    res.setStatus(200).json(tutorRicercati);
   } else {
-    res.redirect("/denied");
+    res.redirect("/notFound");
   }
 });
 
@@ -81,19 +81,19 @@ app.get("/home/cercaUniversitaCorso", (req, res) => {
   if (data != null) {
     const tutors = JSON.parse(data);
     //prima filtra tutti i tutor appartenenti all'università cercata
-    let utentiRicercatiUni = tutors.filter(
+    let tutorRicercatiUni = tutors.filter(
       ricercaUniversità,
       req.query.universita
     );
     //successivamente filtriamo l'array rusultante dall'operazione precedente
     //per cercare i tutor di quella università che seguino il corso ricercato
-    let utentiRicercati = utentiRicercatiUni.filter(
+    let tutorRicercati = tutorRicercatiUni.filter(
       ricercaCorso,
       req.query.corso
     );
-    res.send(utentiRicercati);
+    res.setStatus(200).json(tutorRicercati);
   } else {
-    res.send("Error");
+    res.redirect("/notFound");
   }
 });
 
@@ -103,7 +103,7 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
   let data = fs.readFileSync("tutors.json");
 
   if (data != null) {
-    const tutors = JSON.parse(data);
+    tutors = JSON.parse(data);
     //prima filtra tutti i tutor appartenenti all'università cercata
     let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
     //poi filtra l'array risultante dall'operazione precedente in base al nome
@@ -112,7 +112,7 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
     let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome);
     res.setStatus(200).json(tutorRicercati);
   } else {
-    res.send("Error");
+    res.redirect("/notFound");
   }
 });
 
@@ -127,7 +127,7 @@ app.delete("/home/deleteTutorById", (req, res) => {
   let data = fs.readFileSync("tutors.json");
   if (data != null) {
     //effettuo il parsing
-    const tutors = JSON.parse(data);
+    tutors = JSON.parse(data);
 
     //ricerca nell'array l'elemento con l'id richiesto
     let idTutor = tutors.findIndex((element) => element.id == req.body.id);
@@ -140,16 +140,16 @@ app.delete("/home/deleteTutorById", (req, res) => {
       fs.writeFileSync("tutors.json", data);
       console.log("File written successfully");
       console.log(tutors);
-      res.redirect("/approved");
+      res.redirect("/ok");
     } else {
       console.log("Non esiste nessun utente con id " + req.body.id);
-      res.redirect("/denied");
+      res.redirect("/notFound");
     }
   }
 });
 
 //api per settare lo status
-app.get("/", (req, res) => {
+app.get("/ok", (req, res) => {
   res.sendStatus(404);
 });
 
@@ -157,15 +157,15 @@ app.get("/badRequest", (req, res) => {
   res.sendStatus(400);
 });
 
-app.get("/denied", (req, res) => {
+app.get("/notFound", (req, res) => {
   res.sendStatus(404);
 });
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
 //cioè se cointiene il carattere @, e se non è presente nel database
-function validazioneInput(email, users) {
+function validazioneInput(email, t) {
   let esito = true;
-  let tutorsByEmail = users.filter(ricercaEmail, email);
+  let tutorsByEmail = t.filter(ricercaEmail, email);
   console.log(tutorsByEmail);
   if (tutorsByEmail.lenght == 0 || email.toString().indexOf("@") == -1) {
     //se l'email è già presente oppure se l'email inserita non contiene il carettere @ l'email non è valida
@@ -176,36 +176,35 @@ function validazioneInput(email, users) {
 }
 
 //funzione che filtra i tutor in base alla email
-function ricercaEmail(elemento, tutors) {
-  //console.log(this);
+function ricercaEmail(elemento) {
   if (elemento.email.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base all'università
-function ricercaUniversità(elemento, tutors) {
+function ricercaUniversità(elemento) {
   if (elemento.universita.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al corso
-function ricercaCorso(elemento, tutors) {
+function ricercaCorso(elemento) {
   if (elemento.corso.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al nome
-function ricercaNome(elemento, tutors) {
+function ricercaNome(elemento) {
   if (elemento.nome.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al cognome
-function ricercaCognome(elemento, tutors) {
+function ricercaCognome(elemento) {
   if (elemento.cognome.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
