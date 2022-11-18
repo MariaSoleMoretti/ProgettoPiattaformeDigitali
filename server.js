@@ -68,7 +68,12 @@ app.get("/home/cercaUniversita", (req, res) => {
       ricercaUniversità,
       req.query.universita
     );
-    res.sendStatus(200).json(tutorRicercati);
+    if(!tutorRicercati.isEmpty()){
+      res.status(200).json(tutorRicercati);
+    }
+    else{
+      res.status(400).json({message: "La ricerca è andata a buon fine!", status: 200});
+    }
   } else {
     res.redirect("/notFound");
   }
