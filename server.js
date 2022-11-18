@@ -44,6 +44,9 @@ app.post("/home/addTutor", (req, res) => {
       email: req.body.email,
       universita: req.body.universita,
       corso: req.body.corso,
+      esami:{
+        
+      }
     });
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
@@ -53,6 +56,19 @@ app.post("/home/addTutor", (req, res) => {
     console.log(tutors);
     res.redirect("/ok").json("tutors.json");
   }
+});
+
+app.put("/home/addExam", (req,res) =>{
+  //dalla richiesta predìndo l'id del tutor a cui effettuare la modifica
+  let idTutor = req.body.id;
+  //facciamo la read del file per modificarlo
+  let data = fs.readFileSync("tutors.json");
+  tutors = JSON.parse(data);
+  //effettuo la ricerca del tutor corrispondente
+  let tutorRicercato = tutors.filter(ricercaId, idTutor);
+  
+  
+  
 });
 
 //api che filtra i tutor in base all'università
@@ -170,6 +186,8 @@ app.delete("/home/deleteTutorById", (req, res) => {
     }
   }
 });
+
+app.put("/home/updateTutor")
 
 //api per settare lo status
 app.get("/ok", (req, res) => {
