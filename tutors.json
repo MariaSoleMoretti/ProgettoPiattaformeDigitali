@@ -46,5 +46,13 @@
     "email": "mandomarghe@gmail.com",
     "universita": "UniUrb",
     "corso": "chimica"
+  },
+  {
+    "id": "1668760167934",
+    "nome": "Marco",
+    "cognome": "Corvatta",
+    "email": "marcocorvatta@gmail.com",
+    "universita": "UniMc",
+    "corso": "chimica"
   }
 ]

@@ -15,6 +15,7 @@ app.set("view-engine", "ejs");
 let users = [];
 let tutors = [];
 
+
 //homepage del sito
 app.get("/home", (req, res) => {
   res.render("home.ejs");
@@ -29,8 +30,8 @@ app.post("/home/addTutor", (req, res) => {
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, users);
   if (esito == false) {
-    console.log("res.setStatus(200).json(tutorRicercati);");
-    res.redirect("/badRequest").json("");
+    console.log("ERRORE! L'email non è valida.");
+    res.redirect("/badRequest");
   } else {
     //facciamo la read del file per modificarlo
     let data = fs.readFileSync("tutors.json");
@@ -42,8 +43,8 @@ app.post("/home/addTutor", (req, res) => {
       nome: req.body.nome,
       cognome: req.body.cognome,
       email: req.body.email,
-      universita: req.body.universita.toLowerCase(),
-      corso: req.body.corso.toLowercase()
+      universita: req.body.universita,
+      corso: req.body.corso
     });
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
@@ -51,7 +52,7 @@ app.post("/home/addTutor", (req, res) => {
 
     console.log("File written successfully");
     console.log(tutors);
-    res.redirect("/ok");
+    res.redirect("/ok").json("tutors.json");
   }
 });
 
@@ -150,7 +151,7 @@ app.delete("/home/deleteTutorById", (req, res) => {
 
 //api per settare lo status
 app.get("/ok", (req, res) => {
-  res.sendStatus(404);
+  res.sendStatus(200);
 });
 
 app.get("/badRequest", (req, res) => {
