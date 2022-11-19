@@ -8,8 +8,6 @@ app.listen(3000);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//permette di separare il codice javescript da quello html
-app.set("view-engine", "ejs");
 
 //dichiarazione della variabili globali
 let users = [];
@@ -17,7 +15,7 @@ let tutors = [];
 
 //homepage del sito
 app.get("/home", (req, res) => {
-  res.render("home.ejs");
+  res.render("home.html");
 });
 
 //pagina del login
