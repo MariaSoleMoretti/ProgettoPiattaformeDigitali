@@ -220,7 +220,9 @@ app.get("/home/research", (req,res) =>{
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
   
-  res.send(200).json(tutors);
+  let word = "Hellowwwww"
+  
+  res.status(200).json(word);
 });
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
