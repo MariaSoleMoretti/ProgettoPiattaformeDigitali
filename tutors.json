@@ -15,7 +15,9 @@
     "email": "riccamoro@gmail.com",
     "universita": "UniPM",
     "corso": "biologia",
-    "esami": []
+    "esami": [
+      "Istologia"
+    ]
   },
   {
     "id": "1668701992882",
@@ -70,5 +72,14 @@
     "universita": "UniMc",
     "corso": "chimica",
     "esami": []
+  },
+  {
+    "id": "1668895124610",
+    "nome": "Margherita",
+    "cognome": "Moretti",
+    "email": "megghy99@gmail.com",
+    "universita": "UniFe",
+    "corso": "Biologia Molecolare",
+    "esami": ["Chimica"]
   }
 ]

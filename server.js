@@ -50,7 +50,7 @@ app.post("/home/addTutor", (req, res) => {
 
     console.log("File written successfully");
     console.log(tutors);
-    res.redirect("/ok").json("tutors.json");
+    res.redirect("/ok");
   }
 });
 

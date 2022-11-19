@@ -44,7 +44,7 @@
       
       const endpoint = new URL("https://progetto-piattaforme-territorio.glitch.me/home/research");
       
-      const response = await fetch(endpoint);
+      const response = await fetch(endpoint).then((response) => response.json());
       console.log(response);
       
     }
