@@ -15,7 +15,7 @@ let tutors = [];
 
 //homepage del sito
 app.get("/home", (req, res) => {
-  res.render("home.html");
+  res.sendFile("/app/views/home.html");
 });
 
 //pagina del login
