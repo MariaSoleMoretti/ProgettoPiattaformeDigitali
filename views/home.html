@@ -1,6 +1,5 @@
 <html>
   <head>
-    <script defer src="server.js"></script>   
   </head>
 
   <body>
@@ -12,7 +11,7 @@
     <div>
       <label for= "search"> Cerca Tutor</label><br>
       <input type = "text" id = "researchValue" placeholder = "Cerca">
-      <button type="submit" id="btn1" onclick="getTutors()"> Cerca</button>
+      <button type="button" id="btn1" onclick="getTutors()"> Cerca</button>
     </div>
     
     <div></div>
@@ -37,13 +36,15 @@
   <script>
     async function getTutors(){
       const researchValue = document.getElementById("researchValue").value;
-      console.log("alert");
       
-      if(!tutor){
+      if(!researchValue){
         alert("Inserire uno tutor.");
-        console.log("alert");
         return;
       }
+      
+      const endpoint = new URL("https://progetto-piattaforme-territorio.glitch.me/home/research");
+      console.log(endpoint);
+      
     }
   </script>
   

@@ -216,6 +216,13 @@ app.get("/notFound", (req, res) => {
     .json({ message: "La ricerca non è andata a buon fine!", status: 404 });
 });
 
+app.get("/home/research", (req,res) =>{
+  let data = fs.readFileSync("tutors.json");
+  tutors = JSON.parse(data);
+  
+  res.send(200).json(tutors);
+});
+
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
 //cioè se cointiene il carattere @, e se non è presente nel database
 function validazioneInput(email, t) {
