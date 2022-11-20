@@ -54,13 +54,9 @@
       };
       
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
-      .then(data => {
-          if (!data.ok) {
-            throw Error(data.status);
-           }
-           return data.json();
-      }).catch(e => {
-          console.log(e);
+      .then((responce)=> responce.status)
+      .catch(e => {
+          console.log("errore");
       });
     }
   </script>
