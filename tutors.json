@@ -83,12 +83,5 @@
     "esami": [
       "Chimica"
     ]
-  },
-  {
-    "name": "Maria Sole",
-    "surname": "Moretti",
-    "email": "morettimariasole@gmail.com",
-    "universita": "Unibo",
-    "corso": "Biologia"
   }
 ]

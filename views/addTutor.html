@@ -36,6 +36,7 @@
     <script>
     async function addTutor(){
       const newTutor = ({
+        id: Date.now().toString(),
         name : document.getElementById("name").value,
         surname : document.getElementById("surname").value,
         email : document.getElementById("email").value,
