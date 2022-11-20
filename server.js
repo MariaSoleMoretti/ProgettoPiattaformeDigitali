@@ -34,7 +34,6 @@ app.post("/home/addTutor", (req, res) => {
     console.log("ERRORE! L'email non è valida.");
     res.redirect("/badRequest");
   } else {
-    
     //aggiungo il tutor all'array dei tutor
     tutors.push(req.body);
     console.log(tutors);
@@ -222,7 +221,6 @@ app.get("/home/research", (req,res) =>{
 function validazioneInput(email, t) {
   let esito = true;
   let tutorsByEmail = t.filter(ricercaEmail, email);
-  console.log(tutorsByEmail);
   if (tutorsByEmail.lenght == 0 || email.toString().indexOf("@") == -1) {
     //se l'email è già presente oppure se l'email inserita non contiene il carettere @ l'email non è valida
     esito = false;

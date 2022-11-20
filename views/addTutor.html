@@ -45,15 +45,7 @@
         esami:[] 
       })
       
-      const options = {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newTutor),
-      };
-      
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', "POST")
       .then((responce)=> responce.status)
       .catch(e => {
           console.log("errore");
