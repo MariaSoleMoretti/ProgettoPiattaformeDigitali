@@ -85,31 +85,10 @@
     ]
   },
   {
-    "id": "1668957950321",
-    "email": "morettimariasole@gmail.com",
-    "universita": "unibo",
-    "corso": "Economia",
-    "esami": []
-  },
-  {
-    "id": "1668958011369",
-    "email": "morettimariasole@gmail.com",
-    "universita": "unibo",
-    "corso": "Biologia",
-    "esami": []
-  },
-  {
-    "id": "1668958028265",
-    "email": "morettimariasole@gmail.com",
-    "universita": "unibo",
-    "corso": "Biologia",
-    "esami": []
-  },
-  {
-    "id": "1668965018420",
+    "name": "Maria Sole",
+    "surname": "Moretti",
     "email": "morettimariasole@gmail.com",
     "universita": "Unibo",
-    "corso": "Biologia",
-    "esami": []
+    "corso": "Biologia"
   }
 ]

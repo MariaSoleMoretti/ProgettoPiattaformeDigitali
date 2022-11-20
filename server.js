@@ -28,7 +28,7 @@ app.post("/home/addTutor", (req, res) => {
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
   
-  console.log(req);
+  console.log(req.body);
   
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, tutors);
@@ -38,15 +38,7 @@ app.post("/home/addTutor", (req, res) => {
   } else {
     
     //aggiungo il tutor all'array dei tutor
-    tutors.push({
-      id: Date.now().toString(),
-      nome: req.body.nome,
-      cognome: req.body.cognome,
-      email: req.body.email,
-      universita: req.body.universita,
-      corso: req.body.corso,
-      esami:[]  
-    });
+    tutors.push(req.body);
     
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
