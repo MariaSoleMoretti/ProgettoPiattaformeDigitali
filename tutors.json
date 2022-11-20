@@ -83,5 +83,14 @@
     "esami": [
       "Chimica"
     ]
+  },
+  {
+    "id": "1668966486275",
+    "name": "Giulia",
+    "surname": "Moretti",
+    "email": "giuliamore@gmail.com",
+    "universita": "UniBo",
+    "corso": "Scienze della Comunicazione",
+    "esami": []
   }
 ]
