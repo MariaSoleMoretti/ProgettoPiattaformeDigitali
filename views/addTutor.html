@@ -55,12 +55,11 @@
       
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
       .then(response => {
-        response.json());
+        response.json();
         alert("Nuovo tutor aggiunto!");
-      }
+      })
       .catch(e => {
           console.log(e);
-          alert("ERRORE!");
       });
     }
   </script>
