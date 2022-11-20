@@ -112,21 +112,12 @@
     "esami": []
   },
   {
-    "id": "1668978104595",
-    "name": "Maria Sole",
-    "surname": "Moretti",
-    "email": "morettimariasole@gmail.com",
-    "universita": "gvgvj",
-    "corso": "Biologia",
-    "esami": []
-  },
-  {
-    "id": "1668978343949",
-    "name": "Maria Sole",
-    "surname": "Moretti",
-    "email": "morettimariasole@gmail.com",
-    "universita": "gvyvgvyhyv",
-    "corso": "Lingue Moderne",
+    "id": "1668979043897",
+    "name": "Marco",
+    "surname": "Mengoni",
+    "email": "marco@mengoni",
+    "universita": "UniBo",
+    "corso": "Scienze della Comunicazione",
     "esami": []
   }
 ]

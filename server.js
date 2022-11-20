@@ -43,7 +43,8 @@ app.post("/home/addTutor", (req, res) => {
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
   }
-  res.status(200);
+  res.json({message: "Tutor have been saved",
+            status: 200});
 });
 
 app.put("/home/addExam", (req,res) =>{
