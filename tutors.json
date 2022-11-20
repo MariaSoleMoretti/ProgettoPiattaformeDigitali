@@ -110,5 +110,14 @@
     "universita": "UniTo",
     "corso": "Ingegneria Meccanica",
     "esami": []
+  },
+  {
+    "id": "1668976963509",
+    "name": "Mauro ",
+    "surname": "Moretti",
+    "email": "morettimauro@liberi.it",
+    "universita": "UniNa",
+    "corso": "Meteorologia",
+    "esami": []
   }
 ]
