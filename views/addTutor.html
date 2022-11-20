@@ -35,32 +35,30 @@
 
     <script>
     async function addTutor(){
-      const newValue    = document.getElementById("newValue").value;
-      const data        = {
-        name       : document.getElementById("name").value;
-        surname    : document.getElementById("surname").value;
-        email      : document.getElementById("email").value;
-        universita : document.getElementById("universita").value;
-        corso      : document.getElementById("corso").value;
-      };
+      const newTutor = {name: document.getElementById("name").value,
+                        surname: document.getElementById("surname").value,
+                        email: document.getElementById("email").value,
+                        universita: document.getElementById("universita").value,
+                        corso: document.getElementById("corso").value
+                        };
       
-      if(!newValue){
+      if(!newTutor){
         alert("Inserire uno tutor.");
         return;
       }
       
       //const endpoint = new URL("https://progetto-piattaforme-territorio.glitch.me/home/addTutor");
       
-      fetch("https://progetto-piattaforme-territorio.glitch.me/home/addTutor", {
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(newTutor),
       })
         .then((response) => response.json())
-        .then((data) => {
-          console.log('Success:', data);
+        .then((newTutor) => {
+          console.log('Success:', newTutor);
         })
         .catch((error) => {
           console.error('Error:', error);

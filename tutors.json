@@ -80,6 +80,36 @@
     "email": "megghy99@gmail.com",
     "universita": "UniFe",
     "corso": "Biologia Molecolare",
-    "esami": ["Chimica"]
+    "esami": [
+      "Chimica"
+    ]
+  },
+  {
+    "id": "1668957459847",
+    "email": "morettimariasole@gmail.com",
+    "universita": "unibo",
+    "corso": "Economia",
+    "esami": []
+  },
+  {
+    "id": "1668957463851",
+    "email": "morettimariasole@gmail.com",
+    "universita": "unibo",
+    "corso": "Economia",
+    "esami": []
+  },
+  {
+    "id": "1668957464539",
+    "email": "morettimariasole@gmail.com",
+    "universita": "unibo",
+    "corso": "Economia",
+    "esami": []
+  },
+  {
+    "id": "1668957473619",
+    "email": "morettimariasole@gmail.com",
+    "universita": "unibo",
+    "corso": "Economia",
+    "esami": []
   }
 ]
