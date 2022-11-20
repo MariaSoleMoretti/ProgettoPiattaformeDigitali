@@ -92,5 +92,14 @@
     "universita": "UniBo",
     "corso": "Scienze della Comunicazione",
     "esami": []
+  },
+  {
+    "id": "1668975679033",
+    "name": "Aya",
+    "surname": "Boukal",
+    "email": "aya@gmail.com",
+    "universita": "UniCam",
+    "corso": "Biotecnologie",
+    "esami": []
   }
 ]

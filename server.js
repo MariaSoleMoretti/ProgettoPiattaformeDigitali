@@ -39,7 +39,6 @@ app.post("/home/addTutor", (req, res) => {
     
     //aggiungo il tutor all'array dei tutor
     tutors.push(req.body);
-    console.log(tutors);
     
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);

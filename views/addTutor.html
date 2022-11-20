@@ -59,8 +59,6 @@
             throw Error(data.status);
            }
            return data.json();
-      }).then(newTutor => {
-          console.log(newTutor);
       }).catch(e => {
           console.log(e);
       });
