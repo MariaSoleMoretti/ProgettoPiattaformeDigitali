@@ -35,20 +35,33 @@
 
     <script>
     async function addTutor(){
-      const options = {
-
+      const newTutor = ({
+        name : document.getElementById("name").value,
+        surname : document.getElementById("surname").value,
+        email : document.getElementById("email").value,
+        universita : document.getElementById("universita").value,
+        corso : document.getElementById("corso").value
+      })
       
-      fetch('https://jsonplaceholder.typicode.com/posts', options)
+      const options = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTutor),
+      };
+      
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
       .then(data => {
           if (!data.ok) {
             throw Error(data.status);
            }
            return data.json();
-          }).then(update => {
-          console.log(update);
-          }).catch(e => {
+      }).then(newTutor => {
+          console.log(newTutor);
+      }).catch(e => {
           console.log(e);
-          });
+      });
     }
   </script>
   
