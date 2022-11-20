@@ -112,12 +112,21 @@
     "esami": []
   },
   {
-    "id": "1668976963509",
-    "name": "Mauro ",
+    "id": "1668978104595",
+    "name": "Maria Sole",
     "surname": "Moretti",
-    "email": "morettimauro@liberi.it",
-    "universita": "UniNa",
-    "corso": "Meteorologia",
+    "email": "morettimariasole@gmail.com",
+    "universita": "gvgvj",
+    "corso": "Biologia",
+    "esami": []
+  },
+  {
+    "id": "1668978343949",
+    "name": "Maria Sole",
+    "surname": "Moretti",
+    "email": "morettimariasole@gmail.com",
+    "universita": "gvyvgvyhyv",
+    "corso": "Lingue Moderne",
     "esami": []
   }
 ]
