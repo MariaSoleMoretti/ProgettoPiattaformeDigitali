@@ -44,7 +44,7 @@
       
       const endpoint = new URL("https://progetto-piattaforme-territorio.glitch.me/home/addTutor");
       
-      const response = await fetch(endpoint).then((response)=> response.send("200 OK"));
+      const response = await fetch(endpoint);
       console.log(response);
       console.log("File written successfully");
       console.log(tutors);

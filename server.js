@@ -48,7 +48,6 @@ app.post("/home/addTutor", (req, res) => {
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
 
-    res.json(tutors);
   }
 });
 
