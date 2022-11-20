@@ -36,7 +36,17 @@
     <script>
     async function addTutor(){
       
-      fetch("")
+      fetch('https://jsonplaceholder.typicode.com/posts', options)
+      .then(data => {
+          if (!data.ok) {
+            throw Error(data.status);
+           }
+           return data.json();
+          }).then(update => {
+          console.log(update);
+          }).catch(e => {
+          console.log(e);
+          });
     }
   </script>
   
