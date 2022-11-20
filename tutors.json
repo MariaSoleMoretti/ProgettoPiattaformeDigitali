@@ -101,5 +101,14 @@
     "universita": "UniCam",
     "corso": "Biotecnologie",
     "esami": []
+  },
+  {
+    "id": "1668976334736",
+    "name": "Eugenio",
+    "surname": "Fusero",
+    "email": "fusero@icloud.it",
+    "universita": "UniTo",
+    "corso": "Ingegneria Meccanica",
+    "esami": []
   }
 ]

@@ -27,9 +27,7 @@ app.post("/home/addTutor", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
-  
-  console.log(req.body);
-  
+    
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, tutors);
   if (esito == false) {
