@@ -48,8 +48,7 @@ app.post("/home/addTutor", (req, res) => {
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
 
-    console.log("File written successfully");
-    console.log(tutors);
+    res.json(tutors);
   }
 });
 
@@ -196,7 +195,9 @@ app.delete("/home/deleteTutorById", (req, res) => {
   }
 });
 
-app.put("/home/updateTutor")
+app.put("/home/updateTutor", (req,res)=>{
+  
+});
 
 //api per settare lo status
 app.get("/ok", (req, res) => {
