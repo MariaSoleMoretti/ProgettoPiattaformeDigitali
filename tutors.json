@@ -85,31 +85,24 @@
     ]
   },
   {
-    "id": "1668957459847",
+    "id": "1668957950321",
     "email": "morettimariasole@gmail.com",
     "universita": "unibo",
     "corso": "Economia",
     "esami": []
   },
   {
-    "id": "1668957463851",
+    "id": "1668958011369",
     "email": "morettimariasole@gmail.com",
     "universita": "unibo",
-    "corso": "Economia",
+    "corso": "Biologia",
     "esami": []
   },
   {
-    "id": "1668957464539",
+    "id": "1668958028265",
     "email": "morettimariasole@gmail.com",
     "universita": "unibo",
-    "corso": "Economia",
-    "esami": []
-  },
-  {
-    "id": "1668957473619",
-    "email": "morettimariasole@gmail.com",
-    "universita": "unibo",
-    "corso": "Economia",
+    "corso": "Biologia",
     "esami": []
   }
 ]

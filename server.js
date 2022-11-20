@@ -24,16 +24,19 @@ app.get("/home/addTutor", (req, res) => {
 });
 
 app.post("/home/addTutor", (req, res) => {
+  //facciamo la read del file per modificarlo
+  let data = fs.readFileSync("tutors.json");
+  tutors = JSON.parse(data);
+  
+  console.log(req);
+  
   //salvataggio del tutor del database
-  let esito = validazioneInput(req.body.email, users);
+  let esito = validazioneInput(req.body.email, tutors);
   if (esito == false) {
     console.log("ERRORE! L'email non è valida.");
     res.redirect("/badRequest");
   } else {
-    //facciamo la read del file per modificarlo
-    let data = fs.readFileSync("tutors.json");
-    tutors = JSON.parse(data);
-
+    
     //aggiungo il tutor all'array dei tutor
     tutors.push({
       id: Date.now().toString(),
@@ -44,10 +47,10 @@ app.post("/home/addTutor", (req, res) => {
       corso: req.body.corso,
       esami:[]  
     });
+    
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
-
   }
 });
 
