@@ -157,7 +157,7 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 
 //pagina per la modifica dal database
 app.get("/home/deleteTutorById", (req, res) => {
-  res.render("deleteTutor.ejs");
+  res.render("deleteTutor.html");
 });
 
 //api per eliminare un utente dal database ricercandolo in base all'id
