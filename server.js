@@ -20,7 +20,7 @@ app.get("/home", (req, res) => {
 
 //pagina del login
 app.get("/home/addTutor", (req, res) => {
-  res.render("addTutor.ejs");
+  res.sendFile("/app/views/addTutor.html");
 });
 
 app.post("/home/addTutor", (req, res) => {
@@ -50,7 +50,6 @@ app.post("/home/addTutor", (req, res) => {
 
     console.log("File written successfully");
     console.log(tutors);
-    res.redirect("/ok");
   }
 });
 

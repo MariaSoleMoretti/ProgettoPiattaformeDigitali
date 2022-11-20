@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href= "https://progetto-piattaforme-territorio.glitch.me">
+  </head>
+
+  <body>
+    <h1>Tutoring Università</h1>
+    <h2>
+      Registra un nuovo Tutor!
+    </h2>
+    
+    <div>
+      <label for="name">Nome</label>
+      <input type="text" id="name" name="name" >
+    </div>
+    <div>
+      <label for="surname">Cognome</label>
+      <input type="text" id="surname" name="name" >
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" >
+    </div>
+    <div>
+      <label for="universita">Università</label>
+      <input type="text" id="universita" name="universita" >
+    </div>
+    <div>
+      <label for="corso">Corso di Studi</label>
+      <input type="text" id="corso" name="corso" >
+    </div>
+    <br>
+    <button type="button" id="newValue" >Aggiungi</button>
+  </body>
+
+    <script>
+    async function addTutor(){
+      const researchValue = document.getElementById("newValue").value;
+      
+      if(!newValue){
+        alert("Inserire uno tutor.");
+        return;
+      }
+      
+      const endpoint = new URL("https://progetto-piattaforme-territorio.glitch.me/home/addTutor");
+      
+      const response = await fetch(endpoint);
+      console.log(response);
+      
+    }
+  </script>
+  
+<datalist id="nome-università">
+  <option value="Università Politecnica delle Marche"></option>
+        <option value="Università degli Studi di Camerino"></option>
+        <option value="Università degli Studi di Macerata"></option>
+        <option value="Università degli Studi di Urbino "></option>
+        <option value="Università degli Studi di Ferrara "></option>
+</datalist>
+  
+</html>
