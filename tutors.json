@@ -1,132 +1,47 @@
 [
   {
-    "id": "1666951947133",
-    "nome": "Maria Sole",
-    "cognome": "Moretti",
-    "email": "mariasole@gmail.com",
-    "universita": "UniUrb",
-    "corso": "Informatica",
+    "id": "1669022389297",
+    "name": "Sara",
+    "surname": "Yosef",
+    "email": "yosef@gmail.com",
+    "universita": "Università degli Studi di Urbino ",
+    "corso": "Farmacia",
     "esami": []
   },
   {
-    "id": "1668494488943",
-    "nome": "Riccardo",
-    "cognome": "Moro",
-    "email": "riccamoro@gmail.com",
-    "universita": "UniPM",
-    "corso": "biologia",
-    "esami": [
-      "Istologia"
-    ]
-  },
-  {
-    "id": "1668701992882",
-    "nome": "Matilde",
-    "cognome": "Moretti",
-    "email": "matilde@gmail.com",
-    "universita": "UniPa",
-    "corso": "ecomonia",
-    "esami": []
-  },
-  {
-    "id": "1668702079403",
-    "nome": "Anna Maria",
-    "cognome": "Toscano",
-    "email": "annamaria@gmail.com",
-    "universita": "UniPM",
-    "corso": "infermieristica",
-    "esami": []
-  },
-  {
-    "id": "1668702187608",
-    "nome": "Mario",
-    "cognome": "Rossi",
-    "email": "rossimario@gmail.com",
-    "universita": "UniCam",
-    "corso": "ingegneria ambientale",
-    "esami": []
-  },
-  {
-    "id": "1668702898651",
-    "nome": "Margerita",
-    "cognome": "Mandolini",
-    "email": "mandomarghe@gmail.com",
-    "universita": "UniUrb",
-    "corso": "chimica",
-    "esami": []
-  },
-  {
-    "id": "1668765048407",
-    "nome": "Marco",
-    "cognome": "Corvatta",
-    "email": "marcocorvatta@gmail.com",
-    "universita": "UniMc",
-    "corso": "chimica",
-    "esami": []
-  },
-  {
-    "id": "1668769794973",
-    "nome": "Marco",
-    "cognome": "Corvatta",
-    "email": "marcocorvatta@gmail.com",
-    "universita": "UniMc",
-    "corso": "chimica",
-    "esami": []
-  },
-  {
-    "id": "1668895124610",
-    "nome": "Margherita",
-    "cognome": "Moretti",
-    "email": "megghy99@gmail.com",
-    "universita": "UniFe",
-    "corso": "Biologia Molecolare",
-    "esami": [
-      "Chimica"
-    ]
-  },
-  {
-    "id": "1668966486275",
-    "name": "Giulia",
+    "id": "1669022548958",
+    "name": "Margherita",
     "surname": "Moretti",
-    "email": "giuliamore@gmail.com",
-    "universita": "UniBo",
-    "corso": "Scienze della Comunicazione",
+    "email": "megghy99@gmail.com",
+    "universita": "Università degli Studi di Ferrara ",
+    "corso": "Biologia Molecolare",
     "esami": []
   },
   {
-    "id": "1668975679033",
-    "name": "Aya",
-    "surname": "Boukal",
-    "email": "aya@gmail.com",
-    "universita": "UniCam",
-    "corso": "Biotecnologie",
+    "id": "1669022570542",
+    "name": "Maria Sole",
+    "surname": "Moretti",
+    "email": "morettimariasole@gmail.com",
+    "universita": "Università degli Studi di Urbino ",
+    "corso": "Informatica Applicata",
     "esami": []
   },
   {
-    "id": "1668976423481",
+    "id": "1669022623937",
     "name": "Eugenio",
     "surname": "Fusero",
-    "email": "fusero@icloud.it",
-    "universita": "UniTo",
+    "email": "fursero@icloud.it",
+    "universita": "Università degli Studi di Camerino",
     "corso": "Ingegneria Meccanica",
     "esami": []
   },
   {
-    "id": "1668979043897",
-    "name": "Marco",
-    "surname": "Mengoni",
-    "email": "marco@mengoni",
-    "universita": "UniBo",
-    "corso": "Scienze della Comunicazione",
-    "esami": []
-  },
-  {
-    "id": "1669019998070",
-    "name": "Christian",
-    "surname": "Jackson",
-    "email": "jackson@gmail.com",
-    "universita": "UNICLA",
-    "corso": "Social Media Management",
+    "id": "1669022664842",
+    "name": "Tommaso",
+    "surname": "Morroni",
+    "email": "morrotom@gmail.com",
+    "universita": "Università Politecnica delle Marche",
+    "corso": "Lettere Moderne",
     "esami": []
   }
 ]
