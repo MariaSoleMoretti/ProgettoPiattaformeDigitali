@@ -153,7 +153,7 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 
 //pagina per la modifica dal database
 app.get("/home/deleteTutor", (req, res) => {
-  res.sendFile("/app/views/home.html");
+  res.sendFile("/app/views/deleteTutor.html");
 });
 
 //api per eliminare un utente dal database ricercandolo in base all'id
