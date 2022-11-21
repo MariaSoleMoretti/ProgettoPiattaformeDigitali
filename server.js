@@ -152,12 +152,12 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 });
 
 //pagina per la modifica dal database
-app.get("/home/deleteTutorById", (req, res) => {
-  res.render("deleteTutor.html");
+app.get("/home/deleteTutor", (req, res) => {
+  res.sendFile("/app/views/home.html");
 });
 
 //api per eliminare un utente dal database ricercandolo in base all'id
-app.delete("/home/deleteTutorById", (req, res) => {
+app.delete("/home/deleteTutor", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   if (data != null) {

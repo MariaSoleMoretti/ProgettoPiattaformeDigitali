@@ -34,12 +34,17 @@
       <br>
       <button type="button" id="newValue" onclick= "addTutor()" >Aggiungi</button>
     </form>
+    <hr>
+    <div>
+        <p> Torna alla Home | <a href="/home">Home</a></p>
+      </div>
     
   </body>
 
     <script>
     async function addTutor(){
       
+      //definisco i dati del nuovo tutor aggiungendo alcuni campi di default
       const newTutor = ({
         id: Date.now().toString(),
         name : document.getElementById("name").value,
@@ -49,7 +54,7 @@
         corso : document.getElementById("corso").value,
         esami:[] 
       })
-      
+      //opzioni per la fetch
       const options = {
         method: 'POST',
         headers: {
@@ -57,7 +62,7 @@
         },
         body: JSON.stringify(newTutor),
       };
-      
+      //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
       .then(response => {
         response.json();
@@ -66,6 +71,8 @@
       .catch(e => {
           console.log(e);
       });
+      //pulisce la form
+      document.getElementById("addTutor").reset();
     }
   </script>
   
