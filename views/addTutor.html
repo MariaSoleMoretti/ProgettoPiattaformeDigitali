@@ -9,33 +9,37 @@
       Registra un nuovo Tutor!
     </h2>
     
-    <div id="newTutor">
-      <label for="name">Nome</label>
-      <input type="text" id="name" name="name" >
-    </div>
-    <div>
-      <label for="surname">Cognome</label>
-      <input type="text" id="surname" name="name" >
-    </div>
-    <div>
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" >
-    </div>
-    <div>
-      <label for="universita">Università</label>
-      <input list="nome-università" name="universita" id="universita">
-      <!input list="nome-universita" id="universita" name="universita" autocomplete= "on">
-    </div>
-    <div>
-      <label for="corso">Corso di Studi</label>
-      <input type="text" id="corso" name="corso" >
-    </div>
-    <br>
-    <button type="button" id="newValue" onclick= "addTutor()" >Aggiungi</button>
+    <form action="" id="addTutor">
+      <div>
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" >
+      </div>
+      <div>
+        <label for="surname">Cognome</label>
+        <input type="text" id="surname" name="name" >
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" >
+      </div>
+      <div>
+        <label for="universita">Università</label>
+        <input list="nome-università" name="universita" id="universita">
+        <!input list="nome-universita" id="universita" name="universita" autocomplete= "on">
+      </div>
+      <div>
+        <label for="corso">Corso di Studi</label>
+        <input type="text" id="corso" name="corso" >
+      </div>
+      <br>
+      <button type="button" id="newValue" onclick= "addTutor()" >Aggiungi</button>
+    </form>
+    
   </body>
 
     <script>
     async function addTutor(){
+      
       const newTutor = ({
         id: Date.now().toString(),
         name : document.getElementById("name").value,

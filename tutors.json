@@ -43,5 +43,23 @@
     "universita": "Università Politecnica delle Marche",
     "corso": "Lettere Moderne",
     "esami": []
+  },
+  {
+    "id": "1669023087264",
+    "name": "Riccardo",
+    "surname": "Camilletti",
+    "email": "camilletti@gmail.com",
+    "universita": "Università Politecnica delle Marche",
+    "corso": "Biologia",
+    "esami": []
+  },
+  {
+    "id": "1669023328724",
+    "name": "Marco",
+    "surname": "Menghini",
+    "email": "marco@gmail.com",
+    "universita": "Università degli Studi di Macerata",
+    "corso": "Scienze della Comunicazione",
+    "esami": []
   }
 ]
