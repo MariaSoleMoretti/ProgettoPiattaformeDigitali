@@ -119,5 +119,14 @@
     "universita": "UniBo",
     "corso": "Scienze della Comunicazione",
     "esami": []
+  },
+  {
+    "id": "1669019998070",
+    "name": "Christian",
+    "surname": "Jackson",
+    "email": "jackson@gmail.com",
+    "universita": "UNICLA",
+    "corso": "Social Media Management",
+    "esami": []
   }
 ]
