@@ -70,5 +70,14 @@
     "universita": "Università degli Studi di Urbino ",
     "corso": "Giurisprudenza",
     "esami": []
+  },
+  {
+    "id": "1669455157974",
+    "name": "Giacomo",
+    "surname": "Caporaletti",
+    "email": "giacomo@gmail.com",
+    "universita": "Università degli Studi Gabriele d'Annunzio",
+    "corso": "Medicina",
+    "esami": []
   }
 ]
