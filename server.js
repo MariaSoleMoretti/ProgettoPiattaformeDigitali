@@ -204,7 +204,7 @@ app.put("/home/updateEmail", (req,res)=>{
   }
   //se il tutor è stato trovato effettuo la modifica
   tutors.splice(idTutor, 1);
-  tutorRicercato.email = req.body.email;
+  tutorRicercato.email = req.body.email.toString();
   
   //effettuo il writeback
   tutors.push(tutorRicercato);
@@ -293,6 +293,7 @@ function ricercaCognome(elemento) {
 //funzione per la ricerca dei tutor in base al cognome
 function ricercaId(elemento) {
   if (elemento.id === this) {
+    console.log(elemento.id);
     return true;
   }
 }
