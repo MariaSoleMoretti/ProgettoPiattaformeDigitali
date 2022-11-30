@@ -47,33 +47,6 @@ app.post("/home/addTutor", (req, res) => {
             status: 200});
 });
 
-app.put("/home/addExam", (req,res) =>{
-  //dalla richiesta predìndo l'id del tutor a cui effettuare la modifica
-  let idTutor = req.body.id;
-  //facciamo la read del file per modificarlo
-  let data = fs.readFileSync("tutors.json");
-  tutors = JSON.parse(data);
-  //effettuo la ricerca del tutor corrispondente
-  let tutorRicercato = tutors.filter(ricercaId, idTutor);
-  console.log(tutorRicercato);
-  if(tutorRicercato == 0){
-    res.redirect("/notFound");
-  }
-  //se il tutor è stato trovato effettuo la modifica
-  tutors.splice(idTutor, 1);
-  tutorRicercato.esami.push(req.body.newExam);
-  
-  //effettuo il writeback
-  tutors.push(tutorRicercato);
-  data = JSON.stringify(tutors, null, 2);
-  fs.writeFileSync("tutors.json", data);
-  //mando risposta
-  res.status(201).json({
-    message: "Modifiche effettuate!",
-    status: 201
-  }) 
-});
-
 //api che filtra i tutor in base all'università
 app.get("/home/cercaUniversita", (req, res) => {
   const uni = req.query.universita.toString();
@@ -190,8 +163,65 @@ app.delete("/home/deleteTutor", (req, res) => {
   }
 });
 
-app.put("/home/updateTutor", (req,res)=>{
+app.put("/home/addExam", (req,res) =>{
+  //dalla richiesta predìndo l'id del tutor a cui effettuare la modifica
+  let idTutor = req.body.id;
+  //facciamo la read del file per modificarlo
+  let data = fs.readFileSync("tutors.json");
+  tutors = JSON.parse(data);
+  //effettuo la ricerca del tutor corrispondente
+  let tutorRicercato = tutors.filter(ricercaId, idTutor);
+  console.log(tutorRicercato);
+  if(tutorRicercato == 0){
+    res.redirect("/notFound");
+  }
+  //se il tutor è stato trovato effettuo la modifica
+  tutors.splice(idTutor, 1);
+  tutorRicercato.esami.push(req.body.newExam);
   
+  //effettuo il writeback
+  tutors.push(tutorRicercato);
+  data = JSON.stringify(tutors, null, 2);
+  fs.writeFileSync("tutors.json", data);
+  //mando risposta
+  res.status(201).json({
+    message: "Modifiche effettuate!",
+    status: 201
+  }) 
+});
+
+app.put("/home/updateEmail", (req,res)=>{
+  //dalla richiesta predìndo l'id del tutor a cui effettuare la modifica
+  let idTutor = req.body.id;
+  //facciamo la read del file per modificarlo
+  let data = fs.readFileSync("tutors.json");
+  tutors = JSON.parse(data);
+  //effettuo la ricerca del tutor corrispondente
+  let tutorRicercato = tutors.filter(ricercaId, idTutor);
+  console.log(tutorRicercato);
+  if(tutorRicercato == 0){
+    res.redirect("/notFound");
+  }
+  //se il tutor è stato trovato effettuo la modifica
+  tutors.splice(idTutor, 1);
+  tutorRicercato.email = req.body.email;
+  
+  //effettuo il writeback
+  tutors.push(tutorRicercato);
+  data = JSON.stringify(tutors, null, 2);
+  fs.writeFileSync("tutors.json", data);
+  //mando risposta
+  res.status(201).json({
+    message: "Modifiche effettuate!",
+    status: 201
+  }) 
+});
+
+app.get("/home/research", (req,res) =>{
+  let data = fs.readFileSync("tutors.json");
+  tutors = JSON.parse(data);
+    
+  res.json(tutors);
 });
 
 //api per settare lo status
@@ -209,13 +239,6 @@ app.get("/notFound", (req, res) => {
   res
     .status(404)
     .json({ message: "La ricerca non è andata a buon fine!", status: 404 });
-});
-
-app.get("/home/research", (req,res) =>{
-  let data = fs.readFileSync("tutors.json");
-  tutors = JSON.parse(data);
-    
-  res.json(tutors);
 });
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
