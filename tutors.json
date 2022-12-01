@@ -62,33 +62,19 @@
     "corso": "Giurisprudenza",
     "esami": []
   },
-  {
-    "id": "1669455157974",
-    "name": "Giacomo",
-    "surname": "Caporaletti",
-    "email": "giacomo@gmail.com",
-    "universita": "Università degli Studi Gabriele d'Annunzio",
-    "corso": "Medicina",
-    "esami": []
-  },
-  {
-    "id": "1669830454134",
-    "name": "Luca",
-    "surname": "Martarelli",
-    "email": "luca.marta@gmailcom",
-    "universita": "Università Politecnica delle Marche",
-    "corso": "Biomedica",
-    "esami": []
-  },
-  {
-    "id": "1669022664842",
-    "name": "Tommaso",
-    "surname": "Morroni",
-    "email": "morrotom@gmail.com",
-    "universita": "Università Politecnica delle Marche",
-    "corso": "Lettere Moderne",
-    "esami": [
-      "lingue moderne"
-    ]
-  }
+  [
+    {
+      "id": "1669830454134",
+      "name": "Luca",
+      "surname": "Martarelli",
+      "email": "luca.marta@gmailcom",
+      "universita": "Università Politecnica delle Marche",
+      "corso": "Biomedica",
+      "esami": [
+        "anatomia",
+        "biotecologie",
+        "analisi"
+      ]
+    }
+  ]
 ]
