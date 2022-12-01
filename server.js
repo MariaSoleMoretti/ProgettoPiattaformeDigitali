@@ -163,6 +163,7 @@ app.delete("/home/deleteTutor", (req, res) => {
   }
 });
 
+//api di aggiornamento lista esami dei singoli tutor
 app.put("/home/addExam", (req,res) =>{
   //dalla richiesta predìndo l'id del tutor a cui effettuare la modifica
   let idTutor = req.body.id;
@@ -190,6 +191,7 @@ app.put("/home/addExam", (req,res) =>{
   }) 
 });
 
+//api di aggiornamento delle email dei tutor
 app.put("/home/updateEmail", (req,res)=>{
   //dalla richiesta predìndo l'id del tutor a cui effettuare la modifica
   let idTutor = req.body.id;
