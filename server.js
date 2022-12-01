@@ -176,9 +176,8 @@ app.put("/home/addExam", (req,res) =>{
   //se esiste lo elimino
   if (idTutor != -1) {
     //se il tutor è stato trovato effettuo la modifica
-    let tutorRicercato = tutors.filter(ricercaId, req.body.id);
+    let tutorRicercato = tutors.splice(idTutor, 1);
     console.log(tutorRicercato);
-    tutors.splice(idTutor, 1);
     tutorRicercato.esami.push(req.body.newExam);
 
     //effettuo il writeback
