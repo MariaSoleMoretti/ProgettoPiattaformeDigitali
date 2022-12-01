@@ -36,15 +36,6 @@
     "esami": []
   },
   {
-    "id": "1669022664842",
-    "name": "Tommaso",
-    "surname": "Morroni",
-    "email": "morrotom@gmail.com",
-    "universita": "Università Politecnica delle Marche",
-    "corso": "Lettere Moderne",
-    "esami": []
-  },
-  {
     "id": "1669023087264",
     "name": "Riccardo",
     "surname": "Camilletti",
@@ -89,5 +80,15 @@
     "corso": "Biomedica",
     "esami": []
   },
-  []
+  {
+    "id": "1669022664842",
+    "name": "Tommaso",
+    "surname": "Morroni",
+    "email": "morrotom@gmail.com",
+    "universita": "Università Politecnica delle Marche",
+    "corso": "Lettere Moderne",
+    "esami": [
+      "lingue moderne"
+    ]
+  }
 ]

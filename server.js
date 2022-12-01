@@ -171,21 +171,19 @@ app.put("/home/addExam", (req,res) =>{
   //effettuo la ricerca del tutor corrispondente
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.body.id);
-  console.log("sono nell'api "+idTutor);
 
   //se esiste lo elimino
   if (idTutor != -1) {
     //se il tutor è stato trovato effettuo la modifica
     let tutorRicercato = tutors.splice(idTutor, 1);
-    console.log(tutorRicercato);
-    tutorRicercato.esami.push(req.body.newExam);
+    tutorRicercato[0].esami.push(req.body.esame);
 
     //effettuo il writeback
     tutors.push(tutorRicercato);
+    console.log(tutors);
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
     console.log("File written successfully");
-    console.log(tutors);
     //invia la risposta la client
     res.status(200).json({
       message: "L'utente è stato aggiornato!",
@@ -207,7 +205,7 @@ app.put("/home/updateEmail", (req,res)=>{
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
   //effettuo la ricerca del tutor corrispondente
-  let tutorRicercato = tutors.filter(ricercaId, idTutor);
+  let tutorRicercato = tutors.filter();
   console.log(tutorRicercato);
   if(tutorRicercato == 0){
     res.redirect("/notFound");
@@ -300,10 +298,3 @@ function ricercaCognome(elemento) {
   }
 }
 
-//funzione per la ricerca dei tutor in base al cognome
-function ricercaId(elemento) {
-  if (elemento.id === this) {
-    console.log("sono nella funzione di ricerca "+elemento.id);
-    return true;
-  }
-}
