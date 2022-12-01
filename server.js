@@ -165,6 +165,7 @@ app.delete("/home/deleteTutor", (req, res) => {
 
 //api di aggiornamento lista esami dei singoli tutor
 app.put("/home/addExam", (req,res) =>{
+  let tutorRicercato = [];
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
@@ -176,9 +177,9 @@ app.put("/home/addExam", (req,res) =>{
   //se esiste lo elimino
   if (idTutor != -1) {
     //se il tutor è stato trovato effettuo la modifica
-    let tutorRicercato = tutors.filter(ricercaId, req.body.id);
+    tutorRicercato[0] = tutors.splice(idTutor, 1);
+    console.log("Il tutor ricercato è: ")
     console.log(tutorRicercato);
-    tutors.splice(idTutor, 1);
     tutorRicercato.esami.push(req.body.newExam);
 
     //effettuo il writeback
