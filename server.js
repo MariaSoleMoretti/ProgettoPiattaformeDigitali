@@ -165,30 +165,39 @@ app.delete("/home/deleteTutor", (req, res) => {
 
 //api di aggiornamento lista esami dei singoli tutor
 app.put("/home/addExam", (req,res) =>{
-  //dalla richiesta predìndo l'id del tutor a cui effettuare la modifica
-  let idTutor = req.body.id;
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
   //effettuo la ricerca del tutor corrispondente
-  let tutorRicercato = tutors.filter(ricercaId, idTutor);
-  console.log(tutorRicercato);
-  if(tutorRicercato == 0){
-    res.redirect("/notFound");
-  }
-  //se il tutor è stato trovato effettuo la modifica
-  tutors.splice(idTutor, 1);
-  tutorRicercato.esami.push(req.body.newExam);
-  
-  //effettuo il writeback
-  tutors.push(tutorRicercato);
-  data = JSON.stringify(tutors, null, 2);
-  fs.writeFileSync("tutors.json", data);
-  //mando risposta
-  res.status(201).json({
-    message: "Modifiche effettuate!",
-    status: 201
-  }) 
+  //ricerca nell'array l'elemento con l'id richiesto
+  let idTutor = tutors.findIndex((element) => element.id == req.body.id);
+  console.log("sono nell'api "+idTutor);
+
+  //se esiste lo elimino
+  if (idTutor != -1) {
+    //se il tutor è stato trovato effettuo la modifica
+    let tutorRicercato = tutors.filter(ricercaId, req.body.id);
+    console.log(tutorRicercato);
+    tutors.splice(idTutor, 1);
+    tutorRicercato.esami.push(req.body.newExam);
+
+    //effettuo il writeback
+    tutors.push(tutorRicercato);
+    data = JSON.stringify(tutors, null, 2);
+    fs.writeFileSync("tutors.json", data);
+    console.log("File written successfully");
+    console.log(tutors);
+    //invia la risposta la client
+    res.status(200).json({
+      message: "L'utente è stato aggiornato!",
+    });
+  } else {
+    res.status(404).json({
+      message:
+        "ERRORE! Non esiste nel database un utente con id " + req.body.id,
+      status: 404,
+    });
+  } 
 });
 
 //api di aggiornamento delle email dei tutor
@@ -295,7 +304,7 @@ function ricercaCognome(elemento) {
 //funzione per la ricerca dei tutor in base al cognome
 function ricercaId(elemento) {
   if (elemento.id === this) {
-    console.log(elemento.id);
+    console.log("sono nella funzione di ricerca "+elemento.id);
     return true;
   }
 }
