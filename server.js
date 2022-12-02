@@ -172,9 +172,9 @@ app.put("/home/addExam", (req,res) =>{
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.body.id);
 
-  //se esiste lo elimino
+  //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
-    //se il tutor è stato trovato effettuo la modifica
+    //se il tutor è presente effettuo la modifica
     let tutorRicercato = tutors.splice(idTutor, 1);
     tutorRicercato[0].esami.push(req.body.esame);
 
@@ -189,6 +189,7 @@ app.put("/home/addExam", (req,res) =>{
       message: "L'utente è stato aggiornato!",
     });
   } else {
+    //se non è presente mando in risposta un messaggio di errore
     res.status(404).json({
       message:
         "ERRORE! Non esiste nel database un utente con id " + req.body.id,
