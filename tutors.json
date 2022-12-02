@@ -62,5 +62,13 @@
     "corso": "Giurisprudenza",
     "esami": []
   },
-  "[object Object]"
+  {
+    "id": "1669830454134",
+    "name": "Luca",
+    "surname": "Martarelli",
+    "email": "luca.marta@gmailcom",
+    "universita": "Università Politecnica delle Marche",
+    "corso": "Biomedica",
+    "esami": ["anatomia", "biotecologie"]
+  }
 ]

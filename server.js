@@ -179,7 +179,7 @@ app.put("/home/addExam", (req,res) =>{
     tutorRicercato[0].esami.push(req.body.esame);
 
     //effettuo il writeback
-    tutors.push(tutorRicercato.toString());
+    tutors.push(tutorRicercato);
     console.log(tutors);
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
