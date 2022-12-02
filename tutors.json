@@ -54,21 +54,29 @@
     "esami": []
   },
   {
-    "id": "1669024526133",
-    "name": "Sara",
-    "surname": "Scocco",
-    "email": "scoccosara@icloud.it",
-    "universita": "Università degli Studi di Urbino ",
-    "corso": "Giurisprudenza",
-    "esami": []
-  },
-  {
     "id": "1669830454134",
     "name": "Luca",
     "surname": "Martarelli",
     "email": "luca.marta@gmailcom",
     "universita": "Università Politecnica delle Marche",
     "corso": "Biomedica",
-    "esami": ["anatomia", "biotecologie"]
+    "esami": [
+      "anatomia",
+      "biotecologie",
+      "analisi",
+      "analisi degli alimenti"
+    ]
+  },
+  {
+    "id": "1669024526133",
+    "name": "Sara",
+    "surname": "Scocco",
+    "email": "scoccosara@icloud.it",
+    "universita": "Università degli Studi di Urbino ",
+    "corso": "Giurisprudenza",
+    "esami": [
+      "diritto privato",
+      "diritto del lavoro"
+    ]
   }
 ]

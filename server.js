@@ -176,10 +176,10 @@ app.put("/home/addExam", (req,res) =>{
   if (idTutor != -1) {
     //se il tutor è presente effettuo la modifica
     let tutorRicercato = tutors.splice(idTutor, 1);
-    tutorRicercato.esami.push(req.body.esame);
+    tutorRicercato[0].esami.push(req.body.esame);
 
     //effettuo il writeback
-    tutors.push(tutorRicercato);
+    tutors.push(tutorRicercato[0]);
     console.log(tutors);
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
