@@ -12,7 +12,7 @@
     "id": "1669022548958",
     "name": "Margherita",
     "surname": "Moretti",
-    "email": "megghy99@gmail.com",
+    "email": "morro.tom@icloud.it",
     "universita": "Università degli Studi di Ferrara ",
     "corso": "Biologia Molecolare",
     "esami": []
@@ -33,54 +33,18 @@
     "email": "camilletti@gmail.com",
     "universita": "Università Politecnica delle Marche",
     "corso": "Biologia",
+    "esami": [
+      "biochimica",
+      "genetica"
+    ]
+  },
+  {
+    "id": "1670006801415",
+    "name": "Camilla",
+    "surname": "Antognini",
+    "email": "anto_cami@icloud.it",
+    "universita": "Politecnico di Milano",
+    "corso": "Ingegneria Biomeccanica",
     "esami": []
-  },
-  {
-    "id": "1669023328724",
-    "name": "Marco",
-    "surname": "Menghini",
-    "email": "marco@gmail.com",
-    "universita": "Università degli Studi di Macerata",
-    "corso": "Scienze della Comunicazione",
-    "esami": []
-  },
-  {
-    "id": "1669830454134",
-    "name": "Luca",
-    "surname": "Martarelli",
-    "email": "luca.marta@gmailcom",
-    "universita": "Università Politecnica delle Marche",
-    "corso": "Biomedica",
-    "esami": [
-      "anatomia",
-      "biotecologie",
-      "analisi",
-      "analisi degli alimenti"
-    ]
-  },
-  {
-    "id": "1669024526133",
-    "name": "Sara",
-    "surname": "Scocco",
-    "email": "scoccosara@icloud.it",
-    "universita": "Università degli Studi di Urbino ",
-    "corso": "Giurisprudenza",
-    "esami": [
-      "diritto privato",
-      "diritto del lavoro"
-    ]
-  },
-  {
-    "id": "1669022570542",
-    "name": "Maria Sole",
-    "surname": "Moretti",
-    "email": "morettimariasole@gmail.com",
-    "universita": "Università degli Studi di Urbino ",
-    "corso": "Informatica Applicata",
-    "esami": [
-      "analisi 1",
-      "sistemi operativi",
-      "reti logiche"
-    ]
   }
 ]
