@@ -6,13 +6,17 @@
     "email": "yosef@gmail.com",
     "universita": "Università degli Studi di Urbino ",
     "corso": "Farmacia",
-    "esami": []
+    "esami": [
+      "analisi degli alimenti",
+      "anatomia",
+      "biochimica"
+    ]
   },
   {
     "id": "1669022548958",
     "name": "Margherita",
     "surname": "Moretti",
-    "email": "morro.tom@icloud.it",
+    "email": "marghe.moretti@icloud.it",
     "universita": "Università degli Studi di Ferrara ",
     "corso": "Biologia Molecolare",
     "esami": []
