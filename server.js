@@ -216,7 +216,7 @@ app.put("/home/updateEmail", (req,res)=>{
   tutorRicercato.email = req.body.email.toString();
   
   //effettuo il writeback
-  tutors.push(tutorRicercato);
+  tutors.concat(tutorRicercato);
   data = JSON.stringify(tutors, null, 2);
   fs.writeFileSync("tutors.json", data);
   //mando risposta
