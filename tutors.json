@@ -18,15 +18,6 @@
     "esami": []
   },
   {
-    "id": "1669022570542",
-    "name": "Maria Sole",
-    "surname": "Moretti",
-    "email": "morettimariasole@gmail.com",
-    "universita": "Università degli Studi di Urbino ",
-    "corso": "Informatica Applicata",
-    "esami": []
-  },
-  {
     "id": "1669022623937",
     "name": "Eugenio",
     "surname": "Fusero",
@@ -77,6 +68,19 @@
     "esami": [
       "diritto privato",
       "diritto del lavoro"
+    ]
+  },
+  {
+    "id": "1669022570542",
+    "name": "Maria Sole",
+    "surname": "Moretti",
+    "email": "morettimariasole@gmail.com",
+    "universita": "Università degli Studi di Urbino ",
+    "corso": "Informatica Applicata",
+    "esami": [
+      "analisi 1",
+      "sistemi operativi",
+      "reti logiche"
     ]
   }
 ]

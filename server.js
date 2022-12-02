@@ -175,11 +175,13 @@ app.put("/home/addExam", (req,res) =>{
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
     //se il tutor è presente effettuo la modifica
-    let tutorRicercato = tutors.splice(idTutor, 1);
+    let tutorRicercato = tutors[idTutor];
+    //let tutorRicercato = tutors.splice(idTutor, 1);
     tutorRicercato[0].esami.push(req.body.esame);
 
     //effettuo il writeback
-    tutors.push(tutorRicercato[0]);
+    //tutors.push(tutorRicercato[0]);
+    tutors.fill(tutorRicercato, idTutor);
     console.log(tutors);
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
