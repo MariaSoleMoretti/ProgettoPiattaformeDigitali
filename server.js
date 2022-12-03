@@ -112,10 +112,7 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 
     //controllo se la ricerca ha prodotto dei risultati
     if (tutorRicercati.length != 0) {
-      res.status(200).json({
-        message: "L'utente è stato rimosso!",
-        utenteRimosso: tutorRicercati,
-      });
+      res.status(200).json(tutorRicercati);
     } else {
       res.redirect("/notFound");
     }
@@ -260,15 +257,14 @@ function ricercaCorso(elemento) {
 //funzione per la ricerca dei tutor in base al nome
 function ricercaNome(elemento) {
   console.log(elemento);
-  if (elemento.nome.toString().toLowerCase() === this.toLowerCase()) {
+  if (elemento.name.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al cognome
-function ricercaCognome(elemento) {
-  let 
-  if (elemento.cognome.toString().toLowerCase() === this.toLowerCase()) {
+function ricercaCognome(elemento) { 
+  if (elemento.surname.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
 }

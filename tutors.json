@@ -64,5 +64,32 @@
     "universita": "Università Politecnica delle Marche",
     "corso": "Ingegneria Meccanica",
     "esami": []
+  },
+  {
+    "id": "1670088433853",
+    "name": "Sara",
+    "surname": "Scocco",
+    "email": "scocco.sara@gmail.com",
+    "universita": "Università degli Studi di Torino",
+    "corso": "Giurisprudenza",
+    "esami": []
+  },
+  {
+    "id": "1670088526806",
+    "name": "Michele",
+    "surname": "Moretti",
+    "email": "michele.moretti@gmail.com",
+    "universita": "Alma mater studiorum - Università di Bologna",
+    "corso": "Giurisprudenza",
+    "esami": []
+  },
+  {
+    "id": "1670088584166",
+    "name": "Alessandro",
+    "surname": "Tarducci",
+    "email": "ale.tarducci@gmail.com",
+    "universita": "Alma mater studiorum - Università di Bologna",
+    "corso": "Giurisprudenza",
+    "esami": []
   }
 ]
