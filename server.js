@@ -102,12 +102,9 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 
     //prima filtra tutti i tutor appartenenti all'università cercata
     let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
-    console.log("TutorByUbi");
-    console.log(tutorsByUni);
 
     //poi filtra l'array risultante dall'operazione precedente in base al nome
     let tutorsByNome = tutorsByUni.filter(ricercaNome, req.query.nome);
-    console.log("TutorsByName\n"+tutorsByNome);
 
     //infine filtra la''array risultante in base al cognome
     let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome);
@@ -262,6 +259,7 @@ function ricercaCorso(elemento) {
 
 //funzione per la ricerca dei tutor in base al nome
 function ricercaNome(elemento) {
+  console.log(elemento);
   if (elemento.nome.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
@@ -269,6 +267,7 @@ function ricercaNome(elemento) {
 
 //funzione per la ricerca dei tutor in base al cognome
 function ricercaCognome(elemento) {
+  let 
   if (elemento.cognome.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
