@@ -27,11 +27,12 @@
     "id": "1669022623937",
     "name": "Eugenio",
     "surname": "Fusero",
-    "email": "fuser@gmail.com",
+    "email": "eugenio.fusero@gmail.com",
     "universita": "Università degli Studi di Camerino",
     "corso": "Ingegneria Meccanica",
     "esami": [
-      ""
+      "meccanica 1",
+      "fisica generale"
     ]
   },
   {

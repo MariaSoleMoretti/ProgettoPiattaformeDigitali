@@ -8,9 +8,7 @@ app.listen(3000);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 //dichiarazione della variabili globali
-let users = [];
 let tutors = [];
 
 //homepage del sito
@@ -27,24 +25,22 @@ app.post("/home/addTutor", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
-    
+
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, tutors);
   if (esito == false) {
     console.log("ERRORE! L'email non è valida.");
     res.redirect("/badRequest");
   } else {
-    
     //aggiungo il tutor all'array dei tutor
     tutors.push(req.body);
     console.log(tutors);
-    
+
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
   }
-  res.json({message: "Tutor have been saved",
-            status: 200});
+  res.json({ message: "Tutor have been saved", status: 200 });
 });
 
 //api che filtra i tutor in base all'università
@@ -163,96 +159,29 @@ app.delete("/home/deleteTutor", (req, res) => {
   }
 });
 
-//api di aggiornamento lista esami dei singoli tutor
-app.put("/home/addExam", (req,res) =>{
-  //facciamo la read del file per modificarlo
-  let data = fs.readFileSync("tutors.json");
-  tutors = JSON.parse(data);
-  //ricerca nell'array l'elemento con l'id richiesto
-  let idTutor = tutors.findIndex((element) => element.id == req.body.id);
-
-  //controllo se l'id corrisponde ad un tutor nel database
-  if (idTutor != -1) {
-    //se il tutor è presente effettuo la modifica
-    let tutorRicercato = tutors[idTutor];
-    tutorRicercato.esami.push(req.body.esame);
-
-    //effettuo il writeback
-    tutors.fill(tutorRicercato, idTutor,0);
-    data = JSON.stringify(tutors, null, 2);
-    fs.writeFileSync("tutors.json", data);
-    console.log("File written successfully");
-    //invia la risposta la client
-    res.status(200).json({
-      message: "L'utente è stato aggiornato!",
-    });
-  } else {
-    //se non è presente mando in risposta un messaggio di errore
-    res.status(404).json({
-      message:
-        "ERRORE! Non esiste nel database un utente con id " + req.body.id,
-      status: 404,
-    });
-  } 
-});
-
 //api di aggiornamento delle email dei tutor
-app.put("/home/updateEmail", (req,res)=>{
-  //facciamo la read del file per modificarlo
-  let data = fs.readFileSync("tutors.json");
-  tutors = JSON.parse(data);
-  //ricerca nell'array l'elemento con l'id richiesto
-  let idTutor = tutors.findIndex((element) => element.id == req.body.id);
-
-  //controllo se l'id corrisponde ad un tutor nel database
-  if (idTutor != -1) {
-    //se il tutor è presente effettuo la modifica
-    let tutorRicercato = tutors[idTutor];
-    tutorRicercato.email = req.body.email;
-
-    //effettuo il writeback
-    tutors.fill(tutorRicercato, idTutor,0);
-    data = JSON.stringify(tutors, null, 2);
-    fs.writeFileSync("tutors.json", data);
-    console.log("File written successfully");
-    //invia la risposta la client
-    res.status(200).json({
-      message: "L'utente è stato aggiornato!",
-    });
-  } else {
-    //se non è presente mando in risposta un messaggio di errore
-    res.status(404).json({
-      message:
-        "ERRORE! Non esiste nel database un utente con id " + req.body.id,
-      status: 404,
-    });
-  }
-});
-
-//api di aggiornamento delle email dei tutor
-app.put("/home/updates", (req,res)=>{
+app.put("/home/updates", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
   let azione = req.body.azione;
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.body.id);
-  console.log(req.body.id);
-  console.log(idTutor);
 
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
     let tutorRicercato = tutors[idTutor];
-    console.log(tutorRicercato);
-    switch(azione){
-      case "email":
-        tutorRicercato.email = req.body.email;
+    //in base al tipo di modifica eseguo
+    switch (azione) {
       case "esame":
         tutorRicercato.esami.push(req.body.esame);
+        break;
+      case "email":
+        tutorRicercato.email = req.body.email;
+        break;
     }
     //effettuo il writeback
-    console.log(tutorRicercato);
-    tutors.fill(tutorRicercato, idTutor,0);
+    tutors.fill(tutorRicercato, idTutor, 0);
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
     console.log("File written successfully");
@@ -270,11 +199,10 @@ app.put("/home/updates", (req,res)=>{
   }
 });
 
-
-app.get("/home/research", (req,res) =>{
+app.get("/home/research", (req, res) => {
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
-    
+
   res.json(tutors);
 });
 
@@ -343,4 +271,3 @@ function ricercaCognome(elemento) {
     return true;
   }
 }
-
