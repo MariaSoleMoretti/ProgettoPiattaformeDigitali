@@ -229,6 +229,41 @@ app.put("/home/updateEmail", (req,res)=>{
   }
 });
 
+//api di aggiornamento delle email dei tutor
+app.put("/home/updates", (req,res)=>{
+  //facciamo la read del file per modificarlo
+  let data = fs.readFileSync("tutors.json");
+  tutors = JSON.parse(data);
+  let action = req.body.azione;
+  //ricerca nell'array l'elemento con l'id richiesto
+  let idTutor = tutors.findIndex((element) => element.id == req.body.id);
+
+  //controllo se l'id corrisponde ad un tutor nel database
+  if (idTutor != -1) {
+    //se il tutor è presente effettuo la modifica
+    let tutorRicercato = tutors[idTutor];
+    tutorRicercato.email = req.body.email;
+
+    //effettuo il writeback
+    tutors.fill(tutorRicercato, idTutor,0);
+    data = JSON.stringify(tutors, null, 2);
+    fs.writeFileSync("tutors.json", data);
+    console.log("File written successfully");
+    //invia la risposta la client
+    res.status(200).json({
+      message: "L'utente è stato aggiornato!",
+    });
+  } else {
+    //se non è presente mando in risposta un messaggio di errore
+    res.status(404).json({
+      message:
+        "ERRORE! Non esiste nel database un utente con id " + req.body.id,
+      status: 404,
+    });
+  }
+});
+
+
 app.get("/home/research", (req,res) =>{
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
