@@ -237,10 +237,13 @@ app.put("/home/updates", (req,res)=>{
   let azione = req.body.azione;
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.body.id);
+  console.log(req.body.id);
+  console.log(idTutor);
 
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
     let tutorRicercato = tutors[idTutor];
+    console.log(tutorRicercato);
     switch(azione){
       case "email":
         tutorRicercato.email = req.body.email;
@@ -248,6 +251,7 @@ app.put("/home/updates", (req,res)=>{
         tutorRicercato.esami.push(req.body.esame);
     }
     //effettuo il writeback
+    console.log(tutorRicercato);
     tutors.fill(tutorRicercato, idTutor,0);
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);

@@ -19,16 +19,20 @@
     "email": "marghe.moretti@icloud.it",
     "universita": "Università degli Studi di Ferrara ",
     "corso": "Biologia Molecolare",
-    "esami": []
+    "esami": [
+      "biochimica"
+    ]
   },
   {
     "id": "1669022623937",
     "name": "Eugenio",
     "surname": "Fusero",
-    "email": "fursero@icloud.it",
+    "email": "fuser@gmail.com",
     "universita": "Università degli Studi di Camerino",
     "corso": "Ingegneria Meccanica",
-    "esami": []
+    "esami": [
+      ""
+    ]
   },
   {
     "id": "1669023087264",
