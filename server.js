@@ -234,16 +234,19 @@ app.put("/home/updates", (req,res)=>{
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
-  let action = req.body.azione;
+  let azione = req.body.azione;
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.body.id);
 
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
-    //se il tutor è presente effettuo la modifica
     let tutorRicercato = tutors[idTutor];
-    tutorRicercato.email = req.body.email;
-
+    switch(azione){
+      case "email":
+        tutorRicercato.email = req.body.email;
+      case "esame":
+        tutorRicercato.esami.push(req.body.esame);
+    }
     //effettuo il writeback
     tutors.fill(tutorRicercato, idTutor,0);
     data = JSON.stringify(tutors, null, 2);
