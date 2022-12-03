@@ -102,16 +102,23 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 
     //prima filtra tutti i tutor appartenenti all'università cercata
     let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+    console.log("TutorByUbi");
+    console.log(tutorsByUni);
 
     //poi filtra l'array risultante dall'operazione precedente in base al nome
     let tutorsByNome = tutorsByUni.filter(ricercaNome, req.query.nome);
+    console.log("TutorsByName\n"+tutorsByNome);
 
     //infine filtra la''array risultante in base al cognome
     let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome);
+    console.log(tutorRicercati);
 
     //controllo se la ricerca ha prodotto dei risultati
     if (tutorRicercati.length != 0) {
-      res.status(200).json(tutorRicercati);
+      res.status(200).json({
+        message: "L'utente è stato rimosso!",
+        utenteRimosso: tutorRicercati,
+      });
     } else {
       res.redirect("/notFound");
     }
@@ -207,11 +214,6 @@ app.get("/home/research", (req, res) => {
 });
 
 //api per settare lo status
-app.get("/ok", (req, res) => {
-  res
-    .status(200)
-    .json({ message: "L'operazione è andata a buon fine.", status: 200 });
-});
 
 app.get("/badRequest", (req, res) => {
   res.sendStatus(400);

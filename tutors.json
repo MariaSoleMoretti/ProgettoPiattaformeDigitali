@@ -55,5 +55,14 @@
     "universita": "Politecnico di Milano",
     "corso": "Ingegneria Biomeccanica",
     "esami": []
+  },
+  {
+    "id": "1670072098181",
+    "name": "Riccardo",
+    "surname": "Camilletti",
+    "email": "ricc.camilletti@libero.it",
+    "universita": "Università Politecnica delle Marche",
+    "corso": "Ingegneria Meccanica",
+    "esami": []
   }
 ]
