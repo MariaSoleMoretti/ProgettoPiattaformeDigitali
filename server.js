@@ -67,38 +67,6 @@ app.get("/home/cercaUniversita", (req, res) => {
   }
 });
 
-app.post("/home/updates", (req, res) => {
-  //facciamo la read del file per modificarlo
-  let data = fs.readFileSync("tutors.json");
-  tutors = JSON.parse(data);
-  let action = req.body.azione;
-  
-  switch(action){
-    case "email":
-      //salvataggio del tutor del database
-      let esito = validazioneInput(req.body.email, tutors);
-      if (esito == false) {
-        console.log("ERRORE! L'email non è valida.");
-        res.redirect("/badRequest");
-      } else {
-        //aggiungo il tutor all'array dei tutor
-        tutors.push(req.body);
-        console.log(tutors);
-      }
-      
-    case "addExam":
-      
-  }
-
-    
-    //effettuo il writeback nel file
-    data = JSON.stringify(tutors, null, 2);
-    fs.writeFileSync("tutors.json", data);
-    res.json({message: "Tutor have been saved",
-              status: 200});
-});
-
-
 //api che filtra i tutor in base all'università e il corso
 app.get("/home/cercaUniversitaCorso", (req, res) => {
   const uni = req.query.universita.toString();
