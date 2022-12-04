@@ -123,7 +123,8 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 
 //api di ricerca dei tutor del database
 app.get("/home/researchTutors", (req, res) => {
-  let filtriRicerca = req.query.filters;
+  let filtriRicerca = req.query.filtri;
+  console.log(filtriRicerca);
   let data = fs.readFileSync("tutors.json");
   let tutorsByUni = [];
   let tutorsByName = [];
@@ -134,11 +135,13 @@ app.get("/home/researchTutors", (req, res) => {
     
     switch(filtriRicerca){
       case 1:
+        console.log("Sono nel case 1.");
         //prima filtra tutti i tutor appartenenti all'università cercata
         tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
         console.log(tutorRicercati);
       break;
       case 2:
+        console.log("Sono nel case 2.");
         //prima filtra tutti i tutor appartenenti all'università cercata
         tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
         //successivamente filtriamo l'array rusultante dall'operazione precedente
@@ -147,6 +150,7 @@ app.get("/home/researchTutors", (req, res) => {
         console.log(tutorRicercati);
       break;
       case 3:
+        console.log("Sono nel case 3.");
         //prima filtra tutti i tutor appartenenti all'università cercata
         tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
         //poi filtra l'array risultante dall'operazione precedente in base al nome
@@ -157,7 +161,7 @@ app.get("/home/researchTutors", (req, res) => {
       break;
       default:
         res.redirect("/badRequest");
-      break;
+      return;
     }
     //controllo se la ricerca ha prodotto dei risultati
     if (tutorRicercati.length != 0) {
