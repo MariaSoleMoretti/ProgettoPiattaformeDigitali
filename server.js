@@ -122,11 +122,12 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 });
 
 //api di ricerca dei tutor del database
-app.get("/home/researchTutor", (req, res) => {
+app.get("/home/researchTutors", (req, res) => {
   let filtriRicerca = req.query.filters;
   let data = fs.readFileSync("tutors.json");
   let tutorsByUni = [];
-  let
+  let tutorsByName = [];
+  let tutorRicercati = [];
 
   if(data != null) {
     tutors = JSON.parse(data);
@@ -134,24 +135,30 @@ app.get("/home/researchTutor", (req, res) => {
     switch(filtriRicerca){
       case 1:
         //prima filtra tutti i tutor appartenenti all'università cercata
-        let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+        tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+        console.log(tutorRicercati);
       break;
       case 2:
         //prima filtra tutti i tutor appartenenti all'università cercata
-        let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+        tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
         //successivamente filtriamo l'array rusultante dall'operazione precedente
         //per cercare i tutor di quella università che seguino il corso ricercato
-        let tutorRicercati = tutorsByUni.filter(ricercaCorso,req.query.corso);
+        tutorRicercati = tutorsByUni.filter(ricercaCorso,req.query.corso);
+        console.log(tutorRicercati);
       break;
       case 3:
         //prima filtra tutti i tutor appartenenti all'università cercata
-        let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+        tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
         //poi filtra l'array risultante dall'operazione precedente in base al nome
-        let tutorsByNome = tutorsByUni.filter(ricercaNome, req.query.nome);
+        tutorsByName = tutorsByUni.filter(ricercaNome, req.query.nome);
         //infine filtra la''array risultante in base al cognome
-        let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome); 
+        tutorRicercati = tutorsByName.filter(ricercaCognome, req.query.cognome); 
+        console.log(tutorRicercati);
+      break;
+      default:
+        res.redirect("/badRequest");
+      break;
     }
-    console.log(tutorRicercati);
     //controllo se la ricerca ha prodotto dei risultati
     if (tutorRicercati.length != 0) {
       res.status(200).json(tutorRicercati);
