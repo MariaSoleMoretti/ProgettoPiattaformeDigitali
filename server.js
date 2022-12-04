@@ -121,6 +121,35 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
   }
 });
 
+//api che filtra i tutor in base all'università, nome e cognome
+app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
+  const uni = req.query.universita.toString();
+  let data = fs.readFileSync("tutors.json");
+
+  if (data != null) {
+    tutors = JSON.parse(data);
+
+    //prima filtra tutti i tutor appartenenti all'università cercata
+    let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+
+    //poi filtra l'array risultante dall'operazione precedente in base al nome
+    let tutorsByNome = tutorsByUni.filter(ricercaNome, req.query.nome);
+
+    //infine filtra la''array risultante in base al cognome
+    let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome);
+    console.log(tutorRicercati);
+
+    //controllo se la ricerca ha prodotto dei risultati
+    if (tutorRicercati.length != 0) {
+      res.status(200).json(tutorRicercati);
+    } else {
+      res.redirect("/notFound");
+    }
+  } else {
+    res.redirect("/notFound");
+  }
+});
+
 //pagina per la modifica dal database
 app.get("/home/deleteTutor", (req, res) => {
   res.sendFile("/app/views/deleteTutor.html");
