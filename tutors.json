@@ -4,7 +4,7 @@
     "name": "Sara",
     "surname": "Yosef",
     "email": "yosef@gmail.com",
-    "universita": "Università degli Studi di Urbino ",
+    "universita": "Università degli Studi di Urbino",
     "corso": "Farmacia",
     "esami": [
       "analisi degli alimenti",
@@ -17,7 +17,7 @@
     "name": "Margherita",
     "surname": "Moretti",
     "email": "marghe.moretti@icloud.it",
-    "universita": "Università degli Studi di Ferrara ",
+    "universita": "Università degli Studi di Ferrara",
     "corso": "Biologia Molecolare",
     "esami": [
       "biochimica"

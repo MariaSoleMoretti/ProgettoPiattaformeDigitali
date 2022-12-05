@@ -135,7 +135,7 @@ app.get("/home/researchTutors", (req, res) => {
     switch(parseInt(filtriRicerca)){
       case 1:
         //prima filtra tutti i tutor appartenenti all'università cercata
-        tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+        tutorRicercati = tutors.filter(ricercaUniversità, req.query.universita);
         console.log(tutorRicercati);
       break;
       case 2:
@@ -292,17 +292,14 @@ function ricercaEmail(elemento) {
 
 //funzione per la ricerca dei tutor in base all'università
 function ricercaUniversità(elemento) {
-  console.log(elemento.universita.toString().toLowerCase());
-  console.log(this.toLowerCase());
-  console.log("----------------------------------------------");
-  if (elemento.universita.toString().toLowerCase() === this.toLowerCase()) {
+  if (elemento.universita.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al corso
 function ricercaCorso(elemento) {
-  if (elemento.corso.toString().toLowerCase() === this.toLowerCase()) {
+  if (elemento.corso.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }
@@ -310,14 +307,14 @@ function ricercaCorso(elemento) {
 //funzione per la ricerca dei tutor in base al nome
 function ricercaNome(elemento) {
   console.log(elemento);
-  if (elemento.name.toString().toLowerCase() === this.toLowerCase()) {
+  if (elemento.name.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al cognome
 function ricercaCognome(elemento) { 
-  if (elemento.surname.toString().toLowerCase() === this.toLowerCase()) {
+  if (elemento.surname.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }
