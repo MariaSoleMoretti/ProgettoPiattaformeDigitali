@@ -90,7 +90,7 @@ app.get("/home/researchTutors", (req, res) => {
         console.log(tutorRicercati);
       break;
       default:
-        res.redirect("/badRequest");
+        res.redirect("/printAll");
       return;
     }
     //controllo se la ricerca ha prodotto dei risultati
@@ -178,11 +178,12 @@ app.put("/home/updateTutor", (req, res) => {
   }
 });
 
-app.get("/home/research", (req, res) => {
-  let data = fs.readFileSync("tutors.json");
-  tutors = JSON.parse(data);
+app.get("/printAll", (req, res, tutors) => {
 
-  res.json(tutors);
+  res.status(200).json({
+    message: "I tutor sono i seguenti",
+    tutors: tutors
+  });
 });
 
 //api per settare lo status
