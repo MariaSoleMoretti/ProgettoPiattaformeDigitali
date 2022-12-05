@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //dichiarazione della variabili globali
 let tutors = [];
+let tutorRicercati = [];
 
 
 app.post("/home/addTutor", (req, res) => {
@@ -60,7 +61,6 @@ app.get("/home/researchTutors", (req, res) => {
   let data = fs.readFileSync("tutors.json");
   let tutorsByUni = [];
   let tutorsByName = [];
-  let tutorRicercati = [];
 
   if(data != null) {
     tutors = JSON.parse(data);
@@ -90,6 +90,7 @@ app.get("/home/researchTutors", (req, res) => {
         console.log(tutorRicercati);
       break;
       default:
+        tutorRicercati = tutors;
         res.redirect("/printAll");
       return;
     }
@@ -180,6 +181,7 @@ app.put("/home/updateTutor", (req, res) => {
 
 app.get("/printAll", (req, res, tutors) => {
 
+  console.log(tutors);
   res.status(200).json({
     message: "I tutor sono i seguenti",
     tutors: tutors
