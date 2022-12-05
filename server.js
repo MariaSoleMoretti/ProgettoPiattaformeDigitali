@@ -63,64 +63,6 @@ app.get("/home/cercaUniversita", (req, res) => {
   }
 });
 
-//api che filtra i tutor in base all'università e il corso
-app.get("/home/cercaUniversitaCorso", (req, res) => {
-  const uni = req.query.universita.toString();
-  let data = fs.readFileSync("tutors.json");
-
-  if (data != null) {
-    const tutors = JSON.parse(data);
-    //prima filtra tutti i tutor appartenenti all'università cercata
-    let tutorRicercatiUni = tutors.filter(
-      ricercaUniversità,
-      req.query.universita
-    );
-    //successivamente filtriamo l'array rusultante dall'operazione precedente
-    //per cercare i tutor di quella università che seguino il corso ricercato
-    let tutorRicercati = tutorRicercatiUni.filter(
-      ricercaCorso,
-      req.query.corso
-    );
-    //controllo se la ricerca ha prodotto dei risultati
-    if (tutorRicercati.length != 0) {
-      res.status(200).json(tutorRicercati);
-    } else {
-      res.redirect("/notFound");
-    }
-  } else {
-    res.redirect("/notFound");
-  }
-});
-
-//api che filtra i tutor in base all'università, nome e cognome
-app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
-  const uni = req.query.universita.toString();
-  let data = fs.readFileSync("tutors.json");
-
-  if (data != null) {
-    tutors = JSON.parse(data);
-
-    //prima filtra tutti i tutor appartenenti all'università cercata
-    let tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
-
-    //poi filtra l'array risultante dall'operazione precedente in base al nome
-    let tutorsByNome = tutorsByUni.filter(ricercaNome, req.query.nome);
-
-    //infine filtra la''array risultante in base al cognome
-    let tutorRicercati = tutorsByNome.filter(ricercaCognome, req.query.cognome);
-    console.log(tutorRicercati);
-
-    //controllo se la ricerca ha prodotto dei risultati
-    if (tutorRicercati.length != 0) {
-      res.status(200).json(tutorRicercati);
-    } else {
-      res.redirect("/notFound");
-    }
-  } else {
-    res.redirect("/notFound");
-  }
-});
-
 //api di ricerca dei tutor del database
 app.get("/home/researchTutors", (req, res) => {
   let filtriRicerca = req.query.filtri;
@@ -211,7 +153,7 @@ app.delete("/home/deleteTutor", (req, res) => {
 });
 
 //api di aggiornamento delle email dei tutor
-app.put("/home/updates", (req, res) => {
+app.put("/home/updateTutor", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
@@ -285,7 +227,7 @@ function validazioneInput(email, t) {
 
 //funzione che filtra i tutor in base alla email
 function ricercaEmail(elemento) {
-  if (elemento.email.toString().toLowerCase() === this.toLowerCase()) {
+  if (elemento.email.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }

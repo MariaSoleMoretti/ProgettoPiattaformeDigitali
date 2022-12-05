@@ -91,5 +91,32 @@
     "universita": "Alma mater studiorum - Università di Bologna",
     "corso": "Giurisprudenza",
     "esami": []
+  },
+  {
+    "id": "1670235834015",
+    "name": "Francesca",
+    "surname": "Fontanelli",
+    "email": "fontanelli@icloud.it",
+    "universita": "Alma mater studiorum - Università di Bologna",
+    "corso": "Scienze della Comunicazione",
+    "esami": []
+  },
+  {
+    "id": "1670235876820",
+    "name": "Marika",
+    "surname": "Nicotra",
+    "email": "marika.niko@gmail.com",
+    "universita": "Università degli Studi di Urbino",
+    "corso": "Lingue Moderne",
+    "esami": []
+  },
+  {
+    "id": "1670235912437",
+    "name": "Vincenzo",
+    "surname": "Valente",
+    "email": "vinz.valente@libero.it",
+    "universita": "Università degli Studi di Urbino",
+    "corso": "Lingue Moderne",
+    "esami": []
   }
 ]
