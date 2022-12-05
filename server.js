@@ -124,7 +124,6 @@ app.get("/home/cercaUniversitaNomeCognome", (req, res) => {
 //api di ricerca dei tutor del database
 app.get("/home/researchTutors", (req, res) => {
   let filtriRicerca = req.query.filtri;
-  console.log(filtriRicerca);
   let data = fs.readFileSync("tutors.json");
   let tutorsByUni = [];
   let tutorsByName = [];
@@ -133,15 +132,14 @@ app.get("/home/researchTutors", (req, res) => {
   if(data != null) {
     tutors = JSON.parse(data);
     
-    switch(filtriRicerca){
+    switch(parseInt(filtriRicerca)){
       case 1:
-        console.log("Sono nel case 1.");
         //prima filtra tutti i tutor appartenenti all'università cercata
         tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
         console.log(tutorRicercati);
       break;
       case 2:
-        console.log("Sono nel case 2.");
+        console.log(req.query.universita);
         //prima filtra tutti i tutor appartenenti all'università cercata
         tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
         //successivamente filtriamo l'array rusultante dall'operazione precedente
@@ -150,7 +148,6 @@ app.get("/home/researchTutors", (req, res) => {
         console.log(tutorRicercati);
       break;
       case 3:
-        console.log("Sono nel case 3.");
         //prima filtra tutti i tutor appartenenti all'università cercata
         tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
         //poi filtra l'array risultante dall'operazione precedente in base al nome
@@ -295,6 +292,9 @@ function ricercaEmail(elemento) {
 
 //funzione per la ricerca dei tutor in base all'università
 function ricercaUniversità(elemento) {
+  console.log(elemento.universita.toString().toLowerCase());
+  console.log(this.toLowerCase());
+  console.log("----------------------------------------------");
   if (elemento.universita.toString().toLowerCase() === this.toLowerCase()) {
     return true;
   }
