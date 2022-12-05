@@ -69,7 +69,7 @@ app.get("/home/researchTutors", (req, res) => {
       case 1:
         //prima filtra tutti i tutor appartenenti all'università cercata
         tutorRicercati = tutors.filter(ricercaUniversità, req.query.universita);
-        console.log(tutorRicercati);
+        res.redirect("/printAll");
       break;
       case 2:
         console.log(req.query.universita);
@@ -78,7 +78,7 @@ app.get("/home/researchTutors", (req, res) => {
         //successivamente filtriamo l'array rusultante dall'operazione precedente
         //per cercare i tutor di quella università che seguino il corso ricercato
         tutorRicercati = tutorsByUni.filter(ricercaCorso,req.query.corso);
-        console.log(tutorRicercati);
+        res.redirect("/printAll");
       break;
       case 3:
         //prima filtra tutti i tutor appartenenti all'università cercata
@@ -86,8 +86,8 @@ app.get("/home/researchTutors", (req, res) => {
         //poi filtra l'array risultante dall'operazione precedente in base al nome
         tutorsByName = tutorsByUni.filter(ricercaNome, req.query.nome);
         //infine filtra la''array risultante in base al cognome
-        tutorRicercati = tutorsByName.filter(ricercaCognome, req.query.cognome); 
-        console.log(tutorRicercati);
+        tutorRicercati = tutorsByName.filter(ricercaCognome, req.query.cognome);
+        res.redirect("/printAll");
       break;
       default:
         tutorRicercati = tutors;
@@ -95,11 +95,11 @@ app.get("/home/researchTutors", (req, res) => {
       return;
     }
     //controllo se la ricerca ha prodotto dei risultati
-    if (tutorRicercati.length != 0) {
+    /*if (tutorRicercati.length != 0) {
       res.status(200).json(tutorRicercati);
     } else {
       res.redirect("/notFound");
-    }
+    }*/
   } else {
     res.redirect("/notFound");
   }
@@ -179,12 +179,10 @@ app.put("/home/updateTutor", (req, res) => {
   }
 });
 
-app.get("/printAll", (req, res, tutors) => {
-
-  console.log(tutors);
+app.get("/printAll", (req, res) => {
   res.status(200).json({
     message: "I tutor sono i seguenti",
-    tutors: tutors
+    tutors: tutorRicercati
   });
 });
 
