@@ -11,15 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 //dichiarazione della variabili globali
 let tutors = [];
 
-//homepage del sito
-app.get("/home", (req, res) => {
-  res.sendFile("/app/views/home.html");
-});
-
-//pagina del login
-app.get("/home/addTutor", (req, res) => {
-  res.sendFile("/app/views/addTutor.html");
-});
 
 app.post("/home/addTutor", (req, res) => {
   //facciamo la read del file per modificarlo
@@ -111,11 +102,6 @@ app.get("/home/researchTutors", (req, res) => {
   } else {
     res.redirect("/notFound");
   }
-});
-
-//pagina per la modifica dal database
-app.get("/home/deleteTutor", (req, res) => {
-  res.sendFile("/app/views/deleteTutor.html");
 });
 
 //api per eliminare un utente dal database ricercandolo in base all'id
