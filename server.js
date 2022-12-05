@@ -20,13 +20,13 @@ app.post("/home/addTutor", (req, res) => {
 
   //salvataggio del tutor del database
   let esito = validazioneInput(req.body.email, tutors);
+  console.log(esito);
   if (esito == false) {
     console.log("ERRORE! L'email non è valida.");
     res.redirect("/badRequest");
   } else {
     //aggiungo il tutor all'array dei tutor
     tutors.push(req.body);
-    console.log(tutors);
 
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
@@ -94,12 +94,6 @@ app.get("/home/researchTutors", (req, res) => {
         res.redirect("/printAll");
       return;
     }
-    //controllo se la ricerca ha prodotto dei risultati
-    /*if (tutorRicercati.length != 0) {
-      res.status(200).json(tutorRicercati);
-    } else {
-      res.redirect("/notFound");
-    }*/
   } else {
     res.redirect("/notFound");
   }
@@ -204,7 +198,7 @@ function validazioneInput(email, t) {
   let esito = true;
   let tutorsByEmail = t.filter(ricercaEmail, email);
   console.log(tutorsByEmail);
-  if (tutorsByEmail.lenght == 0 || email.toString().indexOf("@") == -1) {
+  if (tutorsByEmail.lenght != 0 || email.toString().indexOf("@") == -1) {
     //se l'email è già presente oppure se l'email inserita non contiene il carettere @ l'email non è valida
     esito = false;
   }
