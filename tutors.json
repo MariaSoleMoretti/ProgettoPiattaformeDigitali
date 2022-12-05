@@ -125,5 +125,12 @@
     "email": "more.michele@gmail.com",
     "universita": "Università degli Studi di Macerata",
     "corso": "Giurisprudenza"
+  },
+  {
+    "nome": "Mario",
+    "cognome": "Moretti",
+    "email": "more.mario@gmail.com",
+    "universita": "Università degli Studi di Bergamo",
+    "corso": "Scienze Motorie"
   }
 ]
