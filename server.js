@@ -31,8 +31,8 @@ app.post("/home/addTutor", (req, res) => {
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
+    res.json({ message: "Tutor have been saved", status: 200 });
   }
-  res.json({ message: "Tutor have been saved", status: 200 });
 });
 
 //api che filtra i tutor in base all'università
@@ -197,8 +197,8 @@ app.get("/notFound", (req, res) => {
 function validazioneInput(email, t) {
   let esito = true;
   let tutorsByEmail = t.filter(ricercaEmail, email);
-  console.log(tutorsByEmail);
-  if (tutorsByEmail.lenght != 0 || email.toString().indexOf("@") == -1) {
+  
+  if (tutorsByEmail.length!= 0 || email.toString().indexOf("@") == -1) {
     //se l'email è già presente oppure se l'email inserita non contiene il carettere @ l'email non è valida
     esito = false;
   }

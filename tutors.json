@@ -118,5 +118,12 @@
     "universita": "Università degli Studi di Urbino",
     "corso": "Lingue Moderne",
     "esami": []
+  },
+  {
+    "nome": "Michele",
+    "cognome": "Moretti",
+    "email": "more.michele@gmail.com",
+    "universita": "Università degli Studi di Macerata",
+    "corso": "Giurisprudenza"
   }
 ]
