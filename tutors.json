@@ -124,13 +124,24 @@
     "cognome": "Moretti",
     "email": "more.michele@gmail.com",
     "universita": "Università degli Studi di Macerata",
-    "corso": "Giurisprudenza"
+    "corso": "Giurisprudenza",
+    "esami": []
   },
   {
     "nome": "Mario",
     "cognome": "Moretti",
     "email": "more.mario@gmail.com",
     "universita": "Università degli Studi di Bergamo",
-    "corso": "Scienze Motorie"
+    "corso": "Scienze Motorie",
+    "esami": []
+  },
+  {
+    "id": "1670322204991",
+    "name": "Francesco",
+    "surname": "Giuggioloni",
+    "email": "giuggio.fra@gmail.com",
+    "universita": "Università della Calabria",
+    "corso": "Scienze Politiche",
+    "esami": []
   }
 ]
