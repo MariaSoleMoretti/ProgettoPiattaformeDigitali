@@ -12,6 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 let tutors = [];
 let tutorRicercati = [];
 
+app.get("/home", (req,res) =>{
+  res.sendFile("/app/views/home.html");
+})
 
 app.post("/home/addTutor", (req, res) => {
   //facciamo la read del file per modificarlo
