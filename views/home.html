@@ -58,7 +58,7 @@
     <div>
       <label for= "search"> Cerca Tutor</label><br>
       <input type = "search" id = " search" data-search>
-      <button> Cerca</button>
+      <button type="button" id="deleteValue" onclick= "deleteTutor()" >Cancella</button>
     </div>
     <hr>
     
@@ -67,14 +67,26 @@
       Aggiornamento dati Tutor
     </h2>
     <div>
-        <label for="id">ID</label>
-        <input type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
+      <label for="id">ID</label><br>
+      <input type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
+    </div><br>
+    <div>
+      <div>
+        <label for="id">Modifica</label>
+        <button>Email</button>
+        <button>Nuovo Esame</button>
       </div>
+      <input type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
+      <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
+    </div>
     
   </body>
   
+  
+  
+  <! FUNZIONE PER CERCARE UN TUTOR >
   <script>
-    async function getTutors(){
+    async function researchTutors(){
       const researchValue = document.getElementById("researchValue").value;
       
       if(!researchValue){
@@ -90,6 +102,7 @@
     }
   </script>
   
+  <! FUNZIONE PER AGGIUNGERE UN NUOVO TUTOR >
   <script>
     async function addTutor(){
       
@@ -128,63 +141,78 @@
     }
   </script>
   
-<datalist id="nome-università">
-  <!Università delle Marche>
-  <option value="Università Politecnica delle Marche"></option>
-  <option value="Università degli Studi di Camerino"></option>
-  <option value="Università degli Studi di Macerata"></option>
-  <option value="Università degli Studi di Urbino"></option>
-  <!Università dell'Abruzzo>
-  <option value="Università degli Studi Gabriele d'Annunzio"></option>
-  <option value="Università degli Studi dell'Aquila"></option>
-  <option value="Università degli Studi di Teramo"></option>
-  <! Università della Basilicata>
-  <option value="Università degli Studi della Basilicata"></option>
-  <! Università della Calabria>
-  <option value="Università degli Studi Magna Græcia di Catanzaro"></option>
-  <option value="Università della Calabria"></option>
-  <option value="Università degli Studi Mediterranea di Reggio Calabria"></option>
-  <! Università della Campania>
-  <option value="Università degli Studi di Napoli Federico II"></option>
-  <option value="Università degli Studi di Napoli L'Orientale"></option>
-  <option value="Università degli Studi di Napoli Parthenope"></option>
-  <option value="Università degli Studi della Campania Luigi Vanvitelli"></option>
-  <option value="Università degli Studi di Salerno"></option>
-  <option value="Università degli Studi del Sannio"></option>
-  <! Università dell'Emilia Romagna>
-  <option value ="Alma mater studiorum - Università di Bologna"></option>
-  <option value ="Università degli Studi di Ferrara"></option>
-  <option value ="Università degli Studi di Modena e Reggio Emilia"></option>
-  <option value ="Università degli Studi di Parma"></option>
-  <! Università Fiuli Venzia Giulia>
-  <option value ="Università degli Studi di Trieste"></option>
-  <option value ="Università degli Studi di Udine"></option>
-  <! Università del Lazio>
-  <option value ="Università degli Studi di Cassino e del Lazio Meridionale"></option>
-  <option value ="Università degli Studi di Roma Foro Italico"></option>
-  <option value ="Università degli Studi di Roma La Sapienza"></option>
-  <option value ="Università degli Studi di Roma Tor Vergata"></option>
-  <option value ="Università degli Studi Roma Tre"></option>
-  <option value ="Università degli Studi della Tuscia"></option>
-  <! Università della Liguria>
-  <option value ="Università degli Studi di Genova"></option>
-  <!Università del Lombardia>
-  <option value ="Università degli Studi di Bergamo"></option>
-  <option value ="Università degli Studi di Brescia"></option>
-  <option value ="Politecnico di Milano"></option>
-  <option value ="Università degli Studi di Milano"></option>
-  <option value ="Università degli Studi di Milano-Bicocca"></option>
-  <option value ="Istituto Universitario di Studi Superiori"></option>
-  <option value ="Università degli Studi di Pavia"></option>
-  <option value ="Università degli Studi dell'Insubria"></option>
-  <!Università del Molise>
-  <option value ="Università degli Studi del Molise"></option>
-  <! Università del Piemonte>
-  <option value ="Università degli Studi del Piemonte Orientale Amedeo Avogadro"></option>
-  <option value ="Università degli Studi di Torino"></option>
-  <option value ="Politecnico di Torino"></option>
-  <!Università della Puglia>
+  <! FUNZIONE PER ELIMINARE UN TUTOR >
+  <script>
+    async function deleteTutor(){
+      
+    }
+  </script>
   
-</datalist>
+  <! FUNZIONE PER MODIFICARE UN TUTOR >
+  <script>
+    async function updateTutor(){
+      
+    }
+  </script>
+
+  <! LISTA UNIVERSITA' PER AGGIUNGERE UN NUOVO TUTOR >
+  <datalist id="nome-università">
+    <!Università delle Marche>
+    <option value="Università Politecnica delle Marche"></option>
+    <option value="Università degli Studi di Camerino"></option>
+    <option value="Università degli Studi di Macerata"></option>
+    <option value="Università degli Studi di Urbino"></option>
+    <!Università dell'Abruzzo>
+    <option value="Università degli Studi Gabriele d'Annunzio"></option>
+    <option value="Università degli Studi dell'Aquila"></option>
+    <option value="Università degli Studi di Teramo"></option>
+    <! Università della Basilicata>
+    <option value="Università degli Studi della Basilicata"></option>
+    <! Università della Calabria>
+    <option value="Università degli Studi Magna Græcia di Catanzaro"></option>
+    <option value="Università della Calabria"></option>
+    <option value="Università degli Studi Mediterranea di Reggio Calabria"></option>
+    <! Università della Campania>
+    <option value="Università degli Studi di Napoli Federico II"></option>
+    <option value="Università degli Studi di Napoli L'Orientale"></option>
+    <option value="Università degli Studi di Napoli Parthenope"></option>
+    <option value="Università degli Studi della Campania Luigi Vanvitelli"></option>
+    <option value="Università degli Studi di Salerno"></option>
+    <option value="Università degli Studi del Sannio"></option>
+    <! Università dell'Emilia Romagna>
+    <option value ="Alma mater studiorum - Università di Bologna"></option>
+    <option value ="Università degli Studi di Ferrara"></option>
+    <option value ="Università degli Studi di Modena e Reggio Emilia"></option>
+    <option value ="Università degli Studi di Parma"></option>
+    <! Università Fiuli Venzia Giulia>
+    <option value ="Università degli Studi di Trieste"></option>
+    <option value ="Università degli Studi di Udine"></option>
+    <! Università del Lazio>
+    <option value ="Università degli Studi di Cassino e del Lazio Meridionale"></option>
+    <option value ="Università degli Studi di Roma Foro Italico"></option>
+    <option value ="Università degli Studi di Roma La Sapienza"></option>
+    <option value ="Università degli Studi di Roma Tor Vergata"></option>
+    <option value ="Università degli Studi Roma Tre"></option>
+    <option value ="Università degli Studi della Tuscia"></option>
+    <! Università della Liguria>
+    <option value ="Università degli Studi di Genova"></option>
+    <!Università del Lombardia>
+    <option value ="Università degli Studi di Bergamo"></option>
+    <option value ="Università degli Studi di Brescia"></option>
+    <option value ="Politecnico di Milano"></option>
+    <option value ="Università degli Studi di Milano"></option>
+    <option value ="Università degli Studi di Milano-Bicocca"></option>
+    <option value ="Istituto Universitario di Studi Superiori"></option>
+    <option value ="Università degli Studi di Pavia"></option>
+    <option value ="Università degli Studi dell'Insubria"></option>
+    <!Università del Molise>
+    <option value ="Università degli Studi del Molise"></option>
+    <! Università del Piemonte>
+    <option value ="Università degli Studi del Piemonte Orientale Amedeo Avogadro"></option>
+    <option value ="Università degli Studi di Torino"></option>
+    <option value ="Politecnico di Torino"></option>
+    <!Università della Puglia>
+
+  </datalist>
   
 </html>
