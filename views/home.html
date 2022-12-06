@@ -13,44 +13,33 @@
       <input type = "text" id = "researchValue" placeholder = "Cerca">
       <button type="button" id="btn1" onclick="getTutors()"> Cerca</button>
     </div>
-    
-    <div></div>
-    <template data-user-template>
-      <div class="card">
-        <div class="header" data-header></div>
-        <div class="body" data-body></div>
-      </div>
-    </template>
     <br>
     
     <! Aggiunta di un nuovo tutor nel database>
     <hr> 
-    <div>
-        <p> Vuoi aggiungere un tutor? <a href="/home/addTutor">Aggiungi Tutor</a></p>
-      </div>
-      <h2>
-        Registra un nuovo Tutor!
-      </h2>
+    <h2>
+      Registra un nuovo Tutor
+    </h2>
 
-      <form action="" id="addTutor">
-        <div>
-          <label for="name">Nome</label>
-          <input type="text" id="name" name="name" >
-        </div>
-        <div>
-          <label for="surname">Cognome</label>
-          <input type="text" id="surname" name="name" >
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" >
-        </div>
-        <div>
-          <label for="universita">Università</label>
-          <input list="nome-università" name="universita" id="universita">
-          <!input list="nome-universita" id="universita" name="universita" autocomplete= "on">
-        </div>
-        <div>
+    <form action="" id="addTutor">
+      <div>
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" >
+      </div>
+      <div>
+        <label for="surname">Cognome</label>
+        <input type="text" id="surname" name="name" >
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" >
+      </div>
+      <div>
+        <label for="universita">Università</label>
+        <input list="nome-università" name="universita" id="universita">
+        <!input list="nome-universita" id="universita" name="universita" autocomplete= "on">
+      </div>
+      <div>
           <label for="corso">Corso di Studi</label>
           <input type="text" id="corso" name="corso" >
         </div>
@@ -58,10 +47,11 @@
         <button type="button" id="newValue" onclick= "addTutor()" >Aggiungi</button>
       </form>
       <hr>
-      <p> Vuoi eliminare un tutor? <a href="/home/deleteTutor">Elimina Tutor</a></p>
+    
+    <! Calcellazione di un nuovo tutor nel database>
     <div>
       <h2>
-        Ricerca Tutor da eliminare
+        Calcellazione dati Tutor
       </h2>
     </div>
 
@@ -70,6 +60,16 @@
       <input type = "search" id = " search" data-search>
       <button> Cerca</button>
     </div>
+    <hr>
+    
+    <! Aggiornamento tutor dati tutor>
+    <h2>
+      Aggiornamento dati Tutor
+    </h2>
+    <div>
+        <label for="id">ID</label>
+        <input type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
+      </div>
     
   </body>
   
