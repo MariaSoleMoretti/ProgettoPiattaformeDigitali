@@ -101,15 +101,36 @@
         return;
       }
       
-      const searchTutor = ({
-        id: Date.now().toString(),
-        name : document.getElementById("name").value,
-        surname : document.getElementById("surname").value,
-        email : document.getElementById("email").value,
-        universita : document.getElementById("universita").value,
-        corso : document.getElementById("corso").value,
-        esami:[] 
-      })
+      switch(parseInt(filtriRicerca)){
+      case 1:
+        //prima filtra tutti i tutor appartenenti all'università cercata
+        
+      break;
+      case 2:
+        console.log(req.query.universita);
+        //prima filtra tutti i tutor appartenenti all'università cercata
+        tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+        //successivamente filtriamo l'array rusultante dall'operazione precedente
+        //per cercare i tutor di quella università che seguino il corso ricercato
+        tutorRicercati = tutorsByUni.filter(ricercaCorso,req.query.corso);
+        res.redirect("/printAll");
+      break;
+      case 3:
+        //prima filtra tutti i tutor appartenenti all'università cercata
+        tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
+        //poi filtra l'array risultante dall'operazione precedente in base al nome
+        tutorsByName = tutorsByUni.filter(ricercaNome, req.query.nome);
+        //infine filtra la''array risultante in base al cognome
+        tutorRicercati = tutorsByName.filter(ricercaCognome, req.query.cognome);
+        res.redirect("/printAll");
+      break;
+      default:
+        tutorRicercati = tutors;
+        res.redirect("/printAll");
+      return;
+    }
+      
+      const filtriRicerca = ;
       
       //opzioni per la fetch
       const options = {
@@ -124,7 +145,7 @@
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/researchTutor', options)
       .then((response) => {
         if (response.ok) {
-          alert("Nuovo tutor aggiunto!");
+          alert("La ricerca è andata a buon fine!");
           return response.json();
         }
         alert('ERROR!Something went wrong!');
@@ -133,7 +154,7 @@
           console.log(e);
       });
       //pulisce la form
-      document.getElementById("addTutor").reset();
+      document.getElementById("researchValue").reset();
       
     }
     
