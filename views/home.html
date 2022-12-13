@@ -101,27 +101,12 @@
         return;
       }
       
-      if((filtroUni == true) && (filtroNome = false) && (filtroCognome == false) && (filtroCorso == false){
-         filtroUni = true;
-         }
-      
-      const searchTutor = ({
-        id: Date.now().toString(),
-        name : document.getElementById("name").value,
-        surname : document.getElementById("surname").value,
-        email : document.getElementById("email").value,
-        universita : document.getElementById("universita").value,
-        corso : document.getElementById("corso").value,
-        esami:[] 
-      })
-      
       //opzioni per la fetch
       const options = {
         method: 'GET',
         headers: {
         'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(searchTutor),
+        }
       };
       
       //eseguo la fetch
@@ -138,7 +123,16 @@
       });
       //pulisce la form
       document.getElementById("addTutor").reset();
+    }
+    <! FUNZIONE PER CREARE UNA TABELLA DI TUTOR >
+    function buildTable(data){
+      var table = getElementById(tabella);
       
+     //loop per stampare la righe della tabella
+      for(var i = 0; i < data.length; i++){
+        var row = <tr>
+            
+      }
     }
     
     <! FUNZIONI PER SELEZIONARE I FILTRI DI RICERCA >
