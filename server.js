@@ -111,6 +111,7 @@ app.delete("/home/deleteTutor", (req, res) => {
     tutors = JSON.parse(data);
 
     //ricerca nell'array l'elemento con l'id richiesto
+    console.log(req.body.id);
     let idTutor = tutors.findIndex((element) => element.id == req.body.id);
 
     //se esiste lo elimino
