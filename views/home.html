@@ -85,13 +85,7 @@
   
   
   <script>
-    let filtroEsame = false;
-    let filtroEmail = false;
-    let filtroNome  = false;
-    let filtroCognome = false;
-    let filtroUni   = false;
-    let filtroCorso = false;
-
+    
     <! FUNZIONE PER CERCARE UN TUTOR >
     async function researchTutors(){
       const researchValue = document.getElementById("researchValue").value;
@@ -125,37 +119,6 @@
       document.getElementById("addTutor").reset();
     }
     
-    <! FUNZIONI PER SELEZIONARE I FILTRI DI RICERCA >
-    function setFiltroNome(){
-      let set = !filtroNome;
-      
-      return set;
-    }
-    
-    function setFiltroCognome(){
-      let set = !filtroCognome;
-      return set;
-    }
-    
-    function setFiltroEmail(){
-      let set = !filtroEmail;
-      return set;
-    }
-    
-    function setFiltroUniversita(){
-      let set = !filtroUniversita;
-      return set;
-    }
-    
-    function setFiltroCorso(){
-      let set = !filtroCorso;
-      return set;
-    }
-    
-    function setFiltroEsame(){
-      let set = !filtroEsame;
-      return set;
-    }
   
     <! FUNZIONE PER AGGIUNGERE UN NUOVO TUTOR >
     async function addTutor(){
