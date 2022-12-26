@@ -124,16 +124,6 @@
       //pulisce la form
       document.getElementById("addTutor").reset();
     }
-    <! FUNZIONE PER CREARE UNA TABELLA DI TUTOR >
-    function buildTable(data){
-      var table = getElementById(tabella);
-      
-     //loop per stampare la righe della tabella
-      for(var i = 0; i < data.length; i++){
-        var row = <tr>
-            
-      }
-    }
     
     <! FUNZIONI PER SELEZIONARE I FILTRI DI RICERCA >
     function setFiltroNome(){
@@ -220,7 +210,7 @@
       .then((response) => {
         if (response.ok) {
           alert("Il tutor è stato eliminato!");
-          return response.();
+          return response.json();
         }
         alert('ERROR!Something went wrong!');
       })
