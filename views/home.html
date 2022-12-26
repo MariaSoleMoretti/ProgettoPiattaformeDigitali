@@ -95,7 +95,8 @@
     let filtroCognome = false;
     let filtroUni   = false;
     let filtroCorso = false;
-   
+
+    <! FUNZIONE PER CERCARE UN TUTOR >
     async function researchTutors(){
       const researchValue = document.getElementById("researchValue").value;
       
@@ -127,6 +128,7 @@
       //pulisce la form
       document.getElementById("addTutor").reset();
     }
+    <! FUNZIONE PER CREARE UNA TABELLA DI TUTOR >
     function buildTable(data){
       var table = getElementById(tabella);
       
@@ -137,6 +139,7 @@
       }
     }
     
+    <! FUNZIONI PER SELEZIONARE I FILTRI DI RICERCA >
     function setFiltroNome(){
       let set = !filtroNome;
       
@@ -168,6 +171,7 @@
       return set;
     }
   
+    <! FUNZIONE PER AGGIUNGERE UN NUOVO TUTOR >
     async function addTutor(){
       
       //definisco i dati del nuovo tutor aggiungendo alcuni campi di default
@@ -204,6 +208,7 @@
       document.getElementById("addTutor").reset();
     }
 
+    <! FUNZIONE PER ELIMINARE UN TUTOR >
     async function deleteTutor(){
       //opzioni per la fetch
       const options = {
