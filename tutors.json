@@ -120,22 +120,6 @@
     "esami": []
   },
   {
-    "nome": "Michele",
-    "cognome": "Moretti",
-    "email": "more.michele@gmail.com",
-    "universita": "Università degli Studi di Macerata",
-    "corso": "Giurisprudenza",
-    "esami": []
-  },
-  {
-    "nome": "Mario",
-    "cognome": "Moretti",
-    "email": "more.mario@gmail.com",
-    "universita": "Università degli Studi di Bergamo",
-    "corso": "Scienze Motorie",
-    "esami": []
-  },
-  {
     "id": "1670322204991",
     "name": "Francesco",
     "surname": "Giuggioloni",

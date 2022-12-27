@@ -118,10 +118,10 @@ app.delete("/home/deleteTutor", (req, res) => {
     if (idTutor != -1) {
       let deletedTutor = tutors.splice(idTutor, 1);
       //effettua il write back degli elementi aggiornati
-      data = JSON.stringfy(tutors, null, 2);
+      data = JSON.stringify(tutors, null, 2);
       fs.writeFileSync("tutors.json", data);
-      console.log("File written successfully");
-      console.log(tutors);
+      console.log("File modified successfully!");
+      console.log(deletedTutor);
       //invia la risposta la client
       res.status(200).json({
         message: "L'utente è stato rimosso!",
