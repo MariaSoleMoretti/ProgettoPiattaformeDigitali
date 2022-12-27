@@ -137,7 +137,7 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
 });
 
 //api di aggiornamento delle email dei tutor
-app.put("/home/updateTutor/:id/:azione:esame", (req, res) => {
+app.put("/home/updateTutor/:id/:azione/:esame/:email", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
@@ -151,10 +151,10 @@ app.put("/home/updateTutor/:id/:azione:esame", (req, res) => {
     //in base al tipo di modifica eseguo
     switch (azione) {
       case "esame":
-        tutorRicercato.esami.push(req.body.esame);
+        tutorRicercato.esami.push(req.params.esame);
         break;
       case "email":
-        tutorRicercato.email = req.body.email;
+        tutorRicercato.email = req.params.email;
         break;
     }
     //effettuo il writeback
@@ -170,7 +170,7 @@ app.put("/home/updateTutor/:id/:azione:esame", (req, res) => {
     //se non è presente mando in risposta un messaggio di errore
     res.status(404).json({
       message:
-        "ERRORE! Non esiste nel database un utente con id " + req.body.id,
+        "ERRORE! Non esiste nel database un utente con id " + req.params.id,
       status: 404,
     });
   }
@@ -184,7 +184,6 @@ app.get("/printAll", (req, res) => {
 });
 
 //api per settare lo status
-
 app.get("/badRequest", (req, res) => {
   res.sendStatus(400);
 });
