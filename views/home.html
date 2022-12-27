@@ -144,7 +144,7 @@
     }
     
     function setEmailFilter(){
-      localStorage.setItem("filtroEmail", !localStorage.filtroEmail);
+      localStorage.setItem("action","newEmail");
     }
     
     function setFiltroUniversita(){
@@ -158,7 +158,8 @@
     }
     
     function setExamFilter(){
-      localStorage.setItem("filtroEsame", !localStorage.filtroEsame);
+      localStorage.setItem("action","newExam");
+      //localStorage.setItem("filtroEsame", !localStorage.filtroEsame);
     }
   
     //FUNZIONE PER AGGIUNGERE UN TUTOR
@@ -224,20 +225,19 @@
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
       const id = document.getElementById("id").value;
-      let action = '';
       //aggiunta nuovo esame
       if(filtroEsame = true){
         let newExam  = document.getElementById("changeValue").value;
         let newEmail = '';
-        action   = "newExam";
-        console.log(action);
+        localStorage.setItem("action","newExam");
+        console.log(localStorage.action);
       }
       //modifica dell'email di un tutor
       if(filtroEmail = true){
         let newEmail = document.getElementById("changeValue").value;
         let newExam  = '';
-        action   = "newEmail";
-        console.log(action);
+        localStorage.setItem("action","newEmail");
+        console.log(localStorage.action);
       }
       //opzioni per la fetch
       const options = {
