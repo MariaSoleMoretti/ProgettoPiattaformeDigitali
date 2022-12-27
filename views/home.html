@@ -205,8 +205,10 @@
       //opzioni per la fetch
       const options = {
         method: 'DELETE',
-        //da error 500 perchè passa body vuoto
-        body:idTutor;
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body:idTutor
       };
       //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor', options)
