@@ -143,7 +143,7 @@
     }
     
     function setEmailFilter(){
-      filtroEmail = !filtroEmail;
+      sessionStorage.setItem("filtroEmail", !filtroEmail);
     }
     
     function setFiltroUniversita(){
@@ -157,7 +157,9 @@
     }
     
     function setExamFilter(){
-      filtroEsame = !filtroEsame;
+      if(sessionStorage.filtroEsame != ){
+        sessionStorage.setItem("filtroEsame", !filtroEsame);
+      }
     }
   
     //FUNZIONE PER AGGIUNGERE UN TUTOR
