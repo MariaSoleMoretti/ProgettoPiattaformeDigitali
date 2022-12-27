@@ -149,6 +149,7 @@ app.put("/home/updateTutor/:id/:azione/:esame/:email", (req, res) => {
   if (idTutor != -1) {
     let tutorRicercato = tutors[idTutor];
     //in base al tipo di modifica eseguo
+    //problemi con fetch, serve un valore unico denominato changeValue
     switch (azione) {
       case "newExam":
         tutorRicercato.esami.push(req.params.esame);
