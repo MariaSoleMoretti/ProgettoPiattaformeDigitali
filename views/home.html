@@ -122,7 +122,7 @@
           alert("Nuovo tutor aggiunto!");
           return response.json();
         }
-        alert('ERROR!Something went wrong!');
+        alert('ERROR!Qualcosa è andato storto!');
       })
       .catch(e => {
           console.log(e);
@@ -176,7 +176,7 @@
         corso : document.getElementById("corso").value,
         esami:[] 
       })
-      //opzioni per la fetch
+      //definisco opzioni per la fetch
       const options = {
         method: 'POST',
         headers: {
@@ -191,19 +191,20 @@
           alert("Nuovo tutor aggiunto!");
           return response.json();
         }
-        alert('ERROR!Something went wrong!');
+        alert('ERROR!!');
       })
       .catch(e => {
           console.log(e);
       });
-      //pulisce la form
+      //pulisco la form
       document.getElementById("addTutor").reset();
     }
 
     // FUNZIONE PER ELIMINARE UN TUTOR 
     async function deleteTutor(){
+      //acquisisco l'id del tutor da cancellare
       const id = document.getElementById("idTutor").value
-      //opzioni per la fetch
+      //definisco opzioni per la fetch
       const options = {
         method: 'DELETE'
       };
@@ -219,7 +220,7 @@
       .catch(e => {
           console.log(e);
       });
-      //pulisce la form
+      //pulisco la form
       document.getElementById("deleteTutor").reset();
     }
   
