@@ -223,20 +223,19 @@
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
       const id = document.getElementById("id").value;
+      let newExam  = document.getElementById("changeValue").value;
+      let newEmail  = document.getElementById("changeValue").value;
       let action = '';
       //aggiunta nuovo esame
       if(filtroEsame = true){
-        let newExam  = document.getElementById("changeValue").value;
         let newEmail = null;
-         action   = "newExam";
+        action   = "newExam";
       }
       //modifica dell'email di un tutor
       if(filtroEmail = true){
-        let newEmail = document.getElementById("changeValue").value;
         let newExam  = null;
-         action   = "newEmail";
+        action   = "newEmail";
       }
-      console.log(action);
       //opzioni per la fetch
       const options = {
         method: 'PUT'
