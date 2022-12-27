@@ -150,10 +150,10 @@ app.put("/home/updateTutor/:id/:azione/:esame/:email", (req, res) => {
     let tutorRicercato = tutors[idTutor];
     //in base al tipo di modifica eseguo
     switch (azione) {
-      case "esame":
+      case "newExam":
         tutorRicercato.esami.push(req.params.esame);
         break;
-      case "email":
+      case "newEmail":
         tutorRicercato.email = req.params.email;
         break;
     }

@@ -79,8 +79,8 @@
     <div>
       <div>
         <label for="id">Modifica</label>
-        <button>Email</button>
-        <button type="button" id="changeValue" onclick= "updateTutor()">Nuovo Esame</button>
+        <button type="button" id="filterByEmail" onclick= "setEmailFilter()">Email</button>
+        <button type="button" id="filterByExam" onclick= "setExamFilter()">Nuovo Esame</button>
       </div>
       <input type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
       <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
@@ -142,7 +142,7 @@
       return set;
     }
     
-    function setFiltroEmail(){
+    function setEmailFilter(){
       filtroEmail = !filtroEmail;
     }
     
@@ -156,7 +156,7 @@
       return set;
     }
     
-    function setFiltroEsame(){
+    function setExamFilter(){
       filtroEsame = !filtroEsame;
     }
   
@@ -223,13 +223,23 @@
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
       const id = document.getElementById("id").value;
+      if(filtroEsame = true){
+        const newExam  = document.getElementById("changeValue").value;
+        const newEmail = null;
+        const action   = "newExam";
+      }
+      if(filtroEmail = true){
+        const newEmail = document.getElementById("changeValue").value;
+        const newExam  = null;
+        const action   = "newEmail";
+      }
        
       //opzioni per la fetch
       const options = {
-        method: 'DELETE'
+        method: 'PUT'
       };
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/updateTutor/'+ id, options)
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/updateTutor/'+ id'/'+ azione'/'+ newEmail'/'+ newExam, options)
       .then((response) => {
         if (response.ok) {
           alert("Tutor eliminato!");
