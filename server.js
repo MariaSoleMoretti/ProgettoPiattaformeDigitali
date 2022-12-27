@@ -141,7 +141,7 @@ app.put("/home/updateTutor/:id/:azione/:esame/:email", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
-  let azione = req.body.azione;
+  let azione = req.params.azione;
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.params.id);
 

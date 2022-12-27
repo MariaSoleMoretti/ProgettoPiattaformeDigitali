@@ -162,7 +162,6 @@
   
     //FUNZIONE PER AGGIUNGERE UN TUTOR
     async function addTutor(){
-      
       //definisco i dati del nuovo tutor aggiungendo alcuni campi di default
       const newTutor = ({
         id: Date.now().toString(),
@@ -222,25 +221,28 @@
   
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
-      
+      //definisco i vali paramentri da passare all'api
       const id = document.getElementById("id").value;
+      let action = '';
+      //aggiunta nuovo esame
       if(filtroEsame = true){
-        const newExam  = document.getElementById("changeValue").value;
-        const newEmail = null;
-        const action   = "newExam";
+        let newExam  = document.getElementById("changeValue").value;
+        let newEmail = null;
+         action   = "newExam";
       }
+      //modifica dell'email di un tutor
       if(filtroEmail = true){
-        const newEmail = document.getElementById("changeValue").value;
-        const newExam  = null;
-        const action   = "newEmail";
+        let newEmail = document.getElementById("changeValue").value;
+        let newExam  = null;
+         action   = "newEmail";
       }
-       
+      console.log(action);
       //opzioni per la fetch
       const options = {
         method: 'PUT'
       };
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/updateTutor/'+ id'/'+ azione'/'+ newEmail'/'+ newExam, options)
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/updateTutor/'+ id +'/'+ action +'/'+ newEmail +'/'+ newExam, options)
       .then((response) => {
         if (response.ok) {
           alert("Tutor eliminato!");
