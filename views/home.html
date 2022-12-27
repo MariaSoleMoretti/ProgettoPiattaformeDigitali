@@ -201,12 +201,12 @@
     // FUNZIONE PER ELIMINARE UN TUTOR 
     async function deleteTutor(){
       const idTutor = document.getElementById("idTutor").value
-      console.log(idTutor);
+      console.log(JSON.stringify(idTutor));
       //opzioni per la fetch
       const options = {
         method: 'DELETE',
         //da error 500 perchè passa body vuoto
-        body: JSON.stringify(idTutor)
+        body:idTutor;
       };
       //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor', options)
