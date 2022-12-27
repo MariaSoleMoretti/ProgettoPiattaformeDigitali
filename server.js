@@ -103,8 +103,7 @@ app.get("/home/researchTutors", (req, res) => {
 });
 
 //api per eliminare un utente dal database ricercandolo in base all'id
-app.delete("/home/deleteTutor/id", (req, res) => {
-  console.log("L'id è "+req.params.id);
+app.delete("/home/deleteTutor/:id", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   if (data != null) {
@@ -112,7 +111,6 @@ app.delete("/home/deleteTutor/id", (req, res) => {
     tutors = JSON.parse(data);
 
     //ricerca nell'array l'elemento con l'id richiesto
-    console.log("L'id è "+req.params.id);
     let idTutor = tutors.findIndex((element) => element.id == req.params.id);
 
     //se esiste lo elimino

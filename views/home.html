@@ -206,7 +206,7 @@
         method: 'DELETE'
       };
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor'+ idTutor, options)
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor/'+ idTutor, options)
       .then((response) => {
         if (response.ok) {
           alert("Tutor eliminato!");
@@ -217,6 +217,8 @@
       .catch(e => {
           console.log(e);
       });
+      //pulisce la form
+      document.getElementById("idTutor").reset();
     }
   
     //FUNZIONE PER MODIFICARE UN TUTOR 
