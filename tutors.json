@@ -127,5 +127,14 @@
     "universita": "Università della Calabria",
     "corso": "Scienze Politiche",
     "esami": []
+  },
+  {
+    "id": "1672126234243",
+    "name": "Antonio",
+    "surname": "Tosto",
+    "email": "anto.tosto@gmail.com",
+    "universita": "Università degli Studi di Bergamo",
+    "corso": "Scienze Politiche",
+    "esami": []
   }
 ]
