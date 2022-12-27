@@ -80,7 +80,7 @@
       <div>
         <label for="id">Modifica</label>
         <button>Email</button>
-        <button>Nuovo Esame</button>
+        <button type="button" id="changeValue" onclick= "updateTutor()">Nuovo Esame</button>
       </div>
       <input type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
       <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
@@ -134,7 +134,6 @@
     //FUNZIONE PER MODIFICARE UN TUTOR
     function setFiltroNome(){
       let set = !filtroNome;
-      
       return set;
     }
     
@@ -144,8 +143,7 @@
     }
     
     function setFiltroEmail(){
-      let set = !filtroEmail;
-      return set;
+      filtroEmail = !filtroEmail;
     }
     
     function setFiltroUniversita(){
@@ -159,8 +157,7 @@
     }
     
     function setFiltroEsame(){
-      let set = !filtroEsame;
-      return set;
+      filtroEsame = !filtroEsame;
     }
   
     //FUNZIONE PER AGGIUNGERE UN TUTOR
@@ -225,7 +222,8 @@
   
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
-      const id = document.getElementById("id").value
+      const id = document.getElementById("id").value;
+       
       //opzioni per la fetch
       const options = {
         method: 'DELETE'
