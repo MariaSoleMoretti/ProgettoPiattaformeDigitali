@@ -227,16 +227,17 @@
       //aggiunta nuovo esame
       if(filtroEsame = true){
         let newExam  = document.getElementById("changeValue").value;
-        let newEmail = null;
-         action   = "newExam";
+        let newEmail = '';
+        action   = "newExam";
+        console.log(action);
       }
       //modifica dell'email di un tutor
       if(filtroEmail = true){
         let newEmail = document.getElementById("changeValue").value;
-        let newExam  = null;
-         action   = "newEmail";
+        let newExam  = '';
+        action   = "newEmail";
+        console.log(action);
       }
-      console.log(action);
       //opzioni per la fetch
       const options = {
         method: 'PUT'
