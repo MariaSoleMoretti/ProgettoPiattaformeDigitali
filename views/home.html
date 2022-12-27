@@ -91,12 +91,12 @@
   
   
   <script>
-    let filtroEsame = false;
-    let filtroEmail = false;
-    let filtroNome  = false;
-    let filtroCognome = false;
-    let filtroUni   = false;
-    let filtroCorso = false;
+    const filtroEsame   = false;
+    const filtroEmail   = false;
+    const filtroNome    = false;
+    const filtroCognome = false;
+    const filtroUni     = false;
+    const filtroCorso   = false;
 
     //FUNZIONE PER RICERCARE UN TUTOR
     async function researchTutors(){
@@ -144,6 +144,7 @@
     
     function setEmailFilter(){
       sessionStorage.setItem("filtroEmail", !filtroEmail);
+      sessionStorage.setItem("action", "newEmail");
     }
     
     function setFiltroUniversita(){
@@ -157,22 +158,21 @@
     }
     
     function setExamFilter(){
-      if(sessionStorage.filtroEsame != ){
-        sessionStorage.setItem("filtroEsame", !filtroEsame);
-      }
+      sessionStorage.setItem("filtroEsame", !filtroEsame);
+      sessionStorage.setItem("action", "newEsame");
     }
   
     //FUNZIONE PER AGGIUNGERE UN TUTOR
     async function addTutor(){
       //definisco i dati del nuovo tutor aggiungendo alcuni campi di default
       const newTutor = ({
-        id: Date.now().toString(),
-        name : document.getElementById("name").value,
-        surname : document.getElementById("surname").value,
-        email : document.getElementById("email").value,
+        id:          Date.now().toString(),
+        name :       document.getElementById("name").value,
+        surname :    document.getElementById("surname").value,
+        email :      document.getElementById("email").value,
         universita : document.getElementById("universita").value,
-        corso : document.getElementById("corso").value,
-        esami:[] 
+        corso :      document.getElementById("corso").value,
+        esami:       [] 
       })
       //opzioni per la fetch
       const options = {
@@ -225,20 +225,16 @@
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
       const id = document.getElementById("id").value;
-      let action = '';
+      const action = sessionStorage.action;
       //aggiunta nuovo esame
-      if(filtroEsame = true){
+      if((sessionStorage.filtroEsame = true) && (sessionStorage.filtroEmail = false)){
         let newExam  = document.getElementById("changeValue").value;
         let newEmail = '';
-        action   = "newExam";
-        console.log(action);
       }
       //modifica dell'email di un tutor
-      if(filtroEmail = true){
+      if((sessionStorage.filtroEmail = true) && (sessionStorage.filtroEsame = false)){
         let newEmail = document.getElementById("changeValue").value;
         let newExam  = '';
-        action   = "newEmail";
-        console.log(action);
       }
       //opzioni per la fetch
       const options = {
