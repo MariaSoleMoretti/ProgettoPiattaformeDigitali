@@ -130,7 +130,7 @@ app.delete("/home/deleteTutor", (req, res) => {
     } else {
       res.status(404).json({
         message:
-          "ERRORE! Non esiste nel database un utente con id " + req.body,
+          "ERRORE! Non esiste nel database un utente con id " + req.body.id,
         status: 404,
       });
     }

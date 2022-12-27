@@ -180,7 +180,7 @@
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newTutor)
+        body: JSON.stringify(newTutor),
       };
       //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
@@ -201,15 +201,14 @@
     // FUNZIONE PER ELIMINARE UN TUTOR 
     async function deleteTutor(){
       const idTutor = document.getElementById("idTutor").value
-      console.log(idTutor.typeof);
-      console.log(JSON.parse(idTutor));
+      console.log(JSON.stringify(idTutor));
       //opzioni per la fetch
       const options = {
         method: 'DELETE',
         headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
         },
-        body:JSON.parse(idTutor)
+        body:idTutor
       };
       //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor', options)
