@@ -205,11 +205,7 @@
       console.log(idTutor.typeof);
       //opzioni per la fetch
       const options = {
-        method: 'DELETE',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-        body:idTutor
+        method: 'DELETE'
       };
       //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor/idTutor', options)
