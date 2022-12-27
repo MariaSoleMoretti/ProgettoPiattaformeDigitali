@@ -180,7 +180,7 @@
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newTutor),
+        body: JSON.stringify(newTutor)
       };
       //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
@@ -206,9 +206,9 @@
       const options = {
         method: 'DELETE',
         headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
         },
-        body:idTutor
+        body:JSON.stringify(idTutor)
       };
       //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor', options)
