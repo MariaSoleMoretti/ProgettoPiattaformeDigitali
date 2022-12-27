@@ -60,9 +60,11 @@
     </div>
 
     <div>
-      <label for= "search"> Inserisci ID Tutor da Eliminare</label><br>
-      <input type="number" id="idTutor" name="idTutor" >
-      <button type="button" id="deleteValue" onclick= "deleteTutor()" >Cancella</button>
+      <form action="" id="deleteTutor">
+        <label for= "search"> Inserisci ID Tutor da Eliminare</label><br>
+        <input type="number" id="idTutor" name="idTutor" >
+        <button type="button" id="deleteValue" onclick= "deleteTutor()" >Cancella</button>
+      </form>
     </div>
     <hr>
     
@@ -200,25 +202,25 @@
 
     // FUNZIONE PER ELIMINARE UN TUTOR 
     async function deleteTutor(){
-      const idTutor = document.getElementById("idTutor").value
+      const id = document.getElementById("idTutor").value
       //opzioni per la fetch
       const options = {
         method: 'DELETE'
       };
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor/'+ idTutor, options)
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor/'+ id, options)
       .then((response) => {
         if (response.ok) {
           alert("Tutor eliminato!");
           return response.json();
         }
-        alert('ERROR!Something went wrong!');
+        alert('ERROR '+ response.status +'! Something went wrong!');
       })
       .catch(e => {
           console.log(e);
       });
       //pulisce la form
-      document.getElementById("idTutor").reset();
+      document.getElementById("deleteTutor").reset();
     }
   
     //FUNZIONE PER MODIFICARE UN TUTOR 
