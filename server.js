@@ -111,7 +111,7 @@ app.delete("/home/deleteTutor", (req, res) => {
     tutors = JSON.parse(data);
 
     //ricerca nell'array l'elemento con l'id richiesto
-    console.log("L'id è"+req.body);
+    console.log(req.body);
     let idTutor = tutors.findIndex((element) => element.id == req.body);
 
     //se esiste lo elimino
@@ -130,7 +130,7 @@ app.delete("/home/deleteTutor", (req, res) => {
     } else {
       res.status(404).json({
         message:
-          "ERRORE! Non esiste nel database un utente con id " + req.body.id,
+          "ERRORE! Non esiste nel database un utente con id " + req.body,
         status: 404,
       });
     }
