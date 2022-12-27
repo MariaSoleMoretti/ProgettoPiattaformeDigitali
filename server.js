@@ -137,13 +137,13 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
 });
 
 //api di aggiornamento delle email dei tutor
-app.put("/home/updateTutor", (req, res) => {
+app.put("/home/updateTutor/:id/:azione:esame", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
   let azione = req.body.azione;
   //ricerca nell'array l'elemento con l'id richiesto
-  let idTutor = tutors.findIndex((element) => element.id == req.body.id);
+  let idTutor = tutors.findIndex((element) => element.id == req.params.id);
 
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
