@@ -91,12 +91,13 @@
   
   
   <script>
-    let filtroEsame = false;
-    let filtroEmail = false;
-    let filtroNome  = false;
-    let filtroCognome = false;
-    let filtroUni   = false;
-    let filtroCorso = false;
+    // Store
+    localStorage.setItem("filtroEsame", "false");
+    localStorage.setItem("filtroEmail", "false");
+    localStorage.setItem("filtroNome", "false");
+    localStorage.setItem("filtroCognome", "false");
+    localStorage.setItem("filtroUni", "false");
+    localStorage.setItem("filtroCorso", "false");
 
     //FUNZIONE PER RICERCARE UN TUTOR
     async function researchTutors(){
@@ -143,7 +144,7 @@
     }
     
     function setEmailFilter(){
-      filtroEmail = !filtroEmail;
+      localStorage.setItem("filtroEmail", !localStorage.filtroEmail);
     }
     
     function setFiltroUniversita(){
@@ -157,7 +158,7 @@
     }
     
     function setExamFilter(){
-      filtroEsame = !filtroEsame;
+      localStorage.setItem("filtroEsame", !localStorage.filtroEsame);
     }
   
     //FUNZIONE PER AGGIUNGERE UN TUTOR
