@@ -222,6 +222,7 @@
   
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
+      
       const id = document.getElementById("id").value;
       if(filtroEsame = true){
         const newExam  = document.getElementById("changeValue").value;
@@ -250,6 +251,13 @@
       .catch(e => {
           console.log(e);
       });
+      //setto nuovamente a false i filtri
+      if(filtroEsame = true){
+        setExamFilter();
+      }
+      if(filtroEmail = true){
+        setEmailFilter();
+      }
       //pulisce la form
       document.getElementById("deleteTutor").reset();
     }
