@@ -103,7 +103,7 @@ app.get("/home/researchTutors", (req, res) => {
 });
 
 //api per eliminare un utente dal database ricercandolo in base all'id
-app.delete("/home/deleteTutor/:id", (req, res) => {
+app.delete("/home/deleteTutor", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   if (data != null) {
@@ -111,8 +111,8 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
     tutors = JSON.parse(data);
 
     //ricerca nell'array l'elemento con l'id richiesto
-    console.log(req.params.id);
-    let idTutor = tutors.findIndex((element) => element.id == req.params.id);
+    console.log(req.body);
+    let idTutor = tutors.findIndex((element) => element.id == req.body);
 
     //se esiste lo elimino
     if (idTutor != -1) {
@@ -130,7 +130,7 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
     } else {
       res.status(404).json({
         message:
-          "ERRORE! Non esiste nel database un utente con id " + req.params.id,
+          "ERRORE! Non esiste nel database un utente con id " + req.body,
         status: 404,
       });
     }
