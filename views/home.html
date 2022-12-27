@@ -91,13 +91,12 @@
   
   
   <script>
-    // Store
-    localStorage.setItem("filtroEsame", "false");
-    localStorage.setItem("filtroEmail", "false");
-    localStorage.setItem("filtroNome", "false");
-    localStorage.setItem("filtroCognome", "false");
-    localStorage.setItem("filtroUni", "false");
-    localStorage.setItem("filtroCorso", "false");
+    let filtroEsame = false;
+    let filtroEmail = false;
+    let filtroNome  = false;
+    let filtroCognome = false;
+    let filtroUni   = false;
+    let filtroCorso = false;
 
     //FUNZIONE PER RICERCARE UN TUTOR
     async function researchTutors(){
@@ -144,7 +143,7 @@
     }
     
     function setEmailFilter(){
-      localStorage.setItem("action","newEmail");
+      filtroEmail = !filtroEmail;
     }
     
     function setFiltroUniversita(){
@@ -158,8 +157,7 @@
     }
     
     function setExamFilter(){
-      localStorage.setItem("action","newExam");
-      //localStorage.setItem("filtroEsame", !localStorage.filtroEsame);
+      filtroEsame = !filtroEsame;
     }
   
     //FUNZIONE PER AGGIUNGERE UN TUTOR
@@ -225,19 +223,20 @@
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
       const id = document.getElementById("id").value;
+      let action = '';
       //aggiunta nuovo esame
       if(filtroEsame = true){
         let newExam  = document.getElementById("changeValue").value;
         let newEmail = '';
-        localStorage.setItem("action","newExam");
-        console.log(localStorage.action);
+        action   = "newExam";
+        console.log(action);
       }
       //modifica dell'email di un tutor
       if(filtroEmail = true){
         let newEmail = document.getElementById("changeValue").value;
         let newExam  = '';
-        localStorage.setItem("action","newEmail");
-        console.log(localStorage.action);
+        action   = "newEmail";
+        console.log(action);
       }
       //opzioni per la fetch
       const options = {
