@@ -274,3 +274,10 @@ function ricercaCognome(elemento) {
     return true;
   }
 }
+
+//funzione per la ricerca dei tutor in base al cognome
+function ricercaEsame(elemento) { 
+  if (elemento.toString().toLowerCase() === this.toString().toLowerCase()) {
+    return true;
+  }
+}
