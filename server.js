@@ -142,12 +142,8 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
   let azione = req.params.azione;
-  console.log(req.params.azione);
-  console.log(req.params.modifica);
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.params.id);
-  console.log("req.params.id = "+req.params.id);
-  console.log("idTutor = "+idTutor);
 
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
@@ -157,9 +153,11 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
     switch (azione) {
       case "newExam":
         tutorRicercato.esami.push(req.params.modifica);
+        console.log(tutorRicercato);
         break;
       case "newEmail":
         tutorRicercato.email = req.params.modifica;
+        console.log(tutorRicercato);
         break;
     }
     //effettuo il writeback
