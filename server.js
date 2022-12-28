@@ -22,7 +22,7 @@ app.post("/home/addTutor", (req, res) => {
   tutors = JSON.parse(data);
 
   //salvataggio del tutor del database
-  let esito = validazioneInput(req.body.email, tutors);
+  let esito = validazioneEmail(req.body.email, tutors);
   console.log(esito);
   if (esito == false) {
     console.log("ERRORE! L'email non è valida.");
@@ -148,12 +148,15 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
     let tutorRicercato = tutors[idTutor];
+    //controllo se l'esame è gia' presente tra quelli dell'utente
+    let esito_valEsame = validazioneNuovoEsame(req.params.modifica, tutorRicercato.esami);
+    //controllo se l'email è associata ad unaltro tutor
+    let esito_valEmail = validazioneEmail(req.params.modifica, tutors);
     //in base al tipo di modifica eseguo
-    //problemi con fetch, serve un valore unico denominato changeValue
     switch (azione) {
       case "newExam":
         //controllo se l'esame è gia' presente tra quelli dell'utente
-        let idTutor = tutorRicercato.esami.findIndex((element) => element == req.params.id);
+    let esito_valEsame = validazioneNuovoEsame(req.params.modifica, tutorRicercato.esami);
         tutorRicercato.esami.push(req.params.modifica);
         break;
       case "newEmail":
@@ -199,7 +202,7 @@ app.get("/notFound", (req, res) => {
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
 //cioè se cointiene il carattere @, e se non è presente nel database
-function validazioneInput(email, t) {
+function validazioneEmail(email, t) {
   let esito = true;
   let tutorsByEmail = t.filter(ricercaEmail, email);
   
@@ -214,11 +217,12 @@ function validazioneInput(email, t) {
 function validazioneNuovoEsame(nuovoEsame, e) {
   let esito = true;
   let esami = e.filter(ricercaEmail, nuovoEsame);
-  //se 
+  //se dall'operazione di filter risulta che il nuovo esame da inserire è
+  //gia' presente, l'esito della validazione sara' false
   if (esami.length!= 0 ) {
     esito = false;
   }
-  //se non entra nell'if allora l'email è valida
+  //se non entra nell'if allora il nuovo esame è valido
   return esito;
 }
 
