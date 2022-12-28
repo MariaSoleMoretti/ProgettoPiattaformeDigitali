@@ -5,9 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      
   </head>
 
-  <body></body>
+  <body>
+    <table class = "tabella">
+      <th class = "intestazione">
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Email</th>
+        <th>Universita'</th>
+        <th>Corso</th>
+      </th>
     
+      <tbody id = "bodyTabella" >
+      
+      </tbody>
+    
+    </table>
+  
+  </body>
+
+  <script>
+    
+    function buildTable(data){
+      var table = document.getElementById("bodyTabella");
+      for(ley i = 0; i < data.length; i++){
+        let row = `<tr>
+                      <td>${data[i].name}</td>
+                      <td>${data[i].age}</td>
+                      <td>${data[i].birthdate}</td>
+                    </tr>`
+              table.innerHTML += row
+      }
+    }
+  </script>
+</html>
     
