@@ -5,39 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
-  <body>
-    <table class = "tabella">
-      <th class = "intestazione">
-        <th>Nome</th>
-        <th>Cognome</th>
-        <th>Email</th>
-        <th>Universita'</th>
-        <th>Corso</th>
-      </th>
-    
-      <tbody id = "bodyTabella" >
-      
+  <style>
+      th{ 
+          color:#fff;
+              }
+  </style>
+
+
+  <table class="table table-striped">
+      <tr  class="bg-info">
+          <th>Nome</th>
+          <th>Cognome</th>
+          <th>Email</th>
+      </tr>
+
+      <tbody id="myTable">
+
       </tbody>
-    
-    </table>
-  
-  </body>
+  </table>
 
   <script>
-    
+    var myArray = [
+        {'nome':'Sara', 'cognome':'Yosef', 'email':'yosef@gmail.com'},
+        {'nome':'Margherita', 'cognome':'Moretti', 'email':'marghe.moretti@icloud.it'},
+        {'nome':'Eugenio', 'cognome':'Fusero', 'email':'eugenio.fusero@gmail.com'},
+        {'nome':'Riccardo', 'cognome':'Camilletti', 'email':'riccardo.camilletti@gmail.com'},
+        {'nome':'Camilla', 'cognome':'Antognini', 'email':'anto_cami@icloud.it'},
+    ]
+
+    buildTable(myArray)
+
+
+
     function buildTable(data){
-      var table = document.getElementById("bodyTabella");
-      for(ley i = 0; i < data.length; i++){
-        let row = `<tr>
-                      <td>${data[i].name}</td>
-                      <td>${data[i].age}</td>
-                      <td>${data[i].birthdate}</td>
-                    </tr>`
-              table.innerHTML += row
+      var table = document.getElementById('myTable')
+
+      for (var i = 0; i < data.length; i++){
+        var row = `<tr>
+                <td>${data[i].nome}</td>
+                <td>${data[i].cognome}</td>
+                <td>${data[i].email}</td>
+                <td><button>Visualizza</td>
+              </tr>`
+        table.innerHTML += row
+
+
       }
     }
+
   </script>
 </html>
     

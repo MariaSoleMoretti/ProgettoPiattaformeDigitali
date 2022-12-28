@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 let tutors = [];
 let tutorRicercati = [];
 
+app.get("/tabella",(req,res) =>{
+  res.sendFile("/app/views/researchTable.html");
+});
+
 app.get("/home", (req,res) =>{
   res.sendFile("/app/views/home.html");
 })
