@@ -3,14 +3,13 @@
     "id": "1669022389297",
     "name": "Sara",
     "surname": "Yosef",
-    "email": "yosef@icloud.it",
+    "email": "yosef@gmail.com",
     "universita": "Università degli Studi di Urbino",
     "corso": "Farmacia",
     "esami": [
       "analisi degli alimenti",
       "anatomia",
-      "biochimica",
-      "fisica generale"
+      "biochimica"
     ]
   },
   {

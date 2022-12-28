@@ -165,13 +165,13 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
       case "newEmail":
         //controllo se l'email è associata ad un altro tutor
         let esito_valEmail = validazioneEmail(req.params.modifica, tutors)
-        if(esito_valEmail == true){
+        if(esito_valEsame == true){
           //se è valido effettua la modifica
           tutorRicercato.email = req.params.modifica;
         }
         else{
           //se non è valido invio in risposta un messaggio d'errore
-          res.send(404).json({message: "Bad Request"});
+          res.redirect("/badRequest");
         }
         break;
     }
