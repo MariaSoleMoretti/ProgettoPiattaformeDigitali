@@ -215,9 +215,7 @@
           alert("Tutor eliminato!");
           return response.json();
         }
-        alert('ERROR '+ response.status +'! Something went wrong!');
-        //invio al client la risposta sotto formato json
-        response.json();
+        alert('ERROR '+ response.status +'! '+ response.json);
       })
       .catch(e => {
           console.log(e);
@@ -232,10 +230,7 @@
       const id         = document.getElementById("id").value;
       const action     = sessionStorage.action;
       let changeValue  = document.getElementById("valore").value;
-      
-      console.log(id);
-      console.log(action);
-      console.log(changeValue);
+
       //opzioni per la fetch
       const options = {
         method: 'PUT'
@@ -247,12 +242,12 @@
           alert("Modifica effettuata!");
           return response.json();
         }
-        alert('ERROR '+ response.status +'! Something went wrong!');
+        alert('ERROR '+ response.status +'! '+ response.json();
         //invio al client la risposta sotto formato json
         response.json();
       })
       .catch(e => {
-          console.log(e);
+          console.log("errore"+e);
       });
       //setto nuovamente a false i filtri
       if(filtroEsame == true){
