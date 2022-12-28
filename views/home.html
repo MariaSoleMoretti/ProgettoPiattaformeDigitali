@@ -99,6 +99,7 @@
     const filtroCognome = false;
     const filtroUni     = false;
     const filtroCorso   = false;
+    sessionStorage.setItem("action","");
 
     //FUNZIONE PER RICERCARE UN TUTOR
     async function researchTutors(){
@@ -226,11 +227,13 @@
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
-      while(sessionStorage.action.typeof == undefined){
-        const id         = document.getElementById("id").value;
-        const action     = sessionStorage.action;
-        let changeValue  = document.getElementById("changeValue").value;
-      }
+      const id         = document.getElementById("id").value;
+      const action     = sessionStorage.action;
+      let changeValue  = document.getElementById("changeValue").value;
+      
+      console.log(id);
+      console.log(action);
+      console.log(changeValue);
       //opzioni per la fetch
       const options = {
         method: 'PUT'
@@ -239,7 +242,7 @@
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/updateTutor/'+ id +'/'+ action +'/'+ changeValue, options)
       .then((response) => {
         if (response.ok) {
-          alert("Tutor eliminato!");
+          alert("Modifica effettuata!");
           return response.json();
         }
         alert('ERROR '+ response.status +'! Something went wrong!');
@@ -248,10 +251,10 @@
           console.log(e);
       });
       //setto nuovamente a false i filtri
-      if(filtroEsame = true){
+      if(filtroEsame == true){
         setExamFilter();
       }
-      if(filtroEmail = true){
+      if(filtroEmail == true){
         setEmailFilter();
       }
       //pulisce la form
