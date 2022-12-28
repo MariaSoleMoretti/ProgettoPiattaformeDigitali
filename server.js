@@ -148,19 +148,31 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
     let tutorRicercato = tutors[idTutor];
-    //controllo se l'esame è gia' presente tra quelli dell'utente
-    let esito_valEsame = validazioneNuovoEsame(req.params.modifica, tutorRicercato.esami);
-    //controllo se l'email è associata ad unaltro tutor
-    let esito_valEmail = validazioneEmail(req.params.modifica, tutors);
     //in base al tipo di modifica eseguo
     switch (azione) {
       case "newExam":
         //controllo se l'esame è gia' presente tra quelli dell'utente
-    let esito_valEsame = validazioneNuovoEsame(req.params.modifica, tutorRicercato.esami);
-        tutorRicercato.esami.push(req.params.modifica);
+        let esito_valEsame = validazioneNuovoEsame(req.params.modifica, tutorRicercato.esami);
+        if(esito_valEsame == true){
+          //se è valido effettua la modifica
+          tutorRicercato.esami.push(req.params.modifica);
+        }
+        else{
+          //se non è valido invio in risposta un messaggio d'errore
+          res.redirect("/badRequest");
+        }
         break;
       case "newEmail":
-        tutorRicercato.email = req.params.modifica;
+        //controllo se l'email è associata ad un altro tutor
+        let esito_valEmail = validazioneEmail(req.params.modifica, tutors)
+        if(esito_valEsame == true){
+          //se è valido effettua la modifica
+          tutorRicercato.email = req.params.modifica;
+        }
+        else{
+          //se non è valido invio in risposta un messaggio d'errore
+          res.redirect("/badRequest");
+        }
         break;
     }
     //effettuo il writeback
@@ -173,7 +185,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
       message: "L'utente è stato aggiornato!",
     });
   } else {
-    //se non è presente mando in risposta un messaggio di errore
+    //se l'id tutor non è esiste mando in risposta un messaggio di errore
     res.status(404).json({
       message:
         "ERRORE! Non esiste nel database un utente con id " + req.params.id,
@@ -191,7 +203,9 @@ app.get("/printAll", (req, res) => {
 
 //api per settare lo status
 app.get("/badRequest", (req, res) => {
-  res.sendStatus(400);
+  res.status(400).json({
+    message:"Bad Request! Valori in input non accettabili!"
+  });
 });
 
 app.get("/notFound", (req, res) => {
@@ -216,7 +230,7 @@ function validazioneEmail(email, t) {
 
 function validazioneNuovoEsame(nuovoEsame, e) {
   let esito = true;
-  let esami = e.filter(ricercaEmail, nuovoEsame);
+  let esami = e.filter(ricercaEsame, nuovoEsame);
   //se dall'operazione di filter risulta che il nuovo esame da inserire è
   //gia' presente, l'esito della validazione sara' false
   if (esami.length!= 0 ) {
