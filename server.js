@@ -159,7 +159,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         }
         else{
           //se non è valido invio in risposta un messaggio d'errore
-          res.redirect("/badRequest");
+          res.send(404).json({message: "Bad Request"});
         }
         break;
       case "newEmail":
