@@ -161,7 +161,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
           //se non è valido invio in risposta un messaggio d'errore
           res.status(404).json({
             message:
-              "ERRORE! Non esiste nel database un utente con id " + req.params.id,
+              "ERRORE! L'esame è gia' presente tra i dati dell'utente.",
             status: 404
           });
         }
@@ -169,7 +169,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
       case "newEmail":
         //controllo se l'email è associata ad un altro tutor
         let esito_valEmail = validazioneEmail(req.params.modifica, tutors)
-        if(esito_valEsame == true){
+        if(esito_valEmail == true){
           //se è valido effettua la modifica
           tutorRicercato.email = req.params.modifica;
         }
@@ -177,7 +177,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
           //se non è valido invio in risposta un messaggio d'errore
           res.status(404).json({
             message:
-              "ERRORE! L0email inserita ",
+              "ERROR! L'email inserita è gia' associata ad un tutor.",
             status: 404
           });
         }

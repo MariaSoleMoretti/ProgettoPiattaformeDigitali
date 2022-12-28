@@ -232,10 +232,7 @@
       const id         = document.getElementById("id").value;
       const action     = sessionStorage.action;
       let changeValue  = document.getElementById("valore").value;
-      
-      console.log(id);
-      console.log(action);
-      console.log(changeValue);
+
       //opzioni per la fetch
       const options = {
         method: 'PUT'
@@ -247,7 +244,7 @@
           alert("Modifica effettuata!");
           return response.json();
         }
-        alert('ERROR '+ response.status +'! Something went wrong!');
+        alert('ERROR '+ response.status +'! Impossibile eseguire la modifica!');
         //invio al client la risposta sotto formato json
         response.json();
       })
