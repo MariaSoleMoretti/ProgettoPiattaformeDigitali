@@ -211,6 +211,17 @@ function validazioneInput(email, t) {
   return esito;
 }
 
+function validazioneNuovoEsame(nuovoEsame, e) {
+  let esito = true;
+  let esami = e.filter(ricercaEmail, nuovoEsame);
+  //se 
+  if (esami.length!= 0 ) {
+    esito = false;
+  }
+  //se non entra nell'if allora l'email è valida
+  return esito;
+}
+
 //funzione che filtra i tutor in base alla email
 function ricercaEmail(elemento) {
   if (elemento.email.toString().toLowerCase() === this.toString().toLowerCase()) {
@@ -234,7 +245,6 @@ function ricercaCorso(elemento) {
 
 //funzione per la ricerca dei tutor in base al nome
 function ricercaNome(elemento) {
-  console.log(elemento);
   if (elemento.name.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
