@@ -159,7 +159,11 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         }
         else{
           //se non è valido invio in risposta un messaggio d'errore
-          res.send(404).json({message: "Bad Request"});
+          res.status(404).json({
+            message:
+              "ERRORE! Non esiste nel database un utente con id " + req.params.id,
+            status: 404
+          });
         }
         break;
       case "newEmail":
@@ -171,7 +175,11 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         }
         else{
           //se non è valido invio in risposta un messaggio d'errore
-          res.redirect("/badRequest");
+          res.status(404).json({
+            message:
+              "ERRORE! L0email inserita ",
+            status: 404
+          });
         }
         break;
     }
@@ -199,19 +207,6 @@ app.get("/printAll", (req, res) => {
     message: "I tutor sono i seguenti",
     tutors: tutorRicercati
   });
-});
-
-//api per settare lo status
-app.get("/badRequest", (req, res) => {
-  res.status(400).json({
-    message:"Bad Request! Valori in input non accettabili!"
-  });
-});
-
-app.get("/notFound", (req, res) => {
-  res
-    .status(404)
-    .json({ message: "La ricerca non è andata a buon fine!", status: 404 });
 });
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
