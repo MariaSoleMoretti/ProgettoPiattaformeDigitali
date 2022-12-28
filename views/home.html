@@ -162,7 +162,7 @@
     
     function setExamFilter(){
       sessionStorage.setItem("filtroEsame", !filtroEsame);
-      sessionStorage.setItem("action", "newEsame");
+      sessionStorage.setItem("action", "newExam");
     }
   
     //FUNZIONE PER AGGIUNGERE UN TUTOR
@@ -246,6 +246,7 @@
           return response.json();
         }
         alert('ERROR '+ response.status +'! Something went wrong!');
+        response.json();
       })
       .catch(e => {
           console.log(e);

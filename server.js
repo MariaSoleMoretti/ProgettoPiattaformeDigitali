@@ -143,7 +143,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   tutors = JSON.parse(data);
   let azione = req.params.azione;
   //ricerca nell'array l'elemento con l'id richiesto
-  let idTutor = tutors.findIndex((element) => element.id == req.params.id);
+  let idTutor = tutors.findIndex((element) => element.id == req.params.id); 
 
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
@@ -153,18 +153,16 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
     switch (azione) {
       case "newExam":
         tutorRicercato.esami.push(req.params.modifica);
-        console.log(tutorRicercato);
         break;
       case "newEmail":
         tutorRicercato.email = req.params.modifica;
-        console.log(tutorRicercato);
         break;
     }
     //effettuo il writeback
     tutors.fill(tutorRicercato, idTutor, 0);
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
-    console.log("File written successfully");
+    
     //invia la risposta la client
     res.status(200).json({
       message: "L'utente è stato aggiornato!",

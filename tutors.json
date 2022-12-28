@@ -32,14 +32,15 @@
     "corso": "Ingegneria Meccanica",
     "esami": [
       "meccanica 1",
-      "fisica generale"
+      "fisica generale",
+      "fondamenti dell'automazione"
     ]
   },
   {
     "id": "1669023087264",
     "name": "Riccardo",
     "surname": "Camilletti",
-    "email": "camilletti@gmail.com",
+    "email": "riccardo.camilletti@gmail.com",
     "universita": "Università Politecnica delle Marche",
     "corso": "Biologia",
     "esami": [
