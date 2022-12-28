@@ -159,13 +159,13 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         }
         else{
           //se non è valido invio in risposta un messaggio d'errore
-          res.redirect("/badRequest");
+          res.send(404).json({message: "Bad Request"});
         }
         break;
       case "newEmail":
         //controllo se l'email è associata ad un altro tutor
         let esito_valEmail = validazioneEmail(req.params.modifica, tutors)
-        if(esito_valEmail == true){
+        if(esito_valEsame == true){
           //se è valido effettua la modifica
           tutorRicercato.email = req.params.modifica;
         }
@@ -203,8 +203,8 @@ app.get("/printAll", (req, res) => {
 
 //api per settare lo status
 app.get("/badRequest", (req, res) => {
-  res.status(404).json({
-    message: "ERRORE! L'esame è gia' stato inserito!" 
+  res.status(400).json({
+    message:"Bad Request! Valori in input non accettabili!"
   });
 });
 
