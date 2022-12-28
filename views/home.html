@@ -216,6 +216,8 @@
           return response.json();
         }
         alert('ERROR '+ response.status +'! Something went wrong!');
+        //invio al client la risposta sotto formato json
+        response.json();
       })
       .catch(e => {
           console.log(e);
@@ -246,6 +248,7 @@
           return response.json();
         }
         alert('ERROR '+ response.status +'! Something went wrong!');
+        //invio al client la risposta sotto formato json
         response.json();
       })
       .catch(e => {

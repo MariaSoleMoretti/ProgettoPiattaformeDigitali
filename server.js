@@ -152,6 +152,8 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
     //problemi con fetch, serve un valore unico denominato changeValue
     switch (azione) {
       case "newExam":
+        //controllo se l'esame è gia' presente tra quelli dell'utente
+        let idTutor = tutorRicercato.esami.findIndex((element) => element == req.params.id);
         tutorRicercato.esami.push(req.params.modifica);
         break;
       case "newEmail":
