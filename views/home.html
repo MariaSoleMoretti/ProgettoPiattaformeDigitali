@@ -72,19 +72,21 @@
     <h2>
       Aggiornamento dati Tutor
     </h2>
-    <div>
-      <label for="id">ID Tutor</label><br>
-      <input type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
-    </div><br>
-    <div>
+    <form action = "" id = "updateTutor">
       <div>
-        <label for="id">Modifica</label>
-        <button type="button" id="filterByEmail" onclick= "setEmailFilter()">Email</button>
-        <button type="button" id="filterByExam" onclick= "setExamFilter()">Nuovo Esame</button>
+        <label for="id">ID Tutor</label><br>
+        <input type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
+      </div><br>
+      <div>
+        <div>
+          <label for="id">Modifica</label>
+          <button type="button" id="filterByEmail" onclick= "setEmailFilter()">Email</button>
+          <button type="button" id="filterByExam" onclick= "setExamFilter()">Nuovo Esame</button>
+        </div>
+        <input type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
+        <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
       </div>
-      <input type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
-      <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
-    </div>
+    </form>
     
   </body>
   
@@ -224,9 +226,10 @@
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
-      const id         = document.getElementById("id").value;
-      const action     = sessionStorage.action;
-      let changeValue  = document.getElementById("changeValue").value;
+      while(sessionStorage.action.typeof == undefined){
+        const id         = document.getElementById("id").value;
+        const action     = sessionStorage.action;
+        let changeValue  = document.getElementById("changeValue").value;
       }
       //opzioni per la fetch
       const options = {
@@ -252,7 +255,7 @@
         setEmailFilter();
       }
       //pulisce la form
-      document.getElementById("deleteTutor").reset();
+      document.getElementById("updateTutor").reset();
     }
     
   </script>

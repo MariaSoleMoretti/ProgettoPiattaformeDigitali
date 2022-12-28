@@ -137,7 +137,7 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
 });
 
 //api di aggiornamento delle email dei tutor
-app.put("/home/updateTutor/:id/:azione/:esame/:email", (req, res) => {
+app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
@@ -152,10 +152,10 @@ app.put("/home/updateTutor/:id/:azione/:esame/:email", (req, res) => {
     //problemi con fetch, serve un valore unico denominato changeValue
     switch (azione) {
       case "newExam":
-        tutorRicercato.esami.push(req.params.esame);
+        tutorRicercato.esami.push(req.params.modifica);
         break;
       case "newEmail":
-        tutorRicercato.email = req.params.email;
+        tutorRicercato.email = req.params.modifica;
         break;
     }
     //effettuo il writeback
