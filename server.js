@@ -2,11 +2,14 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 
-//dichiarazione della porta del server
-app.listen(3000);
+//file statico per il caricamento del file css
+app.use(express.static('public'))
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//dichiarazione della porta del server
+app.listen(3000);
 
 //dichiarazione della variabili globali
 let tutors = [];
