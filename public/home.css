@@ -1,8 +1,8 @@
-body,
-html {
+body,html {
   height: 100%;
+  font-family: 'Hepta Slab', serif;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: #f9ece9;
+  background-color: #F9ECE9;
 }
