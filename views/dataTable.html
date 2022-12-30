@@ -46,10 +46,13 @@
   </body>
 
   <script>
+    var myArray = []
     
     //FUNZIONE PER RICERCARE UN TUTOR
     async function searchTutors(){
       const searchValue = document.getElementById("searchValue").value;
+      console.log(searchValue);
+      console.log(localStorage.filtro);
       
       if(!searchValue){
         alert("Inserire uno tutor.");
@@ -65,10 +68,12 @@
       };
       
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/searchTutor'+ searchValue, options)
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/searchTutor/'+ localStorage.filtro+"/"+ searchValue, options)
       .then((response) => {
         if (response.ok) {
           alert("Nuovo tutor aggiunto!");
+          myArray = response.json();
+          buildTable(myArray);
           return response.json();
         }
         alert('ERROR '+ response.status +'!Something went wrong!');
@@ -80,9 +85,6 @@
       document.getElementById("searchTutor").reset();
     }
     
-    var myArray = []
-
-    buildTable(myArray)
     
     $.ajax({
       method:'GET',

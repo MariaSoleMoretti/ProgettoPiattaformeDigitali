@@ -69,6 +69,8 @@ app.get("/home/cercaTutor/:nomeTutor", (req, res) => {
 app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
   let filtriRicerca = req.params.filtro;
   let valoreRicerca = req.params.valore;
+  console.log(filtriRicerca);
+  console.log(valoreRicerca);
   let data = fs.readFileSync("tutors.json");
   let tutorsByUni = [];
   let tutorsByName = [];
@@ -83,15 +85,15 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
       break;
       case 2:
         //filtra tutti i tutor che seguono il corso ricercato
-        tutorRicercati = tutorsByUni.filter(ricercaCorso,req.query.corso);
+        tutorRicercati = tutorsByUni.filter(ricercaCorso,valoreRicerca);
       break;
       case 3:
         //filtra tutti i tutor che hanno lo stesso cognome
-        tutorRicercati = tutorsByName.filter(ricercaCognome, req.query.cognome);
+        tutorRicercati = tutorsByName.filter(ricercaCognome, valoreRicerca);
       break;
       default:
         //filtra tutti i tutor che hanno lo stesso nome
-        tutorRicercati = tutorsByUni.filter(ricercaNome, req.query.nome);;
+        tutorRicercati = tutorsByUni.filter(ricercaNome, valoreRicerca);;
       return;
     }
   } else {
