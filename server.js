@@ -67,7 +67,8 @@ app.get("/home/cercaTutor/:nomeTutor", (req, res) => {
 
 //api di ricerca dei tutor del database
 app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
-  let filtriRicerca = req.query.valore;
+  let filtriRicerca = req.params.filtro;
+  let valoreRicerca = req.params.valore;
   let data = fs.readFileSync("tutors.json");
   let tutorsByUni = [];
   let tutorsByName = [];
@@ -77,36 +78,26 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
     
     switch(parseInt(filtriRicerca)){
       case 1:
-        //prima filtra tutti i tutor appartenenti all'università cercata
-        tutorRicercati = tutors.filter(ricercaUniversità, req.query.universita);
-        res.redirect("/printAll");
+        //filtra tutti i tutor appartenenti all'università cercata
+        tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);
       break;
       case 2:
-        console.log(req.query.universita);
-        //prima filtra tutti i tutor appartenenti all'università cercata
-        tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
-        //successivamente filtriamo l'array rusultante dall'operazione precedente
-        //per cercare i tutor di quella università che seguino il corso ricercato
+        //filtra tutti i tutor che seguono il corso ricercato
         tutorRicercati = tutorsByUni.filter(ricercaCorso,req.query.corso);
-        res.redirect("/printAll");
       break;
       case 3:
-        //prima filtra tutti i tutor appartenenti all'università cercata
-        tutorsByUni = tutors.filter(ricercaUniversità, req.query.universita);
-        //poi filtra l'array risultante dall'operazione precedente in base al nome
-        tutorsByName = tutorsByUni.filter(ricercaNome, req.query.nome);
-        //infine filtra la''array risultante in base al cognome
+        //filtra tutti i tutor che hanno lo stesso cognome
         tutorRicercati = tutorsByName.filter(ricercaCognome, req.query.cognome);
-        res.redirect("/printAll");
       break;
       default:
-        tutorRicercati = tutors;
-        res.redirect("/printAll");
+        //filtra tutti i tutor che hanno lo stesso nome
+        tutorRicercati = tutorsByUni.filter(ricercaNome, req.query.nome);;
       return;
     }
   } else {
     res.redirect("/notFound");
   }
+  
 });
 
 //api per eliminare un utente dal database ricercandolo in base all'id
@@ -128,11 +119,7 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
       fs.writeFileSync("tutors.json", data);
       console.log("File modified successfully!");
       console.log(deletedTutor);
-      //invia la risposta la client
-      res.status(200).json({
-        message: "L'utente è stato rimosso!",
-        utenteRimosso: deletedTutor,
-      });
+      filtra tutti
     } else {
       res.status(404).json({
         message:
