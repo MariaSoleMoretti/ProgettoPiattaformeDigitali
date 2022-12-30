@@ -22,11 +22,11 @@
           <div>
             <!label for= "search" Cerca Tutor<!/label><br>
             <input class = "" type = "text" id = "searchValue" placeholder = "Cerca">
+            <button class = "btnSearch" type="button" id="btnSearch" onclick="searchTutors()"> <i class="material-icons">person_search</i></button><br>
             <input type="button" onclick="setFilter(0);" value="filtroNome" />
             <input type="button" onclick="setFilter(3);" value="filtroCognome" />
             <input type="button" onclick="setFilter(1);" value="filtroUni" />
             <input type="button" onclick="setFilter(2);" value="filtroCorso" />
-            <button class = "btnSearch" type="button" id="btnSearch" onclick="searchTutors()"> <i class="material-icons">person_search</i></button>
           </div>  
         </div>
       </div>
@@ -68,7 +68,7 @@
       };
       
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/searchTutor/'+ localStorage.filtro+"/"+ searchValue, options)
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+ localStorage.filtro+"/"+ searchValue, options)
       .then((response) => {
         if (response.ok) {
           alert("Nuovo tutor aggiunto!");
