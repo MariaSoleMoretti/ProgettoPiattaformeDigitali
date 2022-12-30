@@ -97,6 +97,8 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
   } else {
     res.redirect("/notFound");
   }
+  //invia la risposta la client
+  res.status(200).json( tutorRicercati);
   
 });
 
@@ -119,7 +121,11 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
       fs.writeFileSync("tutors.json", data);
       console.log("File modified successfully!");
       console.log(deletedTutor);
-      filtra tutti
+      //invia la risposta la client
+      res.status(200).json({
+        message: "L'utente è stato rimosso!",
+        utenteRimosso: deletedTutor,
+      });
     } else {
       res.status(404).json({
         message:
