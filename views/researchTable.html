@@ -37,6 +37,7 @@
       url:"https://progetto-piattaforme-territorio.glitch.me/printAll",
       success: function(responce){
         myArray = responce;
+        buildTable(myArray);
         console.log(myArray)
       }
     })
@@ -48,8 +49,8 @@
 
       for (var i = 0; i < data.length; i++){
         var row = `<tr>
-                <td>${data[i].nome}</td>
-                <td>${data[i].cognome}</td>
+                <td>${data[i].name}</td>
+                <td>${data[i].surname}</td>
                 <td>${data[i].email}</td>
                 <td><button>Visualizza</td>
               </tr>`
