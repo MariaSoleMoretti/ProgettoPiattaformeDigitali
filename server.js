@@ -16,7 +16,7 @@ let tutors = [];
 let tutorRicercati = [];
 
 app.get("/tabella",(req,res) =>{
-  res.sendFile("/app/views/researchTable.html");
+  res.sendFile("/app/views/dataTable.html");
 });
 
 app.get("/home", (req,res) =>{
