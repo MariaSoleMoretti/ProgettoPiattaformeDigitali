@@ -214,7 +214,7 @@ app.get("/printAll", (req, res) => {
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
   
-  res.status(200).json({tutors});
+  res.status(200).render("tutors.json");
 });
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
