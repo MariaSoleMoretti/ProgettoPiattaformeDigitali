@@ -46,7 +46,7 @@ app.post("/home/addTutor", (req, res) => {
 });
 
 //api che filtra i tutor in base all'università
-app.get("/home/cercaUniversita", (req, res) => {
+app.get("/home/cercaTutor/:nomeTutor", (req, res) => {
   const uni = req.query.universita.toString();
   let data = fs.readFileSync("tutors.json");
 
@@ -66,8 +66,8 @@ app.get("/home/cercaUniversita", (req, res) => {
 });
 
 //api di ricerca dei tutor del database
-app.get("/home/searchTutors/:valore", (req, res) => {
-  let tutorRicercato = req.params.valore;
+app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
+  let filtriRicerca = req.query.valore;
   let data = fs.readFileSync("tutors.json");
   let tutorsByUni = [];
   let tutorsByName = [];
