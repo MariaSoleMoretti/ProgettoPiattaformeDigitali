@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
@@ -13,7 +14,16 @@
           color:#fff;
               }
   </style>
-
+  
+  <div>
+    <div>
+      <div>
+        <!label for= "search" Cerca Tutor<!/label><br>
+        <input class = "" type = "text" id = "researchValue" placeholder = "Cerca">
+        <button class = "btnSearch" type="button" id="btnSearch" onclick="searchTutors()"> <i class="material-icons">person_search</i></button>
+      </div>  
+    </div>
+  </div>
 
   <table class="table table-striped">
       <tr  class="bg-info">
@@ -28,6 +38,40 @@
   </table>
 
   <script>
+    
+    //FUNZIONE PER RICERCARE UN TUTOR
+    async function searchTutors(){
+      const searchValue = document.getElementById("searchValue").value;
+      
+      if(!searchValue){
+        alert("Inserire uno tutor.");
+        return;
+      }
+      
+      //opzioni per la fetch
+      const options = {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        }
+      };
+      
+      //eseguo la fetch
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/searchTutor', options)
+      .then((response) => {
+        if (response.ok) {
+          alert("Nuovo tutor aggiunto!");
+          return response.json();
+        }
+        alert('ERROR!Something went wrong!');
+      })
+      .catch(e => {
+          console.log(e);
+      });
+      //pulisce la form
+      document.getElementById("addTutor").reset();
+    }
+    
     var myArray = []
 
     buildTable(myArray)
