@@ -210,11 +210,10 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
 });
 
 app.get("/printAll", (req, res) => {
-  //facciamo la read del file 
-  let data = fs.readFileSync("tutors.json");
-  tutors = JSON.parse(data);
-  
-  res.status(200).send(tutors.json);
+  res.status(200).json({
+    message: "I tutor sono i seguenti",
+    tutors: tutorRicercati
+  });
 });
 
 //funzione di validazione dehli input, in particolare controlla se l'email è valida,
