@@ -69,8 +69,7 @@ app.get("/home/cercaTutor/:nomeTutor", (req, res) => {
 app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
   let filtriRicerca = req.params.filtro;
   let valoreRicerca = req.params.valore;
-  console.log(filtriRicerca);
-  console.log(valoreRicerca);
+
   let data = fs.readFileSync("tutors.json");
   let tutorsByUni = [];
   let tutorsByName = [];
@@ -96,9 +95,11 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
         tutorRicercati = tutorsByUni.filter(ricercaNome, valoreRicerca);;
       return;
     }
+    console.log(tutorRicercati);
   } else {
     res.redirect("/notFound");
   }
+  console.log(tutorRicercati);
   //invia la risposta la client
   res.status(200).json( tutorRicercati);
   
