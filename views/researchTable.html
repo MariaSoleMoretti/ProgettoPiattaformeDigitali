@@ -28,18 +28,15 @@
   </table>
 
   <script>
-    var myArray = []
+    var myArray = [
+        {'nome':'Sara', 'cognome':'Yosef', 'email':'yosef@gmail.com'},
+        {'nome':'Margherita', 'cognome':'Moretti', 'email':'marghe.moretti@icloud.it'},
+        {'nome':'Eugenio', 'cognome':'Fusero', 'email':'eugenio.fusero@gmail.com'},
+        {'nome':'Riccardo', 'cognome':'Camilletti', 'email':'riccardo.camilletti@gmail.com'},
+        {'nome':'Camilla', 'cognome':'Antognini', 'email':'anto_cami@icloud.it'},
+    ]
 
     buildTable(myArray)
-    
-    $.ajax({
-      method:'GET',
-      url:"https://progetto-piattaforme-territorio.glitch.me/printAll",
-      success: function(responce){
-        myArray = responce;
-        console.log(myArray)
-      }
-    })
 
 
 
