@@ -22,6 +22,10 @@
           <div>
             <!label for= "search" Cerca Tutor<!/label><br>
             <input class = "" type = "text" id = "searchValue" placeholder = "Cerca">
+            <input type="button" onclick="setFilter(0);" value="filtroNome" />
+            <input type="button" onclick="setFilter(3);" value="filtroCognome" />
+            <input type="button" onclick="setFilter(1);" value="filtroUni" />
+            <input type="button" onclick="setFilter(2);" value="filtroCorso" />
             <button class = "btnSearch" type="button" id="btnSearch" onclick="searchTutors()"> <i class="material-icons">person_search</i></button>
           </div>  
         </div>
@@ -90,6 +94,9 @@
       }
     })
 
+    function setFilter(value){
+      localStorage.setItem("filtro", value);
+    }
 
 
     function buildTable(data){
