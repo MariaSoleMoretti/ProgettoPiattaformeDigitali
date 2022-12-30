@@ -72,7 +72,8 @@
       .then((response) => {
         if (response.ok) {
           alert("Nuovo tutor aggiunto!");
-          localStorage.setItem("url","https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+ localStorage.filtro+"/"+ searchValue")
+          myArray = response.json();
+          buildTable(myArray);
           return response.json();
         }
         alert('ERROR '+ response.status +'!Something went wrong!');
@@ -87,7 +88,7 @@
     
     $.ajax({
       method:'GET',
-      url:localStorage.url,
+      url:"https://progetto-piattaforme-territorio.glitch.me/printAll",
       success: function(responce){
         myArray = responce;
         buildTable(myArray);
