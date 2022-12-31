@@ -78,18 +78,21 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
   if(data != null) {
     tutors = JSON.parse(data);
     
-    switch(parseInt(filtriRicerca)){
+    switch(filtriRicerca){
       case 1:
+        console.log("sono nello switch");
         //filtra tutti i tutor che hanno lo stesso nome
         tutorRicercati = tutorsByUni.filter(ricercaNome, valoreRicerca);
         console.log(tutorRicercati);
         break
       case 2:
+        console.log("sono nello switch");
         //filtra tutti i tutor appartenenti all'università cercata
         tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);
         console.log(tutorRicercati);
       break;
       case 3:
+        console.log("sono nello switch");
         //filtra tutti i tutor che seguono il corso ricercato
         tutorRicercati = tutorsByUni.filter(ricercaCorso,valoreRicerca);
         console.log(tutorRicercati);
@@ -275,7 +278,9 @@ function ricercaNome(elemento) {
 
 //funzione per la ricerca dei tutor in base al cognome
 function ricercaCognome(elemento) { 
+  console.log(elemento);
   if (elemento.surname.toString().toLowerCase() === this.toString().toLowerCase()) {
+    console.log(elemento);
     return true;
   }
 }
