@@ -80,20 +80,23 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
     
     switch(parseInt(filtriRicerca)){
       case 1:
+        //filtra tutti i tutor che hanno lo stesso nome
+        tutorRicercati = tutorsByUni.filter(ricercaNome, valoreRicerca);
+        break
+      case 2:
         //filtra tutti i tutor appartenenti all'università cercata
         tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);
       break;
-      case 2:
+      case 3:
         //filtra tutti i tutor che seguono il corso ricercato
         tutorRicercati = tutorsByUni.filter(ricercaCorso,valoreRicerca);
       break;
-      case 3:
+      case 4:
         //filtra tutti i tutor che hanno lo stesso cognome
         tutorRicercati = tutorsByName.filter(ricercaCognome, valoreRicerca);
       break;
       default:
-        //filtra tutti i tutor che hanno lo stesso nome
-        tutorRicercati = tutorsByUni.filter(ricercaNome, valoreRicerca);;
+        res.redirect("/printAll");
       return;
     }
   } else {

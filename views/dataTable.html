@@ -49,17 +49,17 @@
     var myArray = []
     //valori di default nel momento del caricamento della pagina
     localStorage.setItem("defaultFilter", 0);
-    localStorage.setItem("defaultSearchValue", " ");
+    localStorage.setItem("defaultSearchValue", "none");
     
     sessionStorage.setItem("filter", localStorage.defaultFilter);
-    sessionStorage.setItem("searchValue", " ");
+    sessionStorage.setItem("searchValue", "none");
     
     
     $.ajax({
       method:'GET',
-      url:'https://progetto-piattaforme-territorio.glitch.me/home/search ,
-      success: function(responce){
-        myArray = responce;
+      url:'https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+sessionStorage.filter+'/'+ document.getElementById("searchValue").value ,
+      success: function(response){
+        myArray = response.json;
         buildTable(myArray);
         console.log(myArray)
       }
