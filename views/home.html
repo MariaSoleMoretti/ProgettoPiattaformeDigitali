@@ -230,6 +230,43 @@
       //pulisce la form
       document.getElementById("deleteTutor").reset();
     }
+    
+    //FUNZIONE PER RICERCARE UN TUTOR
+    async function searchTutors(){
+      const searchValue = document.getElementById("searchValue").value;
+      console.log(searchValue);
+      console.log(localStorage.filtro);
+      
+      if(!searchValue){
+        alert("Inserire uno tutor.");
+        return;
+      }
+      
+      //opzioni per la fetch
+      const options = {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        }
+      };
+      
+      //eseguo la fetch
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+ localStorage.filtro+"/"+ searchValue, options)
+      .then((response) => {
+        if (response.ok) {
+          alert("Nuovo tutor aggiunto!");
+          myArray = response.json();
+          buildTable(myArray);
+          return response.json();
+        }
+        alert('ERROR '+ response.status +'!Something went wrong!');
+      })
+      .catch(e => {
+          console.log(e);
+      });
+      //pulisce la form
+      document.getElementById("searchTutor").reset();
+    }
   
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
