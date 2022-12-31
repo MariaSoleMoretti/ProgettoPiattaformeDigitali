@@ -48,26 +48,15 @@
   <script>
     var myArray = []
     
-    $('btnSearch').on('click', function () {
-      const searchValue = document.getElementById("searchValue").value;
-      console.log(searchValue);
-      console.log(localStorage.filtro);
-      
-      if(!searchValue){
-        alert("Inserire uno tutor.");
-        return;
+    $.ajax({
+      method:'GET',
+      url:'https://progetto-piattaforme-territorio.glitch.me/printAll/',
+      success: function(responce){
+        myArray = responce;
+        buildTable(myArray);
+        console.log(myArray)
       }
-      
-      $.ajax({
-        method:'GET',
-        url:'https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+ localStorage.filtro+'/'+ searchValue,
-        success: function(responce){
-          myArray = responce;
-          buildTable(myArray);
-          console.log(myArray)
-        }
-      })
-   })
+    })
 
     function setFilter(value){
       localStorage.setItem("filtro", value);
