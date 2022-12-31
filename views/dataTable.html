@@ -22,7 +22,7 @@
           <div>
             <!label for= "search" Cerca Tutor<!/label><br>
             <input class = "" type = "text" id = "searchValue" placeholder = "Cerca">
-            <button class = "btnSearch" type="button" onclick="setSearchValue()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
+            <button class = "btnSearch" type="button" onclick="searchValue()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
             <input type="button" onclick="setFilter(0)" value="filtroNome" />
             <input type="button" onclick="setFilter(3)" value="filtroCognome" />
             <input type="button" onclick="setFilter(1)" value="filtroUni" />
@@ -57,13 +57,49 @@
     
     $.ajax({
       method:'GET',
-      url:'https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+sessionStorage.filter+'/'+ sessionStorage.searchValue ,
+      url:'https://progetto-piattaforme-territorio.glitch.me/printAll' ,
       success: function(response){
-        myArray = response.json;
+        myArray = response;
         buildTable(myArray);
         console.log(myArray)
       }
     })
+    
+    //FUNZIONE PER RICERCARE UN TUTOR
+    async function searchTutors(){
+      const searchValue = document.getElementById("searchValue").value;
+      
+      if(!searchValue){
+        alert("Inserire uno tutor.");
+        return;
+      }
+      
+      //opzioni per la fetch
+      const options = {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        }
+      };
+      
+      //eseguo la fetch
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+sessionStorage.filter+'/'+ sessionStorage.searchValue, options)
+      .then((response) => {
+        if (response.ok) {
+          alert("Nuovo tutor aggiunto!");
+          myArray = response;
+        buildTable(myArray);
+        console.log(myArray)
+          return response.json();
+        }
+        alert('ERROR!Something went wrong!');
+      })
+      .catch(e => {
+          console.log(e);
+      });
+      //pulisce la form
+      document.getElementById("addTutor").reset();
+    }
     
     function setFilter(value){
       sessionStorage.setItem("filter", value);
