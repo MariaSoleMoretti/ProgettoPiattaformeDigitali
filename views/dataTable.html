@@ -48,18 +48,16 @@
   <script>
     var myArray = []
     //valori di default nel momento del caricamento della pagina
-    localStorage.setItem("defaultURL", "printAll");
     localStorage.setItem("defaultFilter", 0);
     localStorage.setItem("defaultSearchValue", " ");
     
-    sessionStorage.setItem("url", localStorage.defaultURL);
     sessionStorage.setItem("filter", localStorage.defaultFilter);
     sessionStorage.setItem("searchValue", " ");
     
     
     $.ajax({
       method:'GET',
-      url:'https://progetto-piattaforme-territorio.glitch.me/'+ sessionStorage.url ,
+      url:'https://progetto-piattaforme-territorio.glitch.me/home/search ,
       success: function(responce){
         myArray = responce;
         buildTable(myArray);
@@ -70,12 +68,6 @@
     function setFilter(value){
       sessionStorage.setItem("filter", value);
     }
-
-    function setApiParams(){
-      sessionStorage.setItem("searchValue", document.getElementById("searchValue").value);
-      sessionStorage.setItem("url", "home/searchTutors/"+sessionStorage.filter+'/'+sessionStorage.searchValue);
-    }
-
 
     function buildTable(data){
       var table = document.getElementById('myTable')
