@@ -96,7 +96,7 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
         tutorRicercati = tutorsByName.filter(ricercaCognome, valoreRicerca);
       break;
       default:
-        res.redirect("/printAll");
+        tutorRicercati = tutors;
       return;
     }
   } else {

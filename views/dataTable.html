@@ -22,7 +22,7 @@
           <div>
             <!label for= "search" Cerca Tutor<!/label><br>
             <input class = "" type = "text" id = "searchValue" placeholder = "Cerca">
-            <button class = "btnSearch" type="button" onclick="setApiParams()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
+            <button class = "btnSearch" type="button" onclick="setSearchValue()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
             <input type="button" onclick="setFilter(0)" value="filtroNome" />
             <input type="button" onclick="setFilter(3)" value="filtroCognome" />
             <input type="button" onclick="setFilter(1)" value="filtroUni" />
@@ -57,7 +57,7 @@
     
     $.ajax({
       method:'GET',
-      url:'https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+sessionStorage.filter+'/'+  ,
+      url:'https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+sessionStorage.filter+'/'+ sessionStorage.searchValue ,
       success: function(response){
         myArray = response.json;
         buildTable(myArray);
