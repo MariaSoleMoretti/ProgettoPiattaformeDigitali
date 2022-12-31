@@ -82,18 +82,22 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
       case 1:
         //filtra tutti i tutor che hanno lo stesso nome
         tutorRicercati = tutorsByUni.filter(ricercaNome, valoreRicerca);
+        console.log(tutorRicercati);
         break
       case 2:
         //filtra tutti i tutor appartenenti all'università cercata
         tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);
+        console.log(tutorRicercati);
       break;
       case 3:
         //filtra tutti i tutor che seguono il corso ricercato
         tutorRicercati = tutorsByUni.filter(ricercaCorso,valoreRicerca);
+        console.log(tutorRicercati);
       break;
       case 4:
         //filtra tutti i tutor che hanno lo stesso cognome
         tutorRicercati = tutorsByName.filter(ricercaCognome, valoreRicerca);
+        console.log(tutorRicercati);
       break;
       default:
         tutorRicercati = tutors;
