@@ -92,8 +92,10 @@
         alert('ERROR!Something went wrong!');
       })
       .then(data =>{
-        
-      }
+        myArray = data;
+        buildTable(myArray);
+        console.log(myArray)
+      })
       .catch(e => {
           console.log(e);
       });
