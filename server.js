@@ -254,15 +254,14 @@ function ricercaEmail(elemento) {
 
 //funzione per la ricerca dei tutor in base all'università
 function ricercaUniversità(elemento) {
-  console.log(elemento.universita.toString().toLowerCase().contains(this.toString().toLowerCase()));
-  if (elemento.universita.toString().toLowerCase().contains(this.toString().toLowerCase())) {
+  if (elemento.universita.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al corso
 function ricercaCorso(elemento) {
-  if (elemento.corso.toString().toLowerCase().contains(this.toString().toLowerCase())) {
+  if (elemento.corso.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }
