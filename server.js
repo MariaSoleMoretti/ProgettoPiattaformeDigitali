@@ -106,8 +106,19 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
   } else {
     res.redirect("/notFound");
   }
-  //invia la risposta la client
-  res.status(200).json(tutorRicercati);
+  
+  console.log(tutorRicercati.length);
+  if(tutorRicercati.length != 0){
+    //invia la risposta la client
+    res.status(200).json(tutorRicercati);
+  }
+  else{
+    res.status(404).json({
+        message:
+          "ERRORE! La ricerca non ha prodotto risultati. ",
+        status: 404,
+      });
+  }
   
 });
 
