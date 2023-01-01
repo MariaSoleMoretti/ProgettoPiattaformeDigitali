@@ -69,24 +69,20 @@ app.get("/home/cercaTutor/:nomeTutor", (req, res) => {
 app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
   let filtriRicerca = req.params.filtro;
   let valoreRicerca = req.params.valore;
-  console.log(filtriRicerca);
-  console.log(valoreRicerca);
+  
   let data = fs.readFileSync("tutors.json");
-  let tutorsByUni = [];
-  let tutorsByName = [];
-
   if(data != null) {
     tutors = JSON.parse(data);
     
-    switch(filtriRicerca){
+    switch(parseInt(filtriRicerca)){
       case 1:
-        console.log("sono nello switch");
+        console.log("sono nel case 1");
         //filtra tutti i tutor che hanno lo stesso nome
-        tutorRicercati = tutorsByUni.filter(ricercaNome, valoreRicerca);
+        tutorRicercati = tutors.filter(ricercaNome, valoreRicerca);
         console.log(tutorRicercati);
         break
       case 2:
-        console.log("sono nello switch");
+        console.log("sono nel case 2");
         //filtra tutti i tutor appartenenti all'università cercata
         tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);
         console.log(tutorRicercati);
@@ -94,15 +90,16 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
       case 3:
         console.log("sono nello switch");
         //filtra tutti i tutor che seguono il corso ricercato
-        tutorRicercati = tutorsByUni.filter(ricercaCorso,valoreRicerca);
+        tutorRicercati = tutors.filter(ricercaCorso,valoreRicerca);
         console.log(tutorRicercati);
       break;
       case 4:
         //filtra tutti i tutor che hanno lo stesso cognome
-        tutorRicercati = tutorsByName.filter(ricercaCognome, valoreRicerca);
+        tutorRicercati = tutors.filter(ricercaCognome, valoreRicerca);
         console.log(tutorRicercati);
       break;
       default:
+        console.log("sono nel caso default");
         tutorRicercati = tutors;
       return;
     }
@@ -110,7 +107,7 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
     res.redirect("/notFound");
   }
   //invia la risposta la client
-  res.status(200).json( tutorRicercati);
+  res.status(200).json(tutorRicercati);
   
 });
 
@@ -278,9 +275,7 @@ function ricercaNome(elemento) {
 
 //funzione per la ricerca dei tutor in base al cognome
 function ricercaCognome(elemento) { 
-  console.log(elemento);
   if (elemento.surname.toString().toLowerCase() === this.toString().toLowerCase()) {
-    console.log(elemento);
     return true;
   }
 }

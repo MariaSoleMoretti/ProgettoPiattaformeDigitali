@@ -59,7 +59,7 @@
       method:'GET',
       url:'https://progetto-piattaforme-territorio.glitch.me/printAll' ,
       success: function(response){
-        myArray = response;
+        myArray = response.json();
         buildTable(myArray);
         console.log(myArray)
       }
