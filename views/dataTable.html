@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <style>
@@ -31,8 +30,8 @@
         </div>
       </div>
 
-      <table class="table table-striped">
-          <tr  class="bg-info">
+      <table id = "tableThead">
+          <tr>
               <th>Nome</th>
               <th>Cognome</th>
               <th>Email</th>
@@ -54,6 +53,11 @@
     sessionStorage.setItem("filter", localStorage.defaultFilter);
     sessionStorage.setItem("searchValue", "none ");
     
+    $(document).ready(function() {
+       $("#btnSearch").on("click", function() {
+       $( "#mytable" ).load(response);
+      });
+    });
     
     $.ajax({
       method:'GET',
