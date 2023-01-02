@@ -53,12 +53,6 @@
     sessionStorage.setItem("filter", localStorage.defaultFilter);
     sessionStorage.setItem("searchValue", "none ");
     
-    $(document).ready(function() {
-       $("#btnSearch").on("click", function() {
-       $( "#mytable" ).load(response);
-      });
-    });
-    
     $.ajax({
       method:'GET',
       url:'https://progetto-piattaforme-territorio.glitch.me/printAll' ,
@@ -117,6 +111,7 @@
 
     function buildTable(data){
       var table = document.getElementById('myTable')
+      $("#myTable").empty();
 
       for (var i = 0; i < data.length; i++){
         var row = `<tr>
