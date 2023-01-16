@@ -13,7 +13,7 @@ body{
 	border-collapse: collapse;
 }
 
-.table td,.table th{
+.tableThead td,.table th{
   padding:12px 15px;
   border:1px solid #dddddd;
   text-align: center;
