@@ -141,6 +141,7 @@
       $("#myTable").empty();
 
       for (var i = 0; i < data.length; i++){
+        sessionStorage.setItem("tutor", data;)
         var row = `<tr>
                 <td>${data[i].name}</td>
                 <td>${data[i].surname}</td>
@@ -151,23 +152,23 @@
       }
     }
     
-    function buildFullTable(tutor){
-      var table = document.getElementById('fullData')
+    function buildFullTable(){
+      var table1 = document.getElementById('fullData');
       $("#fullData").empty();
-      
-      console.log(tutor);
 
-      var tutorData = `<tr>
+      for (var i = 0; i < data.length; i++){
+      
+        var row = `<tr>
           <th>Nome:</th>
-          <td>${tutor[i].name}</td>
+          <td>${sessionStorage.tutor[i].name}</td>
         </tr>
         <tr>
           <th>Cognome:</th>
-          <td>${tutor[i].surname}</td>
+          <td>${sessionStorage.tutor[i].surname}</td>
         </tr>
         <tr>
           <th>Email:</th>
-          <td>${tutor[i].email}</td>
+          <td>${sessionStorage.tutor[i].email}</td>
         </tr>
         <tr>
           <th>Università:</th>
@@ -175,14 +176,12 @@
         </tr>
         <tr>
           <th>Corso:</th>
-          <td>${tutor[i].corso}</td>
-        </tr>
-        <tr>
-          <th>Esami:</th>
-          <td></td>
+          <td>${sessionStorage.tutor[i].corso}</td>
         </tr>`
+        
+        fullData.innerHTML += row
+      }
     }
-    fullData.innerHTML += tutorData
 
   </script>
 </html>
