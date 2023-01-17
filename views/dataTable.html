@@ -54,6 +54,25 @@
     </div>
     <hr>
     
+    <! Aggiornamento tutor dati tutor>
+    <form action = "" id = "updateTutor">
+      <h2>
+        Aggiornamento dati Tutor
+      </h2>
+      <div>
+        <label for="id">ID Tutor</label><br>
+        <input type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
+      
+        <div>
+          <label for="id">Modifica</label>
+          <button type="button" id="filterByEmail" onclick= "setEmailFilter()">Email</button>
+          <button type="button" id="filterByExam" onclick= "setExamFilter()">Nuovo Esame</button>
+        </div>
+        <input type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
+        <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
+      </div>
+    </form>
+    
   </body>
 
   <script>
