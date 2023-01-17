@@ -11,8 +11,8 @@
   </head>
   
   <body>
-    <form id="searchTutor">
-      <div class = "inner-block">
+    <div class = "search-tutor">
+      <form id="searchTutor">
         <div class = "search_bar">
           <!label for= "search" Cerca Tutor<!/label><br>
           <input class = "" type = "text" id = "searchValue" placeholder = "Cerca">
@@ -22,23 +22,23 @@
           <input type="button" onclick="setFilter(2)" value="Università" />
           <input type="button" onclick="setFilter(3)" value="Corso" />
         </div>  
-      </div>
 
-      <table class = "table" id = "tableThead">
-          <tr>
+        <table class = "table" id = "tableThead">
+            <tr>
               <th>Nome</th>
               <th>Cognome</th>
               <th>Email</th>
               <th>Università</th>
               <th>Corso</th>
               <th>Esami</th>
-          </tr>
+            </tr>
 
-          <tbody id="myTable">
+            <tbody id="myTable">
 
-          </tbody>
-      </table>
-    </form>
+            </tbody>
+        </table>
+      </form>
+    </div>
     
     <! Calcellazione di un nuovo tutor nel database>
     <div class = "delete-tutor">
@@ -55,11 +55,11 @@
     <hr>
     
     <! Aggiornamento tutor dati tutor>
-    <form action = "" id = "updateTutor">
+    <div class = "update-tutor">
       <h2>
         Aggiornamento dati Tutor
       </h2>
-      <div>
+      <form id = "updateTutor">
         <label for="id">ID Tutor</label><br>
         <input type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
       
@@ -70,8 +70,8 @@
         </div>
         <input type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
         <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
-      </div>
-    </form>
+      </form>
+    </div>
     
   </body>
 
