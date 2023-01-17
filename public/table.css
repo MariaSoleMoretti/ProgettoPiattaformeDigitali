@@ -1,4 +1,6 @@
 body{
+  display: grid;
+  grid-gap: 1em;
 	margin:0;
 	padding:20px;
 	font-family: sans-serif;
