@@ -31,7 +31,7 @@ body{
 
 .table th{
 	background-color: darkblue;
-	color:#ffffff;
+	font-family: sans-serif
 }
 
 .table tbody tr:nth-child(even){
@@ -44,6 +44,11 @@ body{
 
 .update-tutor{
   grid-area: aggiorna;
+}
+
+h2{
+  background-color: darkblue;
+  font-family: sans-serif
 }
 
 
