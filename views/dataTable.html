@@ -13,7 +13,7 @@
   <body>
     <div class = "search-tutor">
       <form id="searchTutor">
-        <div class = "search_bar">
+        <div class = "search-bar">
           <h2>
             Cerca un Tutor
           </h2>
@@ -41,6 +41,39 @@
         </table>
       </form>
     </div>
+    
+    <! Aggiunta di un nuovo tutor nel database>
+    <div class = "add-tutor">
+      <h2>
+        Registra un nuovo Tutor
+      </h2>
+
+      <form action="" id="addTutor">
+        <div>
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" >
+        </div>
+        <div>
+          <label for="surname">Cognome</label>
+          <input type="text" id="surname" name="name" >
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" >
+        </div>
+        <div>
+          <label for="universita">Università</label>
+          <input list="nome-università" name="universita" id="universita">
+          <!input list="nome-universita" id="universita" name="universita" autocomplete= "on">
+        </div>
+        <div>
+            <label for="corso">Corso di Studi</label>
+            <input type="text" id="corso" name="corso" >
+          </div>
+          <br>
+          <button type="button" id="newValue" onclick= "addTutor()" >Aggiungi</button>
+        </form>
+    </div> 
     
     <! Calcellazione di un nuovo tutor nel database>
     <div class = "delete-tutor">
@@ -95,6 +128,42 @@
         console.log(myArray)
       }
     })
+    
+    //FUNZIONE PER AGGIUNGERE UN TUTOR
+    async function addTutor(){
+      //definisco i dati del nuovo tutor aggiungendo alcuni campi di default
+      const newTutor = ({
+        id:          Date.now().toString(),
+        name :       document.getElementById("name").value,
+        surname :    document.getElementById("surname").value,
+        email :      document.getElementById("email").value,
+        universita : document.getElementById("universita").value,
+        corso :      document.getElementById("corso").value,
+        esami:       [] 
+      })
+      //opzioni per la fetch
+      const options = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTutor),
+      };
+      //eseguo la fetch
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
+      .then((response) => {
+        if (response.ok) {
+          alert("Nuovo tutor aggiunto!");
+          return response.json();
+        }
+        alert('ERROR!Something went wrong!');
+      })
+      .catch(e => {
+          console.log(e);
+      });
+      //pulisce la form
+      document.getElementById("addTutor").reset();
+    }
     
     //FUNZIONE PER RICERCARE UN TUTOR
     async function searchTutors(){
@@ -190,7 +259,103 @@
           console.log(e);
       });
     }
+    
+    //FUNZIONE PER MODIFICARE UN TUTOR 
+    async function updateTutor(){
+      //definisco i vali paramentri da passare all'api
+      const id         = document.getElementById("id").value;
+      const action     = sessionStorage.action;
+      let changeValue  = document.getElementById("valore").value;
+
+      //opzioni per la fetch
+      const options = {
+        method: 'PUT'
+      };
+      //eseguo la fetch
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/updateTutor/'+ id +'/'+ action +'/'+ changeValue, options)
+      .then((response) => {
+        if (response.ok) {
+          alert("Modifica effettuata!");
+          return response.json();
+        }
+        alert('ERROR '+ response.status +'! Impossibile eseguire la modifica!');
+        //invio al client la risposta sotto formato json
+        response.json();
+      })
+      .catch(e => {
+          console.log(e);
+      });
+      //setto nuovamente a false i filtri
+      if(filtroEsame == true){
+        setExamFilter();
+      }
+      if(filtroEmail == true){
+        setEmailFilter();
+      }
+      //pulisce la form
+      document.getElementById("updateTutor").reset();
+    }
 
   </script>
+  
+  <! LISTA UNIVERSITA' PER AGGIUNGERE UN NUOVO TUTOR >
+  <datalist id="nome-università">
+    <!Università delle Marche>
+    <option value="Università Politecnica delle Marche"></option>
+    <option value="Università degli Studi di Camerino"></option>
+    <option value="Università degli Studi di Macerata"></option>
+    <option value="Università degli Studi di Urbino"></option>
+    <!Università dell'Abruzzo>
+    <option value="Università degli Studi Gabriele d'Annunzio"></option>
+    <option value="Università degli Studi dell'Aquila"></option>
+    <option value="Università degli Studi di Teramo"></option>
+    <! Università della Basilicata>
+    <option value="Università degli Studi della Basilicata"></option>
+    <! Università della Calabria>
+    <option value="Università degli Studi Magna Græcia di Catanzaro"></option>
+    <option value="Università della Calabria"></option>
+    <option value="Università degli Studi Mediterranea di Reggio Calabria"></option>
+    <! Università della Campania>
+    <option value="Università degli Studi di Napoli Federico II"></option>
+    <option value="Università degli Studi di Napoli L'Orientale"></option>
+    <option value="Università degli Studi di Napoli Parthenope"></option>
+    <option value="Università degli Studi della Campania Luigi Vanvitelli"></option>
+    <option value="Università degli Studi di Salerno"></option>
+    <option value="Università degli Studi del Sannio"></option>
+    <! Università dell'Emilia Romagna>
+    <option value ="Alma mater studiorum - Università di Bologna"></option>
+    <option value ="Università degli Studi di Ferrara"></option>
+    <option value ="Università degli Studi di Modena e Reggio Emilia"></option>
+    <option value ="Università degli Studi di Parma"></option>
+    <! Università Fiuli Venzia Giulia>
+    <option value ="Università degli Studi di Trieste"></option>
+    <option value ="Università degli Studi di Udine"></option>
+    <! Università del Lazio>
+    <option value ="Università degli Studi di Cassino e del Lazio Meridionale"></option>
+    <option value ="Università degli Studi di Roma Foro Italico"></option>
+    <option value ="Università degli Studi di Roma La Sapienza"></option>
+    <option value ="Università degli Studi di Roma Tor Vergata"></option>
+    <option value ="Università degli Studi Roma Tre"></option>
+    <option value ="Università degli Studi della Tuscia"></option>
+    <! Università della Liguria>
+    <option value ="Università degli Studi di Genova"></option>
+    <!Università del Lombardia>
+    <option value ="Università degli Studi di Bergamo"></option>
+    <option value ="Università degli Studi di Brescia"></option>
+    <option value ="Politecnico di Milano"></option>
+    <option value ="Università degli Studi di Milano"></option>
+    <option value ="Università degli Studi di Milano-Bicocca"></option>
+    <option value ="Istituto Universitario di Studi Superiori"></option>
+    <option value ="Università degli Studi di Pavia"></option>
+    <option value ="Università degli Studi dell'Insubria"></option>
+    <!Università del Molise>
+    <option value ="Università degli Studi del Molise"></option>
+    <! Università del Piemonte>
+    <option value ="Università degli Studi del Piemonte Orientale Amedeo Avogadro"></option>
+    <option value ="Università degli Studi di Torino"></option>
+    <option value ="Politecnico di Torino"></option>
+    <!Università della Puglia>
+
+  </datalist>
 </html>
     
