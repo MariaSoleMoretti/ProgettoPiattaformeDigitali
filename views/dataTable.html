@@ -11,19 +11,17 @@
   </head>
   
   <body>
-    <form action="" id="searchTutor">
-      <div>
-        <div>
-          <div>
-            <!label for= "search" Cerca Tutor<!/label><br>
-            <input class = "" type = "text" id = "searchValue" placeholder = "Cerca">
-            <button class = "btnSearch" type="button" onclick="searchTutors()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
-            <input type="button" onclick="setFilter(1)" value="Nome" />
-            <input type="button" onclick="setFilter(4)" value="Cognome" />
-            <input type="button" onclick="setFilter(2)" value="Università" />
-            <input type="button" onclick="setFilter(3)" value="Corso" />
-          </div>  
-        </div>
+    <form id="searchTutor">
+      <div class = "inner_block">
+        <div class = "search_bar">
+          <!label for= "search" Cerca Tutor<!/label><br>
+          <input class = "" type = "text" id = "searchValue" placeholder = "Cerca">
+          <button class = "btnSearch" type="button" onclick="searchTutors()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
+          <input type="button" onclick="setFilter(1)" value="Nome" />
+          <input type="button" onclick="setFilter(4)" value="Cognome" />
+          <input type="button" onclick="setFilter(2)" value="Università" />
+          <input type="button" onclick="setFilter(3)" value="Corso" />
+        </div>  
       </div>
 
       <table class = "table" id = "tableThead">
@@ -90,9 +88,11 @@
         alert('ERROR!Something went wrong!');
       })
       .then(data =>{
-        myArray = data;
-        buildTable(myArray);
-        console.log(myArray)
+        if(data > 0){
+          myArray = data;
+          buildTable(myArray);
+          console.log(myArray)
+        }
       })
       .catch(e => {
           console.log(e);
@@ -120,10 +120,39 @@
                 <td>${data[i].email}</td>
                 <td>${data[i].universita}</td>
                 <td>${data[i].corso}</td>
-                <td><button onclick="buildFullTable(data)" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
+                <td><button onclick="deleteTutor(data[i])" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
               </tr>`
         table.innerHTML += row;
       }
+    }
+    
+    // FUNZIONE PER ELIMINARE UN TUTOR 
+    async function deleteTutor(tutor){
+      //opzioni per la fetch
+      const options = {
+        method: 'DELETE'
+      };
+      //eseguo la fetch
+      fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor/'+ tutor.id, options)
+      .then((response) => {
+        if (response.ok) {
+          alert("Tutor eliminato!");
+          return response.json();
+        }
+        alert('ERROR '+ response.status +'! Something went wrong!');
+        //invio al client la risposta sotto formato json
+        response.json();
+      })
+      then(data =>{
+        if(data > 0){
+          myArray = data;
+          buildTable(myArray);
+          console.log(myArray)
+        }
+      })
+      .catch(e => {
+          console.log(e);
+      });
     }
 
   </script>
