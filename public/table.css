@@ -31,7 +31,7 @@ body{
 
 .table th{
 	background-color: darkblue;
-	font-family: sans-serif
+	color: #ffffff
 }
 
 .table tbody tr:nth-child(even){
@@ -48,7 +48,8 @@ body{
 
 h2{
   background-color: darkblue;
-  font-family: sans-serif
+  font-family: sans-serif;
+  color: #ffffff
 }
 
 
