@@ -85,7 +85,6 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
     res.redirect("/notFound");
   }
   
-  console.log(tutorRicercati.length);
   if(tutorRicercati.length != 0){
     //invia la risposta la client
     res.status(200).json(tutorRicercati);
@@ -120,10 +119,7 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
       console.log("File modified successfully!");
       console.log(deletedTutor);
       //invia la risposta la client
-      res.status(200).json({
-        message: "L'utente è stato rimosso!",
-        utenteRimosso: deletedTutor,
-      });
+      res.status(200).json(tutors);
     } else {
       res.status(404).json({
         message:

@@ -27,6 +27,7 @@
 
         <table class = "table" id = "tableThead">
             <tr>
+              <th>ID</th>
               <th>Nome</th>
               <th>Cognome</th>
               <th>Email</th>
@@ -191,10 +192,10 @@
         alert('ERROR!Something went wrong!');
       })
       .then(data =>{
-        if(data > 0){
-          myArray = data;
+        myArray = data;
+        console.log(myArray);
+        if(myArray.lenght != 0){
           buildTable(myArray);
-          console.log(myArray)
         }
       })
       .catch(e => {
@@ -218,6 +219,7 @@
 
       for (var i = 0; i < data.length; i++){
         var row = `<tr>
+                <td>${data[i].id}</td>
                 <td>${data[i].name}</td>
                 <td>${data[i].surname}</td>
                 <td>${data[i].email}</td>
@@ -248,10 +250,10 @@
         response.json();
       })
       .then(data =>{
-        if(data > 0){
-          myArray = data;
+        myArray = data;
+        console.log(myArray);
+        if(myArray.lenght != 0){
           buildTable(myArray);
-          console.log(myArray)
         }
       })
       .catch(e => {
