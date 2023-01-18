@@ -41,30 +41,9 @@ app.post("/home/addTutor", (req, res) => {
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
-    if(tutorRicercati.length != 0){
-      //invia la risposta la client
-      res.status(200).json(tutorRicercati);
-    }
-  }
-});
-
-//api che filtra i tutor in base all'università
-app.get("/home/cercaTutor/:nomeTutor", (req, res) => {
-  const uni = req.query.universita.toString();
-  let data = fs.readFileSync("tutors.json");
-
-  if (data != null) {
-    const tutors = JSON.parse(data);
-    //filtra i tutor in base all'università ricercata
-    let tutorRicercati = tutors.filter(ricercaUniversità, req.query.universita);
-    //controllo se la ricerca ha prodotto dei risultati
-    if (tutorRicercati.length != 0) {
-      res.status(200).json(tutorRicercati);
-    } else {
-      res.redirect("/notFound");
-    }
-  } else {
-    res.redirect("/notFound");
+    
+    //invia la risposta la client
+    res.status(200).json(tutors);
   }
 });
 
