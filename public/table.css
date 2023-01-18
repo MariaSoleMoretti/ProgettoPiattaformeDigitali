@@ -61,6 +61,9 @@ h2{
 button{
   vertical-align: middle;
   color: darkblue;
+  background: none;
+  border: none;
+  outline: none;
 }
 
 .input {
@@ -138,6 +141,12 @@ label {
 
 .input + label {
   margin-top: 2rem;
+}
+
+.search-bar{
+  display: flex;
+  align-items: center;
+  
 }
 
 
