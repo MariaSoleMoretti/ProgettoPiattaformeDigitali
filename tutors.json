@@ -138,32 +138,5 @@
     "universita": "Università degli Studi di Bergamo",
     "corso": "Scienze Politiche",
     "esami": []
-  },
-  {
-    "id": "1674020760649",
-    "name": "Anna ",
-    "surname": "Kersten",
-    "email": "kersten.anna@icloud.it",
-    "universita": "Università degli Studi di Trieste",
-    "corso": "Scienze dell'Alimentazione",
-    "esami": []
-  },
-  {
-    "id": "1674020916989",
-    "name": "Luca",
-    "surname": "Lucarini",
-    "email": "luk.lucarini@gmail.com",
-    "universita": "Università degli Studi di Camerino",
-    "corso": "Ingegneria Informatica",
-    "esami": []
-  },
-  {
-    "id": "1674021148459",
-    "name": "Michela",
-    "surname": "Angeletti",
-    "email": "angeletti.michela22@gmail.com",
-    "universita": "Università degli Studi di Napoli Federico II",
-    "corso": "Meteorologia",
-    "esami": []
   }
 ]
