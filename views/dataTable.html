@@ -52,26 +52,25 @@
       <form action="" id="addTutor">
         <div>
           <label for="name">Nome</label>
-          <input class = "input" type="text" id="name" name="name" >
+          <input class = "input" type="text" id="name" name="name" placeholder = "Nome" >
         </div>
         <div>
           <label for="surname">Cognome</label>
-          <input class = "input" type="text" id="surname" name="name" >
+          <input class = "input" type="text" id="surname" name="name" placeholder = "Cognome">
         </div>
         <div>
           <label for="email">Email</label>
-          <input class = "input" type="email" id="email" name="email" >
+          <input class = "input" type="email" id="email" name="email" placeholder = "Email">
         </div>
         <div>
           <label for="universita">Università</label>
-          <input class = "input" list="nome-università" name="universita" id="universita">
+          <input class = "input" list="nome-università" name="universita" id="universita" placeholder = "Università">
         </div>
         <div>
-          <label for="corso">Corso di Studi</label>
-          <input class = "input" type="text" id="corso" name="corso" >
+          <label for="corso">Corso di studi</label>
+          <input class = "input" type="text" id="corso" name="corso" placeholder = "Corso di studi">
+          <button type="button" id="newValue" onclick= "addTutor()"> <i class="material-symbols-outlined">add</i></button>
         </div>
-        <br>
-        <button type="button" id="newValue" onclick= "addTutor()" >Aggiungi</button>
       </form>
     </div> 
     
@@ -84,7 +83,7 @@
       <form action="" id="deleteTutor">
         <label for= "search"> ID Tutor</label><br>
         <input class = "input" type="number" id="idTutor" name="idTutor" placeholder = "Inserisci ID tutor" >
-        <button type="button" id="deleteValue" onclick= "deleteTutor()" >Cancella</button>
+        <button type="button" id="deleteValue" onclick= "deleteTutor()" ><i class="material-symbols-outlined">delete</i></button>
       </form>
     </div>
     <hr>
@@ -104,7 +103,7 @@
           <button type="button" id="filterByExam" onclick= "setExamFilter()">Nuovo Esame</button>
         </div>
         <input class = "input" type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
-        <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
+        <button type="button" id="changeValue" onclick= "updateTutor()" ><i class="material-symbols-outlined">change_circle</i></button>
       </form>
     </div>
     
