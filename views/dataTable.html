@@ -17,14 +17,14 @@
           <h2>
             Cerca un Tutor
           </h2>
-          <div class = "tab">
-            <input class = "input" type = "text" id = "searchValue" placeholder = "Cerca">
-           <button class = "btnSearch" type="button" onclick="searchTutors()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
-          </div>
           <button type="button" id="filterByName" onclick="setFilter(1)">Nome</button>
           <button type="button" id="filterBySurname" onclick="setFilter(4)">Cognome</button>
           <button type="button" id="filterByUni" onclick="setFilter(2)">Università</button>
           <button type="button" id="filterByCourse" onclick="setFilter(3)">Corso</button>
+          <div class = "tab">
+            <input class = "input" type = "text" id = "searchValue" placeholder = "Cerca">
+           <button class = "btnSearch" type="button" onclick="searchTutors()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
+          </div>
           
         </div>  
 
@@ -53,25 +53,39 @@
       </h2>
 
       <form action="" id="addTutor">
-        <div class="tab">
+        <div>
           <label for="name">Nome</label>
-          <input class = "input" type="text" id="name" name="name" placeholder = "Nome" >
+          <div class = "tab">
+            <input class = "input" type="text" id="name" name="name" placeholder = "Nome" >
+          </div>
         </div>
+        <br>
         <div>
           <label for="surname">Cognome</label>
-          <input class = "input" type="text" id="surname" name="name" placeholder = "Cognome">
+          <div class = "tab">
+           <input class = "input" type="text" id="surname" name="name" placeholder = "Cognome">
+          </div>
         </div>
+        <br>
         <div>
           <label for="email">Email</label>
-          <input class = "input" type="email" id="email" name="email" placeholder = "Email">
+          <div class = "tab">
+           <input class = "input" type="email" id="email" name="email" placeholder = "Email">
+          </div>
         </div>
+        <br>
         <div>
           <label for="universita">Università</label>
-          <input class = "input" list="nome-università" name="universita" id="universita" placeholder = "Università">
+          <div class = "tab">
+           <input class = "input" list="nome-università" name="universita" id="universita" placeholder = "Università">
+          </div>
         </div>
+        <br>
         <div>
           <label for="corso">Corso di studi</label>
-          <input class = "input" type="text" id="corso" name="corso" placeholder = "Corso di studi">
+          <div class = "tab">
+           <input class = "input" type="text" id="corso" name="corso" placeholder = "Corso di studi">
+          </div>
           <button type="button" id="newValue" onclick= "addTutor()"> <i class="material-symbols-outlined">add</i></button>
         </div>
       </form>
@@ -85,8 +99,10 @@
     
       <form action="" id="deleteTutor">
         <label for= "search"> ID Tutor</label><br>
-        <input class = "input" type="number" id="idTutor" name="idTutor" placeholder = "Inserisci ID tutor" >
-        <button type="button" id="deleteValue" onclick= "deleteTutor()" ><i class="material-symbols-outlined">delete</i></button>
+        <div class = "tab">
+          <input class = "input" type="number" id="idTutor" name="idTutor" placeholder = "Inserisci ID tutor">
+         <button type="button" id="deleteValue" onclick= "deleteTutor()" ><i class="material-symbols-outlined">delete</i></button>
+        </div>
       </form>
     </div>
     <hr>
@@ -98,15 +114,19 @@
       </h2>
       <form id = "updateTutor">
         <label for="id">ID Tutor</label><br>
-        <input class = "input" type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
-      
+        <div class = "tab">
+          <input class = "input" id="id" name="id" placeholder = "Inserisci ID tutor" >
+        </div>
+        <br>
         <div>
           <label for="id">Modifica</label>
           <button type="button" id="filterByEmail" onclick= "setEmailFilter()">Email</button>
           <button type="button" id="filterByExam" onclick= "setExamFilter()">Nuovo Esame</button>
         </div>
-        <input class = "input" type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
-        <button type="button" id="changeValue" onclick= "updateTutor()" ><i class="material-symbols-outlined">change_circle</i></button>
+        <div class = "tab">
+          <input class = "input" type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
+          <button type="button" id="changeValue" onclick= "updateTutor()" ><i class="material-symbols-outlined">change_circle</i></button>
+        </div>
       </form>
     </div>
     
