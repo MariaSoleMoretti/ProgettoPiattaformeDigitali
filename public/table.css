@@ -105,13 +105,6 @@ button{
   box-sizing: border-box;
 }
 
-:root {
-  --input-border: #8b8a8b;
-  --input-focus-h: 245;
-  --input-focus-s: 100%;
-  --input-focus-l: 42%;
-}
-
 input[type="file"] {
   font-size: 0.9em;
   padding-top: 0.35rem;
@@ -127,12 +120,6 @@ textarea.input {
   color: #777777;
 }
 
-.input[disabled] {
-  --input-border: #cccccc;
-
-  background-color: #eeeeee;
-  cursor: not-allowed;
-}
 label {
   font-size: 1.125rem;
   font-weight: 500;
@@ -143,10 +130,14 @@ label {
   margin-top: 2rem;
 }
 
-.search-bar{
+.tab{
+  padding: 10px 15px;
   display: flex;
   align-items: center;
-  
+  border: 1px solid darkblue;
+  border-radius: 10px;
+  width: 280px;
+  height: 40px
 }
 
 
