@@ -112,6 +112,9 @@
 
   <script>
     var myArray = []
+    const filtroEsame   = false;
+    const filtroEmail   = false;
+    
     //valori di default nel momento del caricamento della pagina
     localStorage.setItem("defaultFilter", 0);
     localStorage.setItem("defaultSearchValue", " ");
@@ -286,6 +289,13 @@
         //invio al client la risposta sotto formato json
         response.json();
       })
+      .then(data =>{
+        if(data != 0){
+          myArray = data;
+          console.log(myArray);
+          buildTable(myArray);
+        }
+      })
       .catch(e => {
           console.log(e);
       });
@@ -298,6 +308,16 @@
       }
       //pulisce la form
       document.getElementById("updateTutor").reset();
+    }
+    
+    function setExamFilter(){
+      sessionStorage.setItem("filtroEsame", !filtroEsame);
+      sessionStorage.setItem("action", "newExam");
+    }
+    
+    function setEmailFilter(){
+      sessionStorage.setItem("filtroEmail", !filtroEmail);
+      sessionStorage.setItem("action", "newEmail");
     }
 
   </script>
