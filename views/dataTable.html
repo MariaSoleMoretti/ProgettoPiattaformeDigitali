@@ -192,8 +192,8 @@
         alert('ERROR!Something went wrong!');
       })
       .then(data =>{
-        myArray = data;
-        if(data > 0){
+        if(data != 0){
+          myArray = data;
           console.log(myArray);
           buildTable(myArray);
         }
@@ -251,8 +251,8 @@
         response.json();
       })
       .then(data =>{
-        myArray = data;
-        if(data > 0){
+        if(data != 0){
+          myArray = data;
           console.log(myArray);
           buildTable(myArray);
         }
