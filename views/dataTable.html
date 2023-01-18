@@ -158,6 +158,11 @@
         }
         alert('ERROR!Something went wrong!');
       })
+      .then(data =>{
+        myArray = data;
+        buildTable(myArray);
+        console.log(myArray)
+      })
       .catch(e => {
           console.log(e);
       });
@@ -168,12 +173,7 @@
     //FUNZIONE PER RICERCARE UN TUTOR
     async function searchTutors(){
       sessionStorage.setItem("searchValue", document.getElementById("searchValue").value);
-      
-      if(!searchValue){
-        alert("Inserire uno tutor.");
-        return;
-      }
-      
+
       //opzioni per la fetch
       const options = {
         method: 'GET',

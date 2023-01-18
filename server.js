@@ -41,7 +41,10 @@ app.post("/home/addTutor", (req, res) => {
     //effettuo il writeback nel file
     data = JSON.stringify(tutors, null, 2);
     fs.writeFileSync("tutors.json", data);
-    res.json({ message: "Tutor have been saved", status: 200 });
+    if(tutorRicercati.length != 0){
+      //invia la risposta la client
+      res.status(200).json(tutorRicercati);
+    }
   }
 });
 
@@ -76,19 +79,16 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
     
     switch(parseInt(filtriRicerca)){
       case 1:
-        console.log("sono nel case 1");
         //filtra tutti i tutor che hanno lo stesso nome
         tutorRicercati = tutors.filter(ricercaNome, valoreRicerca);
         console.log(tutorRicercati);
         break
       case 2:
-        console.log("sono nel case 2");
         //filtra tutti i tutor appartenenti all'università cercata
         tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);
         console.log(tutorRicercati);
       break;
       case 3:
-        console.log("sono nello switch");
         //filtra tutti i tutor che seguono il corso ricercato
         tutorRicercati = tutors.filter(ricercaCorso,valoreRicerca);
         console.log(tutorRicercati);
@@ -99,7 +99,6 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
         console.log(tutorRicercati);
       break;
       default:
-        console.log("sono nel caso default");
         tutorRicercati = tutors;
       return;
     }

@@ -129,5 +129,14 @@
     "universita": "Università della Calabria",
     "corso": "Scienze Politiche",
     "esami": []
+  },
+  {
+    "id": "1674020458323",
+    "name": "Camillo",
+    "surname": "Benso",
+    "email": "cami.benz@libero.it",
+    "universita": "Università degli Studi di Bergamo",
+    "corso": "Scienze Politiche",
+    "esami": []
   }
 ]
