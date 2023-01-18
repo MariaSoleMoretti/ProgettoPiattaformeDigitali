@@ -138,5 +138,14 @@
     "universita": "Università degli Studi di Bergamo",
     "corso": "Scienze Politiche",
     "esami": []
+  },
+  {
+    "id": "1674036319694",
+    "name": "Sabrina",
+    "surname": "Scocco",
+    "email": "sabrinascocco@gmail.com",
+    "universita": "Università degli Studi di Urbino",
+    "corso": "Scienze della Comunicazione",
+    "esami": []
   }
 ]
