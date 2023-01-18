@@ -194,5 +194,14 @@
     "esami": [
       "geografia"
     ]
+  },
+  {
+    "id": "1674048860042",
+    "name": "Sofia",
+    "surname": "Gentilozzi",
+    "email": "sofia.gentilozzi@gmail.com",
+    "universita": "Università degli Studi di Urbino",
+    "corso": "Lingue Aziendali",
+    "esami": []
   }
 ]
