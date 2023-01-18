@@ -52,6 +52,7 @@ body{
 }
 
 h2{
+  text-align: center;
   background-color: darkblue;
   font-family: sans-serif;
   color: #ffffff
