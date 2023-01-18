@@ -17,7 +17,7 @@
           <h2>
             Cerca un Tutor
           </h2>
-          <input class = "" type = "text" id = "searchValue" placeholder = "Cerca">
+          <input class = "input" type = "text" id = "searchValue" placeholder = "Cerca">
           <button class = "btnSearch" type="button" onclick="searchTutors()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
           <input type="button" onclick="setFilter(1)" value="Nome" />
           <input type="button" onclick="setFilter(4)" value="Cognome" />
@@ -52,27 +52,27 @@
       <form action="" id="addTutor">
         <div>
           <label for="name">Nome</label>
-          <input type="text" id="name" name="name" >
+          <input class = "input" type="text" id="name" name="name" >
         </div>
         <div>
           <label for="surname">Cognome</label>
-          <input type="text" id="surname" name="name" >
+          <input class = "input" type="text" id="surname" name="name" >
         </div>
         <div>
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" >
+          <input class = "input" type="email" id="email" name="email" >
         </div>
         <div>
           <label for="universita">Università</label>
-          <input list="nome-università" name="universita" id="universita">
+          <input class = "input" list="nome-università" name="universita" id="universita">
         </div>
         <div>
-            <label for="corso">Corso di Studi</label>
-            <input type="text" id="corso" name="corso" >
-          </div>
-          <br>
-          <button type="button" id="newValue" onclick= "addTutor()" >Aggiungi</button>
-        </form>
+          <label for="corso">Corso di Studi</label>
+          <input class = "input" type="text" id="corso" name="corso" >
+        </div>
+        <br>
+        <button type="button" id="newValue" onclick= "addTutor()" >Aggiungi</button>
+      </form>
     </div> 
     
     <! Calcellazione di un tutor nel database>
@@ -83,7 +83,7 @@
     
       <form action="" id="deleteTutor">
         <label for= "search"> ID Tutor</label><br>
-        <input type="number" id="idTutor" name="idTutor" placeholder = "Inserisci ID tutor" >
+        <input class = "input" type="number" id="idTutor" name="idTutor" placeholder = "Inserisci ID tutor" >
         <button type="button" id="deleteValue" onclick= "deleteTutor()" >Cancella</button>
       </form>
     </div>
@@ -96,14 +96,14 @@
       </h2>
       <form id = "updateTutor">
         <label for="id">ID Tutor</label><br>
-        <input type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
+        <input class = "input" type="number" id="id" name="id" placeholder = "Inserisci ID tutor" >
       
         <div>
           <label for="id">Modifica</label>
           <button type="button" id="filterByEmail" onclick= "setEmailFilter()">Email</button>
           <button type="button" id="filterByExam" onclick= "setExamFilter()">Nuovo Esame</button>
         </div>
-        <input type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
+        <input class = "input" type="text" id="valore" name="valore" placeholder = "Inserisci modifica" >
         <button type="button" id="changeValue" onclick= "updateTutor()" >Modifica</button>
       </form>
     </div>
