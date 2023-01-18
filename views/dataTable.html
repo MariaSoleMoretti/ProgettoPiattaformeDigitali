@@ -19,10 +19,11 @@
           </h2>
           <input class = "input" type = "text" id = "searchValue" placeholder = "Cerca">
           <button class = "btnSearch" type="button" onclick="searchTutors()" id="btnSearch"> <i class="material-icons">person_search</i></button><br>
-          <input type="button" onclick="setFilter(1)" value="Nome" />
-          <input type="button" onclick="setFilter(4)" value="Cognome" />
-          <input type="button" onclick="setFilter(2)" value="Università" />
-          <input type="button" onclick="setFilter(3)" value="Corso" />
+          <button type="button" id="filterByName" onclick="setFilter(1)">Nome</button>
+          <button type="button" id="filterBySurname" onclick="setFilter(4)">Cognome</button>
+          <button type="button" id="filterByUni" onclick="setFilter(2)">Università</button>
+          <button type="button" id="filterByCourse" onclick="setFilter(3)">Corso</button>
+          
         </div>  
 
         <table class = "table" id = "tableThead">
