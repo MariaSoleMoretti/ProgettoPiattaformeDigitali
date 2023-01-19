@@ -249,7 +249,7 @@
                 <td>${data[i].email}</td>
                 <td>${data[i].universita}</td>
                 <td>${data[i].corso}</td>
-                <td><button value = "i" id="showExams" onclick="displayExams(this.value)" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
+                <td><button value = ${i} id="showExams" onclick="displayExams(myArray[this.value])" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
               </tr>`
         table.innerHTML += row;
       }
@@ -331,8 +331,13 @@
       document.getElementById("updateTutor").reset();
     }
     
-    async function displayExams(i){
-      alert(i);
+    async function displayExams(element){
+      if(element.esami.length != 0){
+        alert(element.esami);
+      }
+      else{
+        alert("Nessun esame inserito!");
+      }
     }
     
     function setExamFilter(){
