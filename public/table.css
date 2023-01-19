@@ -71,14 +71,6 @@ button.selected{
   font-weight: bold;
 }
 
-button .icon-button{
-  vertical-align: middle;
-  color: black;
-  background: none;
-  border: none;
-  outline: none;
-}
-
 .input {
   font-size: 16px;
   font-size: Max(16px, 1em);
