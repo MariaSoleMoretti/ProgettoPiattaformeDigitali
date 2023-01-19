@@ -249,11 +249,15 @@
                 <td>${data[i].email}</td>
                 <td>${data[i].universita}</td>
                 <td>${data[i].corso}</td>
-                <td><button value = i onclick="displayExams(value)" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
+                <td><button id="showExams" onclick="displayExams()" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
               </tr>`
         table.innerHTML += row;
       }
     }
+    
+    $("showExams").click( function() {
+       alert($(this).closest('tr').index());
+    });
     
     // FUNZIONE PER ELIMINARE UN TUTOR 
     async function deleteTutor(idTutor){
