@@ -56,6 +56,6 @@ L'interfaccia grafica è realizzata in linguaggio html il cui stile è stato for
 - home.html => view/home.html;
 - home.css => public/home.css;
 
-Nello script del file home.html vengono salvante delle variabili nel localStorage e nello sessionStorage, questo per andare a settare dei valori di defaul che, anche se modificati durante l'utilizzo del servizio, vengona poi ripristinati nel momento del refresh della pagina.
+Nello script del file home.html vengono salvante delle variabili nel localStorage e nello sessionStorage, questo per andare a settare dei valori di defaul che, anche se modificati durante l'utilizzo del servizio, vengano poi ripristinati nel momento in cui si effettua il refresh della pagina.
 
 
