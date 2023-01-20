@@ -4,8 +4,7 @@
 #### Matricola: 305531
 
 ## Introduzione
-Il progetto P2P Tutoring rappresenta una Restful API con l'obiettivo di fornire e modificare informazioni sui vari tutor universitari d'Italia. 
-Per verificarne la funzionalità i dati relativi ai tutor sono puramente inventati. Il progetto è stato sviluppato su Glitch.
+Il progetto P2P Tutoring rappresenta una Restful API con l'obiettivo di fornire e modificare informazioni sui vari tutor universitari d'Italia.  Per verificarne la funzionalità i dati relativi ai tutor sono puramente inventati. Il progetto è stato sviluppato su Glitch.
 
 Link Live Site: https://p2p-tutoring.glitch.me/home
 
@@ -18,18 +17,18 @@ P2P Tutoring è un'applicazione Web in JavaScript realizzata con il framework No
 
 Inoltre è stata realizzata un interfaccia grafica utilizzando i linguaggi html e css.
 
-I file tutors.json, funge da database per l'applicazione web, è costituita da elementi json che contengono informazioni sui tutor. 
-In particolare per ogni tutor vengono specificati:
+Il file tutors.json, funge da database per l'applicazione web, è costituita da elementi json che contengono informazioni sui tutor.  In particolare per ogni tutor vengono specificati:
 - ID, l'id univoco viene generato nel momento della registrazione del tutor nel database attraverso la funzione Date.now().toString();
 - Nome, il nome ddel tutor;
 - Cognome, il cognome del tutor;
 - Email, contatto del tutor;
-- Università, università ddel tutor;
+- Università, università del tutor;
 - Corso, corso di laura del tutor;
 
 ## Endpoint di Operazioni CRUD
 
 #### Richiesta GET di stampa del file tutors.json
+Questa API serve a costruire la tabella nel momento dell'apertura della pagina web.
 - app.get("/home", (req,res) =>{});
 
 #### Richiesta GET per la ricerca di uno o piu' tutor
@@ -53,7 +52,10 @@ I parametri della request sono passati attraverso query string.
 - fs: modulo nativo che consete di eseguire diversi tipi di operazioni su file e directory
 
 ## HTML e CSS
-L'interfaccia grafica è realizzata in linguaggio html il cui stile è stato formattato in css. In una sola pagina html, denominata home.html,
-sono presenti quattro form, ognuna per ogni metodo http.
-Nella sezione script del file home.html inoltre viene manipolata la request prima di triggerare l'api attraverso la funzione di fetch.
+L'interfaccia grafica è realizzata in linguaggio html il cui stile è stato formattato in css. In una sola pagina html, denominata home.html, sono presenti quattro form, ognuna per ogni metodo http. I percorsi per i file html e css sono i seguenti:
+- home.html => view/home.html;
+- home.css => public/home.css;
+
+Nello script del file home.html vengono salvante delle variabili nel localStorage e nello sessionStorage, questo per andare a settare dei valori di defaul che, anche se modificati durante l'utilizzo del servizio, vengona poi ripristinati nel momento del refresh della pagina.
+
 
