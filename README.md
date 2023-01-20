@@ -21,7 +21,11 @@ Inoltre è stata realizzata un interfaccia grafica utilizzando i linguaggi html 
 I file tutors.json, funge da database per l'applicazione web, è costituita da elementi json che contengono informazioni sui tutor. 
 In particola per ogni tutor vengono specificati:
 - ID, l'id univoco viene generato nel momento della registrazione del tutor nel database attraverso la funzione Date.now().toString();
-- Nome
+- Nome, il nome ddel tutor;
+- Cognome, il cognome del tutor;
+- Email, contatto del tutor;
+- Università, università ddel tutor;
+- Corso, corso di laura del tutor;
 
 ## Endpoint di Operazioni CRUD
 
@@ -29,15 +33,19 @@ In particola per ogni tutor vengono specificati:
 - app.get("/home", (req,res) =>{});
 
 #### Richiesta GET per la ricerca di uno o piu' tutor
+I parametri della request sono passati attraverso query string.
 - app.get("/home/searchTutors/:filtro/:valore", (req, res) => {});  
 
 #### Richiesta POST per aggiungere un nuovo tutor
+I parametri della request sono passati attraverso il body.
 - app.post("/home/addTutor", (req, res) => {});
 
 #### Richiesta DELETE per eliminare un tutor
+I parametri della request sono passati attraverso query string.
 - app.delete("/home/deleteTutor/:id", (req, res) => {});
 
 #### Richiesta UPDATE per aggiornare email oppure lista degli esami di un tutor
+I parametri della request sono passati attraverso query string.
 - app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {});
 
 ## Dipendenze
