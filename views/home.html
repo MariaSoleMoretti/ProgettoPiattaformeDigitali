@@ -144,13 +144,13 @@
     sessionStorage.setItem("filter", localStorage.defaultFilter);
     sessionStorage.setItem("searchValue", "none ");
     
+    //Realizzazione della tabella con jquery ajax
     $.ajax({
       method:'GET',
       url:'https://progetto-piattaforme-territorio.glitch.me/printAll' ,
       success: function(response){
         myArray = response;
         buildTable(myArray);
-        console.log(myArray)
       }
     })
     
@@ -187,7 +187,6 @@
         //aggiorno la tabella
         if(data != undefined || data > 0 ){
           myArray = data;
-          console.log(myArray);
         }
         buildTable(myArray);
       })
@@ -321,9 +320,9 @@
         response.json();
       })
       .then(data =>{
+        console
         if(data > 0){
           myArray = data;
-          console.log(myArray);
         }
         buildTable(myArray);
       })
@@ -341,6 +340,7 @@
       document.getElementById("updateTutor").reset();
     }
     
+    //funzione per mostrare gli esami di un tutor
     function displayExams(element){
       if(element.esami.length != 0){
         alert(element.esami);
@@ -350,16 +350,19 @@
       }
     }
     
+    //funzione per settare filtro esame
     function setExamFilter(){
       sessionStorage.setItem("filtroEsame", !filtroEsame);
       sessionStorage.setItem("action", "newExam");
     }
     
+    //funzioni per settare filtro email
     function setEmailFilter(){
       sessionStorage.setItem("filtroEmail", !filtroEmail);
       sessionStorage.setItem("action", "newEmail");
     }
     
+    //funzione per evidenziare i pulsanti dei filtri
     $('button').on('click', function(){
       $('button').removeClass('selected');
       $(this).addClass('selected');

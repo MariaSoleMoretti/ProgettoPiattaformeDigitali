@@ -23,6 +23,7 @@ body{
 	border-collapse: collapse;
 }
 
+/*styling della tabella*/
 .tableThead td,.table th{
   padding:10px 13px;
   border:1px solid #dddddd;
@@ -58,6 +59,7 @@ h2{
   color: #ffffff
 }
 
+/*styling dei pulsanti*/
 button{
   vertical-align: middle;
   color: darkblue;
@@ -76,6 +78,7 @@ button.selected{
   border-radius: 50%;
 }
 
+/*styling degli input*/
 .input {
   font-size: 16px;
   font-size: Max(16px, 1em);
@@ -140,6 +143,7 @@ label {
   margin-top: 2rem;
 }
 
+/*styling dei tab di input*/
 .tab{
   padding: 10px 15px;
   display: flex;
