@@ -24,7 +24,7 @@ Inoltre è stata realizzata un interfaccia grafica lato client utilizzando i lin
 - app.get("/home", (req,res) =>{});
 
 #### Richiesta GET per la ricerca di uno o piu' tutor
-- app.get("/home/searchTutors/:filtro/:valore", (req, res) => {});
+- app.get("/home/searchTutors/:filtro/:valore", (req, res) => {});  
 
 #### Richiesta POST per aggiungere un nuovo tutor
 - app.post("/home/addTutor", (req, res) => {});
