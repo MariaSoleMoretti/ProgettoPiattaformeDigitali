@@ -191,7 +191,9 @@
     "email": "morettimariasole@gmail.com",
     "universita": "Università degli Studi dell'Aquila",
     "corso": "Economia",
-    "esami": []
+    "esami": [
+      "Global Marketing"
+    ]
   },
   {
     "id": "1674199810486",
@@ -224,7 +226,7 @@
     "id": "1674201919461",
     "nome": "Nicola",
     "cognome": "Tombolini",
-    "email": "tom.nicola@libero.it",
+    "email": "nicola.tombolini@icloud.it",
     "universita": "Politecnico di Milano",
     "corso": "Ingegneria Biomedica",
     "esami": []
