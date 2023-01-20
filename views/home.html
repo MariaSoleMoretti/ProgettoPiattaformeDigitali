@@ -141,11 +141,11 @@
     //valori di default nel momento del caricamento della pagina
     localStorage.setItem("defaultFilter", 0);
     localStorage.setItem("defaultSearchValue", " ");
-    localStorage.setItem("id", -1);
-    localStorage.setItem("changeValue", -1);
+    localStorage.setItem("changeValue", undefined);
     
     sessionStorage.setItem("filter", localStorage.defaultFilter);
-    sessionStorage.setItem("searchValue", "none ");
+    sessionStorage.setItem("searchValue", "none");
+    sessionStorage.setItem("action", -1);
     
     //Realizzazione della tabella con jquery ajax
     $.ajax({
@@ -306,7 +306,9 @@
       //definisco i vali paramentri da passare all'api
       const id         = document.getElementById("id").value;
       const action     = sessionStorage.action;
-      let changeValue  = document.getElementById("valore").value;
+      const changeValue  = document.getElementById("valore").value;
+      
+      console.log(document.getElementById("valore").value);
 
       //opzioni per la fetch
       const options = {
