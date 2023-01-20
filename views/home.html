@@ -147,7 +147,7 @@
     //Realizzazione della tabella con jquery ajax
     $.ajax({
       method:'GET',
-      url:'https://progetto-piattaforme-territorio.glitch.me/printAll' ,
+      url:'https://p2p-tutoring.glitch.me/printAll' ,
       success: function(response){
         myArray = response;
         buildTable(myArray);
@@ -175,7 +175,7 @@
         body: JSON.stringify(newTutor),
       };
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/addTutor', options)
+      fetch('https://p2p-tutoring.glitch.me/home/addTutor', options)
       .then((response) => {
         if (response.ok) {
           alert("Nuovo tutor aggiunto!");
@@ -210,7 +210,7 @@
       };
       
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/searchTutors/'+sessionStorage.filter+'/'+ sessionStorage.searchValue, options)
+      fetch('https://p2p-tutoring.glitch.me/home/searchTutors/'+sessionStorage.filter+'/'+ sessionStorage.searchValue, options)
       .then((response) => {
         if (response.ok) {
           alert("La ricerca ha prodotto risultati!");
@@ -272,7 +272,7 @@
       };
       
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor/'+ sessionStorage.idTutor, options)
+      fetch('https://p2p-tutoring.glitch.me/home/deleteTutor/'+ sessionStorage.idTutor, options)
       .then((response) => {
         if (response.ok) {
           alert("Tutor eliminato!");
@@ -309,7 +309,7 @@
         method: 'PUT'
       };
       //eseguo la fetch
-      fetch('https://progetto-piattaforme-territorio.glitch.me/home/updateTutor/'+ id +'/'+ action +'/'+ changeValue, options)
+      fetch('https://p2p-tutoring.glitch.me/home/updateTutor/'+ id +'/'+ action +'/'+ changeValue, options)
       .then((response) => {
         if (response.ok) {
           alert("Modifica effettuata!");
