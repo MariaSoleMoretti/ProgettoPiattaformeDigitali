@@ -122,15 +122,6 @@
     ]
   },
   {
-    "id": "1670322204991",
-    "nome": "Francesco",
-    "cognome": "Giuggioloni",
-    "email": "giuggio.fra@gmail.com",
-    "universita": "Università della Calabria",
-    "corso": "Scienze Politiche",
-    "esami": []
-  },
-  {
     "id": "1674020458323",
     "nome": "Camillo",
     "cognome": "Benso",
@@ -236,6 +227,15 @@
     "email": "tom.nicola@libero.it",
     "universita": "Politecnico di Milano",
     "corso": "Ingegneria Biomedica",
+    "esami": []
+  },
+  {
+    "id": "1674229366948",
+    "nome": "Salvatore",
+    "cognome": "Toscano",
+    "email": "salvo.tosco55@gmail.com",
+    "universita": "Università degli Studi di Napoli Parthenope",
+    "corso": "Scienze Motorie",
     "esami": []
   }
 ]

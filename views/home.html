@@ -134,6 +134,7 @@
 
   <script>
     var myArray = []
+    var newArray = []
     const filtroEsame   = false;
     const filtroEmail   = false;
     
@@ -150,6 +151,7 @@
       url:'https://p2p-tutoring.glitch.me/printAll' ,
       success: function(response){
         myArray = response;
+        newArray = myArray;
         buildTable(myArray);
       }
     })
@@ -221,9 +223,9 @@
       .then(data =>{
         //aggiorno la tabella
         if(data != undefined || data > 0 ){
-          var newTable = data;
+          newArray = data;
           //costruisco nuova tabella
-          buildTable(newTable);
+          buildTable(newArray);
         }
       })
       .catch(e => {
@@ -256,7 +258,7 @@
                 <td>${data[i].email}</td>
                 <td>${data[i].universita}</td>
                 <td>${data[i].corso}</td>
-                <td><button type="button" value = ${i} id="showExams" onclick="displayExams(myArray[this.value])" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
+                <td><button type="button" value = ${i} id="showExams" onclick="displayExams(newArray[this.value])" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
               </tr>`
         //aggiunta riga alla form
         table.innerHTML += row;
