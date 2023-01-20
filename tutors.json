@@ -244,5 +244,23 @@
     "universita": "Università degli Studi di Trieste",
     "corso": "Ingegneria Gestionale",
     "esami": []
+  },
+  {
+    "id": "1674201756771",
+    "name": "Alida",
+    "surname": "Giacomin",
+    "email": "giacomin.alida@gmail.com",
+    "universita": "Università degli Studi di Macerata",
+    "corso": "Scienze dell'Educazione",
+    "esami": []
+  },
+  {
+    "id": "1674201919461",
+    "name": "Nicola",
+    "surname": "Tombolini",
+    "email": "tom.nicola@libero.it",
+    "universita": "Politecnico di Milano",
+    "corso": "Ingegneria Biomedica",
+    "esami": []
   }
 ]
