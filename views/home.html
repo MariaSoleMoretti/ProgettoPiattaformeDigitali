@@ -271,7 +271,7 @@
       const options = {
         method: 'DELETE'
       };
-      console.log(sessionStorage.idTutor);
+      
       //eseguo la fetch
       fetch('https://progetto-piattaforme-territorio.glitch.me/home/deleteTutor/'+ sessionStorage.idTutor, options)
       .then((response) => {
@@ -284,10 +284,11 @@
         response.json();
       })
       .then(data =>{
-        if(data != 0){
-          myArray = data;
-          console.log(myArray);
-          buildTable(myArray);
+        //aggiorno la tabella
+        if(data != undefined || data > 0 ){
+          var newTable = data;
+          //costruisco nuova tabella
+          buildTable(newTable);
         }
       })
       .catch(e => {

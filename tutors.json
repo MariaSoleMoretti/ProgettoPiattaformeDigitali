@@ -59,15 +59,6 @@
     "esami": []
   },
   {
-    "id": "1670072098181",
-    "name": "Riccardo",
-    "surname": "Camilletti",
-    "email": "ricc.camilletti@libero.it",
-    "universita": "Università Politecnica delle Marche",
-    "corso": "Ingegneria Meccanica",
-    "esami": []
-  },
-  {
     "id": "1670088433853",
     "name": "Sara",
     "surname": "Scocco",
@@ -190,17 +181,6 @@
     "esami": []
   },
   {
-    "id": "1674037236853",
-    "name": "Tommaso",
-    "surname": "Morroni",
-    "email": "tom.morroni@gmail.com",
-    "universita": "Università degli Studi di Roma La Sapienza",
-    "corso": "Letteratura, Arte e Spettacolo",
-    "esami": [
-      "geografia"
-    ]
-  },
-  {
     "id": "1674048860042",
     "name": "Sofia",
     "surname": "Gentilozzi",
@@ -216,15 +196,6 @@
     "email": "morettimariasole@gmail.com",
     "universita": "Università degli Studi dell'Aquila",
     "corso": "Economia",
-    "esami": []
-  },
-  {
-    "id": "1674199663470",
-    "name": "Luca",
-    "surname": "Occhipinti",
-    "email": "occhipinti.luca@libero.it",
-    "universita": "Università degli Studi della Basilicata",
-    "corso": "Ingegneria Gestionale",
     "esami": []
   },
   {
