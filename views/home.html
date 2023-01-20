@@ -145,7 +145,7 @@
     localStorage.setItem("defaultChangeValue", -1);
     
     sessionStorage.setItem("filter", localStorage.defaultFilter);
-    sessionStorage.setItem("searchValue", "none ");
+    sessionStorage.setItem("searchValue", "none");
     sessionStorage.setItem("id", localStorage.defaultId);
     sessionStorage.setItem("changeValue", localStorage.defaultChangeValue);
     
@@ -308,9 +308,8 @@
       //definisco i vali paramentri da passare all'api
       sessionStorage.setItem("id",document.getElementById("id").value);
       sessionStorage.setItem("changeValue", document.getElementById("valore").value);
+      action
       
-      console.log(sessionStorage.changeValue);
-
       //opzioni per la fetch
       const options = {
         method: 'PUT'

@@ -140,7 +140,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   let idTutor = tutors.findIndex((element) => element.id == req.params.id); 
 
   //controllo se l'id corrisponde ad un tutor nel database
-  if (idTutor != -1) {
+  if (idTutor != -1 && azione == "none") {
     let tutorRicercato = tutors[idTutor];
     //in base al tipo di modifica eseguo una dei seguenti case
     switch (azione) {
