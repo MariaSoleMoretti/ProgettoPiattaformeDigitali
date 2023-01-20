@@ -219,11 +219,12 @@
         alert('ERROR!Something went wrong!');
       })
       .then(data =>{
-        if(data != 0){
+        //aggiorno la tabella
+        if(data != undefined || data > 0 ){
           myArray = data;
           console.log(myArray);
-          buildTable(myArray);
         }
+        buildTable(myArray);
       })
       .catch(e => {
           console.log(e);
