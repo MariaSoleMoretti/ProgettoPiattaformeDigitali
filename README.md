@@ -4,10 +4,10 @@
 #### Matricola: 305531
 
 ## Introduzione
-
+Il progetto P2P Tutoring rappresenta una Restful API con l'obiettivo di fornire e modificare informazioni sui vari tutor universitari d'Italia. Il progetto è stato sviluppato su Glitch.
 
 ## Descrizione
-Interest Seeker è un'applicazione Web in JavaScript realizzata con il framework NodeJS. Le funzionalità del progetto sono:
+P2P Tutoring è un'applicazione Web in JavaScript realizzata con il framework NodeJS. Le funzionalità del progetto sono:
 
 ## Endpoint di Operazioni CRUD
 
