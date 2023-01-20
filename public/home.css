@@ -1,22 +1,156 @@
-body,html {
-  height: 100%;
-  font-family: 'Hepta Slab', serif;
-  background-color: #F9ECE9;
+body{
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr 200;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "ricerca aggiungi"
+    "ricerca cancella"
+    "ricerca aggiorna";
+  min-height: 100vh;
+	margin:0;
+	padding:20px;
+	font-family: sans-serif;
 }
 
-.searchBar{
-  background-color: white;
-  padding: 3px 10px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+*{
+	box-sizing: border-box;
 }
 
-.btnSearch{
-  background-color: white;
-  padding: 1px 10px;
+.search-tutor{
+  grid-area: ricerca;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.tableThead td,.table th{
+  padding:10px 13px;
+  border:1px solid #dddddd;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 5px;
+  font-size:16px;
 }
+
+.table th{
+	background-color: darkblue;
+	color: #ffffff
+}
+
+.table tbody tr:nth-child(even){
+	background-color: #f5f5f5;
+}
+
+.delete-tutor{
+  grid-area: cancella;
+}
+
+.update-tutor{
+  grid-area: aggiorna;
+}
+
+.add-tutor{
+  grid-area: aggiungi;
+}
+
+h2{
+  text-align: center;
+  background-color: darkblue;
+  font-family: sans-serif;
+  color: #ffffff
+}
+
+button{
+  vertical-align: middle;
+  color: darkblue;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+button.selected{
+  color:black;
+  font-weight: bold;
+}
+
+.action-button{
+  border: 1px solid darkblue;
+  border-radius: 50%;
+}
+
+.input {
+  font-size: 16px;
+  font-size: Max(16px, 1em);
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  background-color: #ffffff;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  transition: 180ms box-shadow ease-in-out;
+  vertical-align: middle;
+}
+
+.input:not(textarea) {
+  line-height: 1;
+  height: 1.75rem;
+}
+
+.input:focus {
+  border-color: hsl(
+    var(--input-focus-h),
+    var(--input-focus-s),
+    var(--input-focus-l)
+  );
+  box-shadow: 0 0 0 3px
+    hsla(
+      var(--input-focus-h),
+      var(--input-focus-s),
+      calc(var(--input-focus-l) + 40%),
+      0.8
+    );
+  outline: 3px solid transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input[type="file"] {
+  font-size: 0.9em;
+  padding-top: 0.35rem;
+}
+
+textarea.input {
+  resize: vertical;
+}
+
+.input[readonly] {
+  border-style: dotted;
+  cursor: not-allowed;
+  color:#777777 ;
+}
+
+label {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.input + label {
+  margin-top: 2rem;
+}
+
+.tab{
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border: 1px solid darkblue;
+  border-radius: 10px;
+  width: 280px;
+  height: 40px
+}
+
+
+
+
+
