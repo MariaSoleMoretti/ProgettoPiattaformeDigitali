@@ -208,5 +208,14 @@
     "universita": "Università degli Studi di Urbino",
     "corso": "Lingue Aziendali",
     "esami": []
+  },
+  {
+    "id": "1674199326252",
+    "name": "Maria Sole",
+    "surname": "Moretti",
+    "email": "morettimariasole@gmail.com",
+    "universita": "Università degli Studi dell'Aquila",
+    "corso": "Economia",
+    "esami": []
   }
 ]

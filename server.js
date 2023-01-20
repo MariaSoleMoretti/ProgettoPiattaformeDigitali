@@ -6,7 +6,6 @@ const fs = require("fs");
 app.use(express.static('public'))
 //parsing delle richieste in formato json
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 //dichiarazione della porta del server
 app.listen(3000);
@@ -15,14 +14,12 @@ app.listen(3000);
 let tutors = [];
 let tutorRicercati = [];
 
-app.get("/tabella",(req,res) =>{
-  res.sendFile("/app/views/dataTable.html");
-});
-
+//caricamento della pagina html
 app.get("/home", (req,res) =>{
   res.sendFile("/app/views/home.html");
 })
 
+//api per l'aggiunta di un nuovo tutor
 app.post("/home/addTutor", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
