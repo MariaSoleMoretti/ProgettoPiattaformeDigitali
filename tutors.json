@@ -1,8 +1,8 @@
 [
   {
     "id": "1669022389297",
-    "name": "Sara",
-    "surname": "Yosef",
+    "nome": "Sara",
+    "cognome": "Yosef",
     "email": "yosef@gmail.com",
     "universita": "Università degli Studi di Urbino",
     "corso": "Farmacia",
@@ -14,8 +14,8 @@
   },
   {
     "id": "1669022548958",
-    "name": "Margherita",
-    "surname": "Moretti",
+    "nome": "Margherita",
+    "cognome": "Moretti",
     "email": "marghe.moretti@icloud.it",
     "universita": "Università degli Studi di Ferrara",
     "corso": "Biologia Molecolare",
@@ -26,8 +26,8 @@
   },
   {
     "id": "1669022623937",
-    "name": "Eugenio",
-    "surname": "Fusero",
+    "nome": "Eugenio",
+    "cognome": "Fusero",
     "email": "eugenio.fusero@gmail.com",
     "universita": "Università degli Studi di Camerino",
     "corso": "Ingegneria Meccanica",
@@ -39,8 +39,8 @@
   },
   {
     "id": "1669023087264",
-    "name": "Riccardo",
-    "surname": "Camilletti",
+    "nome": "Riccardo",
+    "cognome": "Camilletti",
     "email": "riccardo.camilletti@gmail.com",
     "universita": "Università Politecnica delle Marche",
     "corso": "Biologia",
@@ -51,8 +51,8 @@
   },
   {
     "id": "1670006801415",
-    "name": "Camilla",
-    "surname": "Antognini",
+    "nome": "Camilla",
+    "cognome": "Antognini",
     "email": "anto_cami@icloud.it",
     "universita": "Politecnico di Milano",
     "corso": "Ingegneria Biomeccanica",
@@ -60,8 +60,8 @@
   },
   {
     "id": "1670088433853",
-    "name": "Sara",
-    "surname": "Scocco",
+    "nome": "Sara",
+    "cognome": "Scocco",
     "email": "sarascocco@gmail.com",
     "universita": "Università degli Studi di Torino",
     "corso": "Giurisprudenza",
@@ -69,8 +69,8 @@
   },
   {
     "id": "1670088526806",
-    "name": "Michele",
-    "surname": "Moretti",
+    "nome": "Michele",
+    "cognome": "Moretti",
     "email": "michele.moretti@gmail.com",
     "universita": "Alma mater studiorum - Università di Bologna",
     "corso": "Giurisprudenza",
@@ -78,8 +78,8 @@
   },
   {
     "id": "1670088584166",
-    "name": "Alessandro",
-    "surname": "Tarducci",
+    "nome": "Alessandro",
+    "cognome": "Tarducci",
     "email": "ale.tarducci@gmail.com",
     "universita": "Alma mater studiorum - Università di Bologna",
     "corso": "Giurisprudenza",
@@ -111,8 +111,8 @@
   },
   {
     "id": "1670235912437",
-    "name": "Vincenzo",
-    "surname": "Valente",
+    "nome": "Vincenzo",
+    "cognome": "Valente",
     "email": "vinz.valente@libero.it",
     "universita": "Università degli Studi di Urbino",
     "corso": "Lingue Moderne",
@@ -123,7 +123,7 @@
   },
   {
     "id": "1670322204991",
-    "name": "Francesco",
+    "nome": "Francesco",
     "surname": "Giuggioloni",
     "email": "giuggio.fra@gmail.com",
     "universita": "Università della Calabria",

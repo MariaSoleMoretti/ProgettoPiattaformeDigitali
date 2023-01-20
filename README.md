@@ -18,6 +18,11 @@ P2P Tutoring è un'applicazione Web in JavaScript realizzata con il framework No
 
 Inoltre è stata realizzata un interfaccia grafica utilizzando i linguaggi html e css.
 
+I file tutors.json, funge da database per l'applicazione web, è costituita da elementi json che contengono informazioni sui tutor. 
+In particola per ogni tutor vengono specificati:
+- ID, l'id univoco viene generato nel momento della registrazione del tutor nel database attraverso la funzione Date.now().toString();
+- Nome
+
 ## Endpoint di Operazioni CRUD
 
 #### Richiesta GET di stampa del file tutors.json

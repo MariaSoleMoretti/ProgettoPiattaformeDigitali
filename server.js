@@ -253,14 +253,14 @@ function ricercaCorso(elemento) {
 
 //funzione per la ricerca dei tutor in base al nome
 function ricercaNome(elemento) {
-  if (elemento.name.toString().toLowerCase() === this.toString().toLowerCase()) {
+  if (elemento.nome.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al cognome
 function ricercaCognome(elemento) { 
-  if (elemento.surname.toString().toLowerCase() === this.toString().toLowerCase()) {
+  if (elemento.cognome.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;
   }
 }

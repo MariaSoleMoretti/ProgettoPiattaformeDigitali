@@ -159,8 +159,8 @@
       //definisco i dati del nuovo tutor aggiungendo alcuni campi di default
       const newTutor = ({
         id:          Date.now().toString(),
-        name :       document.getElementById("name").value,
-        surname :    document.getElementById("surname").value,
+        nome :       document.getElementById("name").value,
+        cognome :    document.getElementById("surname").value,
         email :      document.getElementById("email").value,
         universita : document.getElementById("universita").value,
         corso :      document.getElementById("corso").value,
@@ -251,8 +251,8 @@
       for (var i = 0; i < data.length; i++){
         var row = `<tr>
                 <td>${data[i].id}</td>
-                <td>${data[i].name}</td>
-                <td>${data[i].surname}</td>
+                <td>${data[i].nome}</td>
+                <td>${data[i].cognome}</td>
                 <td>${data[i].email}</td>
                 <td>${data[i].universita}</td>
                 <td>${data[i].corso}</td>
