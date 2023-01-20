@@ -185,13 +185,10 @@
       .then(data =>{
         //aggiorno la tabella
         if(data != undefined || data > 0 ){
-          var newTable = data;
-          console.log(newTable);
-          buildTable(newTable);
+          myArray = data;
+          console.log(myArray);
         }
-        else{
-          buildTable(myArray);
-        }
+        buildTable(myArray);
       })
       .catch(e => {
           console.log(e);
@@ -225,10 +222,8 @@
         //aggiorno la tabella
         if(data != undefined || data > 0 ){
           var newTable = data;
+          //costruisco nuova tabella
           buildTable(newTable);
-        }
-        else{
-          buildTable(myArray);
         }
       })
       .catch(e => {
