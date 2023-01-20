@@ -237,14 +237,14 @@ function ricercaEmail(elemento) {
 
 //funzione per la ricerca dei tutor in base all'università
 function ricercaUniversità(elemento) {
-  if (elemento.universita.toString().toLowerCase() === this.toString().toLowerCase()) {
+  if (elemento.universita.toString().toLowerCase().includes(this.toString().toLowerCase())) {
     return true;
   }
 }
 
 //funzione per la ricerca dei tutor in base al corso
 function ricercaCorso(elemento) {
-  if (elemento.corso.toString().toLowerCase() === this.toString().toLowerCase()) {
+  if (elemento.corso.toString().toLowerCase().includes(this.toString().toLowerCase())) {
     return true;
   }
 }
@@ -263,7 +263,7 @@ function ricercaCognome(elemento) {
   }
 }
 
-//funzione per la ricerca dei tutor in base al cognome
+//funzione per di ricerca tra gli esami di un tutor
 function ricercaEsame(elemento) { 
   if (elemento.toString().toLowerCase() === this.toString().toLowerCase()) {
     return true;

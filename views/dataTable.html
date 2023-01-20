@@ -311,11 +311,11 @@
         response.json();
       })
       .then(data =>{
-        if(data != 0){
+        if(data > 0){
           myArray = data;
           console.log(myArray);
-          buildTable(myArray);
         }
+        buildTable(myArray);
       })
       .catch(e => {
           console.log(e);
