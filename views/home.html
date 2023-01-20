@@ -320,11 +320,13 @@
         response.json();
       })
       .then(data =>{
-        console
-        if(data > 0){
-          myArray = data;
+        //aggiorno la tabella
+        if(data != undefined || data > 0 ){
+          var newTable = data;
+          //costruisco nuova tabella
+          buildTable(newTable);
+          myArray= newTable;
         }
-        buildTable(myArray);
       })
       .catch(e => {
           console.log(e);
@@ -427,6 +429,35 @@
     <option value ="Università degli Studi di Torino"></option>
     <option value ="Politecnico di Torino"></option>
     <!Università della Puglia>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <!Università della Sardegna>
+    <option value =""></option>
+    <option value =""></option>
+    <!Università della Sicilia>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <!Università della Toscana>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <!Università della Trentino>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    <option value =""></option>
+    
 
   </datalist>
 </html>
