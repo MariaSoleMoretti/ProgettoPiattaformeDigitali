@@ -20,8 +20,20 @@ Inoltre è stata realizzata un interfaccia grafica lato client utilizzando i lin
 
 ## Endpoint di Operazioni CRUD
 
+#### Richiesta GET di stampa del file tutors.json
+- app.get("/home", (req,res) =>{});
 
-## Struttura Progetto
+#### Richiesta GET per la ricerca di uno o piu' tutor
+- app.get("/home/searchTutors/:filtro/:valore", (req, res) => {});
+
+#### Richiesta POST per aggiungere un nuovo tutor
+- app.post("/home/addTutor", (req, res) => {});
+
+#### Richiesta DELETE per eliminare un tutor
+- app.delete("/home/deleteTutor/:id", (req, res) => {});
+
+#### Richiesta UPDATE per aggiornare email oppure lista degli esami di un tutor
+- app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {});
 
 ## Dipendenze
 - Express.js: framework open-source Node.js per la programmazione di applicazioni web e mobile, consente di creare potenti API di routing e di impostare middleware per rispondere alle richieste HTTP.
