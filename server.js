@@ -139,10 +139,8 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.params.id); 
   
-  console.log(req.params.modifica);
-
   //controllo se l'id corrisponde ad un tutor nel database
-  if (idTutor != -1 && azione != -1 && req.params.modifica != undefined) {
+  if (idTutor != -1 && azione != -1 && req.params.modifica != "empty") {
     let tutorRicercato = tutors[idTutor];
     //in base al tipo di modifica eseguo una dei seguenti case
     switch (azione) {
