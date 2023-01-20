@@ -217,5 +217,32 @@
     "universita": "Università degli Studi dell'Aquila",
     "corso": "Economia",
     "esami": []
+  },
+  {
+    "id": "1674199663470",
+    "name": "Luca",
+    "surname": "Occhipinti",
+    "email": "occhipinti.luca@libero.it",
+    "universita": "Università degli Studi della Basilicata",
+    "corso": "Ingegneria Gestionale",
+    "esami": []
+  },
+  {
+    "id": "1674199810486",
+    "name": "Lucia",
+    "surname": "Bronzetti",
+    "email": "lucia.bronzetti44@gmail.com",
+    "universita": "Università degli Studi di Parma",
+    "corso": "Psicologia",
+    "esami": []
+  },
+  {
+    "id": "1674199956403",
+    "name": "Giacomo",
+    "surname": "Andreani",
+    "email": "giack.andreani02@icloud.it",
+    "universita": "Università degli Studi di Trieste",
+    "corso": "Ingegneria Gestionale",
+    "esami": []
   }
 ]

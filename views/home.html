@@ -183,14 +183,17 @@
         alert('ERROR!Something went wrong!');
       })
       .then(data =>{
-        myArray = data;
+        //aggiorno la tabella
+        if(data != undefined || data > 0 ){
+          myArray = data;
+          console.log(myArray);
+        }
         buildTable(myArray);
-        console.log(myArray)
       })
       .catch(e => {
           console.log(e);
       });
-      //pulisce la form
+      //pulisco la form
       document.getElementById("addTutor").reset();
     }
     

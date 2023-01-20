@@ -30,7 +30,11 @@ app.post("/home/addTutor", (req, res) => {
   console.log(esito);
   if (esito == false) {
     console.log("ERRORE! L'email non è valida.");
-    res.redirect("/badRequest");
+    res.status(404).json({
+        message:
+          "ERRORE! L'email inserita è già associata ad un altro tutor.",
+        status: 404,
+      });
   } else {
     //aggiungo il tutor all'array dei tutor
     tutors.push(req.body);
