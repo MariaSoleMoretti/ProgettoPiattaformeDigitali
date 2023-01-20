@@ -4,7 +4,7 @@ const fs = require("fs");
 
 //file statico per il caricamento del file css
 app.use(express.static('public'))
-
+//parsing delle richieste in formato json
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -135,6 +135,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
+  //definisco la modifica da effettuare
   let azione = req.params.azione;
   //ricerca nell'array l'elemento con l'id richiesto
   let idTutor = tutors.findIndex((element) => element.id == req.params.id); 
@@ -142,7 +143,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   //controllo se l'id corrisponde ad un tutor nel database
   if (idTutor != -1) {
     let tutorRicercato = tutors[idTutor];
-    //in base al tipo di modifica eseguo
+    //in base al tipo di modifica eseguo una dei seguenti case
     switch (azione) {
       case "newExam":
         //controllo se l'esame è gia' presente tra quelli dell'utente
@@ -164,11 +165,11 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         //controllo se l'email è associata ad un altro tutor
         let esito_valEmail = validazioneEmail(req.params.modifica, tutors)
         if(esito_valEmail == true){
-          //se è valido effettua la modifica
+          //se è valida effettua la modifica
           tutorRicercato.email = req.params.modifica;
         }
         else{
-          //se non è valido invio in risposta un messaggio d'errore
+          //se non è valida invio in risposta un messaggio d'errore
           res.status(404).json({
             message:
               "ERROR! L'email inserita è gia' associata ad un tutor.",
@@ -194,11 +195,12 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   }
 });
 
+//api per acquisire tutti i tutor salvati nel file tutors.json
 app.get("/printAll", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
-  
+  //invia la risposta la client
   res.status(200).json(tutors);
 });
 
