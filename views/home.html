@@ -141,11 +141,13 @@
     //valori di default nel momento del caricamento della pagina
     localStorage.setItem("defaultFilter", 0);
     localStorage.setItem("defaultSearchValue", " ");
-    localStorage.setItem("id", -1);
-    localStorage.setItem("changeValue", -1);
+    localStorage.setItem("defaultId", -1);
+    localStorage.setItem("defaultChangeValue", -1);
     
     sessionStorage.setItem("filter", localStorage.defaultFilter);
     sessionStorage.setItem("searchValue", "none ");
+    sessionStorage.setItem("id", localStorage.defaultId);
+    sessionStorage.setItem("changeValue", localStorage.defaultChangeValue);
     
     //Realizzazione della tabella con jquery ajax
     $.ajax({
@@ -304,16 +306,17 @@
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
-      const id         = document.getElementById("id").value;
-      const action     = sessionStorage.action;
-      let changeValue  = document.getElementById("valore").value;
+      sessionStorage.setItem("id",document.getElementById("id").value);
+      sessionStorage.setItem("changeValue", document.getElementById("valore").value);
+      
+      console.log(sessionStorage.changeValue);
 
       //opzioni per la fetch
       const options = {
         method: 'PUT'
       };
       //eseguo la fetch
-      fetch('https://p2p-tutoring.glitch.me/home/updateTutor/'+ id +'/'+ action +'/'+ changeValue, options)
+      fetch('https://p2p-tutoring.glitch.me/home/updateTutor/'+ sessionStorage.id +'/'+ sessionStorage.action +'/'+ sessionStorage.changeValue, options)
       .then((response) => {
         if (response.ok) {
           alert("Modifica effettuata!");
