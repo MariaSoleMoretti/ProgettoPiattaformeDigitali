@@ -29,10 +29,11 @@ app.post("/home/addTutor", (req, res) => {
   //salvataggio del tutor del database
   let esito = validazioneEmail(req.body.email, tutors);
   if (esito == false) {
-    res.status(404).json({
+    //error bad request
+    res.status(400).json({
         message:
           "ERRORE! L'email inserita è già associata ad un altro tutor.",
-        status: 404,
+        status: 400,
       });
   } else {
     //aggiungo il nuovo tutor all'array dei tutor
@@ -49,51 +50,44 @@ app.post("/home/addTutor", (req, res) => {
 
 //api di ricerca dei tutor del database
 app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
+  //definisco il filtro e il valore della ricerca
   let filtriRicerca = req.params.filtro;
   let valoreRicerca = req.params.valore;
   
+  //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   if(data != null) {
+    //effettuo il parsing
     tutors = JSON.parse(data);
     
     switch(parseInt(filtriRicerca)){
       case 1:
         //filtra tutti i tutor che hanno lo stesso nome
         tutorRicercati = tutors.filter(ricercaNome, valoreRicerca);
-        console.log(tutorRicercati);
         break
       case 2:
         //filtra tutti i tutor appartenenti all'università cercata
         tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);
-        console.log(tutorRicercati);
       break;
       case 3:
         //filtra tutti i tutor che seguono il corso ricercato
         tutorRicercati = tutors.filter(ricercaCorso,valoreRicerca);
-        console.log(tutorRicercati);
       break;
       case 4:
         //filtra tutti i tutor che hanno lo stesso cognome
         tutorRicercati = tutors.filter(ricercaCognome, valoreRicerca);
-        console.log(tutorRicercati);
       break;
       default:
         tutorRicercati = tutors;
       return;
     }
-  } else {
-    res.status(404).json({
-        message:
-          "ERRORE! La ricerca non ha prodotto r.",
-        status: 404,
-      });
   }
-  
+  //invio la risposta al client
   if(tutorRicercati.length != 0){
-    //invia la risposta la client
     res.status(200).json(tutorRicercati);
   }
   else{
+    //error not found
     res.status(404).json({
         message:
           "ERRORE! La ricerca non ha prodotto risultati. ",
@@ -125,6 +119,7 @@ app.delete("/home/deleteTutor/:id", (req, res) => {
       //invia la risposta la client
       res.status(200).json(tutors);
     } else {
+      //error not found
       res.status(404).json({
         message:
           "ERRORE! Non esiste nel database un utente con id " + req.params.id,
@@ -174,6 +169,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         }
         else{
           //se non è valida invio in risposta un messaggio d'errore
+          //error not found
           res.status(404).json({
             message:
               "ERROR! L'email inserita è gia' associata ad un tutor.",

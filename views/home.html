@@ -233,18 +233,21 @@
       document.getElementById("searchTutor").reset();
     }
     
+    //funzione per settare il filtro per effettuare la ricerca
     function setFilter(value){
       sessionStorage.setItem("filter", value);
     }
     
+    //funzione per settare il valore delle ricerca
     function setSearchValue(){
       sessionStorage.setItem("searchValue",document.getElementById("searchValue").value );
     }
 
+    //funzione per creare una tabella di tutor in html
     function buildTable(data){
       var table = document.getElementById('myTable')
       $("#myTable").empty();
-
+      //loop per creare le righe delle tabella
       for (var i = 0; i < data.length; i++){
         var row = `<tr>
                 <td>${data[i].id}</td>
@@ -255,6 +258,7 @@
                 <td>${data[i].corso}</td>
                 <td><button type="button" value = ${i} id="showExams" onclick="displayExams(myArray[this.value])" <i class="material-symbols-outlined"> keyboard_double_arrow_right</td>
               </tr>`
+        //aggiunta riga alla form
         table.innerHTML += row;
       }
     }
