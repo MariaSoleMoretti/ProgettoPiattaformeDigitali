@@ -7,6 +7,7 @@
 Il progetto P2P Tutoring rappresenta una Restful API con l'obiettivo di fornire e modificare informazioni sui vari tutor universitari d'Italia.  Per verificarne la funzionalità i dati relativi ai tutor sono puramente inventati. Il progetto è stato sviluppato su Glitch.
 
 Link Live Site: https://p2p-tutoring.glitch.me/home
+Link Codice Glitch: https://glitch.com/edit/#!/p2p-tutoring
 
 ## Descrizione
 P2P Tutoring è un'applicazione Web in JavaScript realizzata con il framework NodeJS. Le funzionalità del progetto sono:
@@ -57,5 +58,4 @@ L'interfaccia grafica è realizzata in linguaggio html il cui stile è stato for
 - home.css => public/home.css;
 
 Nello script del file home.html vengono salvante delle variabili nel localStorage e nello sessionStorage, questo per andare a settare dei valori di defaul che, anche se modificati durante l'utilizzo del servizio, vengano poi ripristinati nel momento in cui si effettua il refresh della pagina.
-
 
