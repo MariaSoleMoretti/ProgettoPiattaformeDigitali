@@ -6,6 +6,7 @@ const fs = require("fs");
 app.use(express.static('public'))
 //parsing delle richieste in formato json
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //dichiarazione della porta del server
 app.listen(3000);
@@ -27,16 +28,14 @@ app.post("/home/addTutor", (req, res) => {
 
   //salvataggio del tutor del database
   let esito = validazioneEmail(req.body.email, tutors);
-  console.log(esito);
   if (esito == false) {
-    console.log("ERRORE! L'email non è valida.");
     res.status(404).json({
         message:
           "ERRORE! L'email inserita è già associata ad un altro tutor.",
         status: 404,
       });
   } else {
-    //aggiungo il tutor all'array dei tutor
+    //aggiungo il nuovo tutor all'array dei tutor
     tutors.push(req.body);
 
     //effettuo il writeback nel file
