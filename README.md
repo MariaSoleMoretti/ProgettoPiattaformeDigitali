@@ -16,7 +16,7 @@ P2P Tutoring è un'applicazione Web in JavaScript realizzata con il framework No
   - Eliminare un tutor dal database;
   - Aggiornare alcuni dati di un tutto specifico;
 
-Inoltre è stata realizzata un interfaccia grafica lato client utilizzando i linguaggi html e css.
+Inoltre è stata realizzata un interfaccia grafica utilizzando i linguaggi html e css.
 
 ## Endpoint di Operazioni CRUD
 
