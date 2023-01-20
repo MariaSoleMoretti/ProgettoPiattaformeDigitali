@@ -306,7 +306,7 @@
           alert("Modifica effettuata!");
           return response.json();
         }
-        alert('ERROR '+ response.status + response.json.message);
+        alert('ERROR '+ response.status +'! Impossibile eseguire la modifica!');
         //invio al client la risposta sotto formato json
         response.json();
       })
@@ -314,7 +314,6 @@
         if(data > 0){
           myArray = data;
           console.log(myArray);
-          console.log("costruisco la nuova tabella")
         }
         buildTable(myArray);
       })

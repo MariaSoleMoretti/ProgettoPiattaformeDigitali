@@ -169,7 +169,11 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         }
         else{
           //se non è valido invio in risposta un messaggio d'errore
-          res.status(404).send("ERROR! L'email inserita è gia' associata ad un tutor.");
+          res.status(404).json({
+            message:
+              "ERROR! L'email inserita è gia' associata ad un tutor.",
+            status: 404
+          });
         }
         break;
     }
@@ -180,7 +184,6 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
     
     //invia la risposta la client
     res.status(200).json(tutors);
-
   } else {
     //se l'id tutor non è esiste mando in risposta un messaggio di errore
     res.status(404).json({
