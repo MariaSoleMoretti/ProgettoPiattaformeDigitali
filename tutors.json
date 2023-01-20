@@ -169,7 +169,10 @@
     "email": "mata.anna@icloud.it",
     "universita": "Università degli Studi di Parma",
     "corso": "Scienze Agrarie",
-    "esami": []
+    "esami": [
+      "biologia molecolare",
+      "analisi del terreno"
+    ]
   },
   {
     "id": "1674037083535",
