@@ -25,10 +25,22 @@ app.post("/home/addTutor", (req, res) => {
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
+  
+  console.log(req.body);
+  
+  if(req.body == null) {
+    //error bad request
+    res.status(400).json({
+        message:
+          "ERRORE! Non sono stati inseriti tutti i dati.",
+        status: 400,
+      });
+    return;
+  }
 
   //salvataggio del tutor del database
   let esito = validazioneEmail(req.body.email, tutors);
-  if (esito == false) {
+  if (esito == false ) {
     //error bad request
     res.status(400).json({
         message:
