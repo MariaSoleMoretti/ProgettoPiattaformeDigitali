@@ -77,19 +77,6 @@
     "esami": []
   },
   {
-    "id": "1670088584166",
-    "nome": "Alessandro",
-    "cognome": "Tarducci",
-    "email": "ale.tarducci@gmail.com",
-    "universita": "Alma mater studiorum - Università di Bologna",
-    "corso": "Giurisprudenza",
-    "esami": [
-      "Diritto Penale",
-      "Diritto Privato",
-      "Diritto del Lavoro"
-    ]
-  },
-  {
     "id": "1670235912437",
     "nome": "Vincenzo",
     "cognome": "Valente",
