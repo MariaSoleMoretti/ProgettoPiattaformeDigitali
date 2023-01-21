@@ -12,10 +12,10 @@ Link Codice Glitch: https://glitch.com/edit/#!/p2p-tutoring
 
 ## Descrizione
 P2P Tutoring è un'applicazione Web in JavaScript realizzata con il framework NodeJS. Le funzionalità del progetto sono:
-  - Poter ricercare all'interno del database specificando la chiave di ricerca;
-  - Poter inserire un nuovo tutor;
+  - Effettuare ricerche all'interno del database specificando la chiave di ricerca;
+  - Inserire nuovi tutor;
   - Eliminare un tutor dal database;
-  - Aggiornare alcuni dati di un tutto specifico;
+  - Aggiornare alcuni dati di un tutor specifico;
 
 Inoltre è stata realizzata un interfaccia grafica utilizzando i linguaggi html e css.
 
