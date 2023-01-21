@@ -56,7 +56,7 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
   
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
-  if(data != null) {
+  if(data != null ) {
     //effettuo il parsing
     tutors = JSON.parse(data);
     

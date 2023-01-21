@@ -173,7 +173,9 @@
     "email": "lena.diego23@libero.it",
     "universita": "Università degli Studi di Roma La Sapienza",
     "corso": "Letteratura, Arte e Spettacolo",
-    "esami": []
+    "esami": [
+      "Geografia"
+    ]
   },
   {
     "id": "1674048860042",
@@ -183,17 +185,6 @@
     "universita": "Università degli Studi di Urbino",
     "corso": "Lingue Aziendali",
     "esami": []
-  },
-  {
-    "id": "1674199326252",
-    "nome": "Maria Sole",
-    "cognome": "Moretti",
-    "email": "morettimariasole@gmail.com",
-    "universita": "Università degli Studi dell'Aquila",
-    "corso": "Economia",
-    "esami": [
-      "Global Marketing"
-    ]
   },
   {
     "id": "1674199810486",
@@ -238,6 +229,15 @@
     "email": "salvo.tosco55@gmail.com",
     "universita": "Università degli Studi di Napoli Parthenope",
     "corso": "Scienze Motorie",
+    "esami": []
+  },
+  {
+    "id": "1674280641969",
+    "nome": "Maria Sole",
+    "cognome": "Moretti",
+    "email": "morettimariasole@gmail.com",
+    "universita": "Università degli Studi di Parma",
+    "corso": "Informatica Applicata",
     "esami": []
   }
 ]

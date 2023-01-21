@@ -203,8 +203,11 @@
     
     //FUNZIONE PER RICERCARE UN TUTOR
     async function searchTutors(){
-      sessionStorage.setItem("searchValue", document.getElementById("searchValue").value);
-
+      console.log(document.getElementById("searchValue").value != "");
+      if(document.getElementById("searchValue").value != ""){
+        sessionStorage.setItem("searchValue", document.getElementById("searchValue").value);
+      }
+      
       //opzioni per la fetch
       const options = {
         method: 'GET',
