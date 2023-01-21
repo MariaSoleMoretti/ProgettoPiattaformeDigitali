@@ -20,6 +20,15 @@ app.get("/home", (req,res) =>{
   res.sendFile("/app/views/home.html");
 })
 
+//api per acquisire tutti i tutor salvati nel file tutors.json
+app.get("/printAll", (req, res) => {
+  //facciamo la read del file per modificarlo
+  let data = fs.readFileSync("tutors.json");
+  tutors = JSON.parse(data);
+  //invia la risposta la client
+  res.status(200).json(tutors);
+});
+
 //api per l'aggiunta di un nuovo tutor
 app.post("/home/addTutor", (req, res) => {
   //facciamo la read del file per modificarlo
@@ -68,16 +77,16 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
         tutorRicercati = tutors.filter(ricercaNome, valoreRicerca);
         break
       case 2:
-        //filtra tutti i tutor appartenenti all'università cercata
-        tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);
-      break;
-      case 3:
-        //filtra tutti i tutor che seguono il corso ricercato
-        tutorRicercati = tutors.filter(ricercaCorso,valoreRicerca);
-      break;
-      case 4:
         //filtra tutti i tutor che hanno lo stesso cognome
         tutorRicercati = tutors.filter(ricercaCognome, valoreRicerca);
+      break;
+      case 3:
+        //filtra tutti i tutor appartenenti all'università cercata
+        tutorRicercati = tutors.filter(ricercaUniversità, valoreRicerca);;
+      break;
+      case 4:
+        //filtra tutti i tutor che seguono il corso ricercato
+        tutorRicercati = tutors.filter(ricercaCorso,valoreRicerca);
       break;
       default:
         tutorRicercati = tutors;
@@ -160,10 +169,10 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         }
         else{
           //se non è valido invio in risposta un messaggio d'errore
-          res.status(404).json({
+          res.status(400).json({
             message:
               "ERRORE! L'esame è gia' presente tra i dati dell'utente.",
-            status: 404
+            status: 400
           });
         }
         break;
@@ -176,11 +185,11 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
         }
         else{
           //se non è valida invio in risposta un messaggio d'errore
-          //error not found
-          res.status(404).json({
+          //error bad request
+          res.status(400).json({
             message:
               "ERROR! L'email inserita è gia' associata ad un tutor.",
-            status: 404
+            status: 400
           });
         }
         break;
@@ -202,16 +211,8 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   }
 });
 
-//api per acquisire tutti i tutor salvati nel file tutors.json
-app.get("/printAll", (req, res) => {
-  //facciamo la read del file per modificarlo
-  let data = fs.readFileSync("tutors.json");
-  tutors = JSON.parse(data);
-  //invia la risposta la client
-  res.status(200).json(tutors);
-});
 
-//funzione di validazione dehli input, in particolare controlla se l'email è valida,
+//funzione di validazione degli input, in particolare controlla se l'email è valida,
 //cioè se cointiene il carattere @, e se non è presente nel database
 function validazioneEmail(email, t) {
   let esito = true;
