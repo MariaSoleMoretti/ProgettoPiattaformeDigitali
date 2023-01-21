@@ -135,6 +135,7 @@
   <script>
     var myArray = []
     var newArray = []
+    var azione 
     const filtroEsame   = false;
     const filtroEmail   = false;
     
@@ -144,10 +145,12 @@
     const changeValue = null;
     
     localStorage.setItem("defaultIdTutor", 0)
-    localStorage.setItem("filter", defaultFilter);
-    localStorage.setItem("searchValue", defaultSearchValue);
-    localStorage.setItem("action", -1);
-    localStorage.setItem("idTutor", 0);
+    localStorage.setItem("defaultFilter", 0);
+    localStorage.setItem("defaultSearchValue", null);
+    localStorage.setItem("defaultAction", -1);
+    
+    sessionStorage.setItem("action", localStorage.defaultAction);
+
     
     //Realizzazione della tabella con jquery ajax
     $.ajax({
@@ -320,12 +323,16 @@
       var id           = localStorage.defaultIdTutor;
       var changeValue  = localStorage.defaultChangeValue;
       
+      console.log(document.getElementById("id").value != "" || document.getElementById("valore").value);
+      
       //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
       if(document.getElementById("id").value != "" || document.getElementById("valore").value){
-        const id         = document.getElementById("id").value;
+        const id           = document.getElementById("id").value;
         const changeValue  = document.getElementById("valore").value;
       }
-            
+      
+      console.log(id);
+        console.log(changeValue); 
       //opzioni per la fetch
       const options = {
         method: 'PUT'
@@ -353,13 +360,8 @@
       .catch(e => {
           console.log(e);
       });
-      //setto nuovamente a false i filtri
-      if(filtroEsame == true){
-        setExamFilter();
-      }
-      if(filtroEmail == true){
-        setEmailFilter();
-      }
+      //setto la variabile action l valore di default
+      sessionStorage.setItem("action", localStorage.defaultAction);
       //pulisce la form
       document.getElementById("updateTutor").reset();
     }
@@ -376,13 +378,11 @@
     
     //funzione per settare filtro esame
     function setExamFilter(){
-      sessionStorage.setItem("filtroEsame", !filtroEsame);
       sessionStorage.setItem("action", "newExam");
     }
     
     //funzioni per settare filtro email
     function setEmailFilter(){
-      sessionStorage.setItem("filtroEmail", !filtroEmail);
       sessionStorage.setItem("action", "newEmail");
     }
     
