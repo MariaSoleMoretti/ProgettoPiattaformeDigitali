@@ -55,21 +55,21 @@
         <div>
           <label for="name">Nome</label>
           <div class = "tab">
-            <input class = "input" type="text" id="name" name="name" placeholder = "Nome" >
+            <input class = "input" type="text" id="name" name="name" placeholder = "Nome" required>
           </div>
         </div>
         <br>
         <div>
           <label for="surname">Cognome</label>
           <div class = "tab">
-           <input class = "input" type="text" id="surname" name="name" placeholder = "Cognome">
+           <input class = "input" type="text" id="surname" name="name" placeholder = "Cognome" required>
           </div>
         </div>
         <br>
         <div>
           <label for="email">Email</label>
           <div class = "tab">
-           <input class = "input" type="email" id="email" name="email" placeholder = "Email">
+           <input class = "input" type="email" id="email" name="email" placeholder = "Email" required>
           </div>
         </div>
         <br>
@@ -174,7 +174,8 @@
         universita : document.getElementById("universita").value,
         corso :      document.getElementById("corso").value,
         esami:       [] 
-      })
+      });
+      
       //opzioni per la fetch
       const options = {
         method: 'POST',
