@@ -62,14 +62,14 @@
         <div>
           <label for="surname">Cognome</label>
           <div class = "tab">
-           <input class = "input" type="text" id="surname" name="name" placeholder = "Cognome" >
+           <input class = "input" type="text" id="surname" name="name" placeholder = "Cognome">
           </div>
         </div>
         <br>
         <div>
           <label for="email">Email</label>
           <div class = "tab">
-           <input class = "input" type="email" id="email" name="email" placeholder = "Email" >
+           <input class = "input" type="email" id="email" name="email" placeholder = "Email">
           </div>
         </div>
         <br>
@@ -166,7 +166,7 @@
     //FUNZIONE PER AGGIUNGERE UN TUTOR
     async function addTutor(){
       //definisco i dati del nuovo tutor aggiungendo alcuni campi di default
-      var newTutor = ({
+      const newTutor = ({
         id:          Date.now().toString(),
         nome :       document.getElementById("name").value,
         cognome :    document.getElementById("surname").value,
@@ -174,48 +174,36 @@
         universita : document.getElementById("universita").value,
         corso :      document.getElementById("corso").value,
         esami:       [] 
+      })
+      //opzioni per la fetch
+      const options = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTutor),
+      };
+      //eseguo la fetch
+      fetch('https://p2p-tutoring.glitch.me/home/addTutor', options)
+      .then((response) => {
+        if (response.ok) {
+          alert("Nuovo tutor aggiunto!");
+          return response.json();
+        }
+        alert('ERROR!Something went wrong!');
+      })
+      .then(data =>{
+        //aggiorno la tabella
+        if(data != undefined || data > 0 ){
+          myArray = data;
+        }
+        buildTable(myArray);
+      })
+      .catch(e => {
+          console.log(e);
       });
-      
-      var esito = validateNewTutor(newTutor);
-      if(esito != false){
-          //opzioni per la fetch
-          const options = {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newTutor),
-          };
-          //eseguo la fetch
-          fetch('https://p2p-tutoring.glitch.me/home/addTutor', options)
-          .then((response) => {
-            if (response.ok) {
-              alert("Nuovo tutor aggiunto!");
-              return response.json();
-            }
-            alert('ERROR!Something went wrong!');
-          })
-          .then(data =>{
-            //aggiorno la tabella
-            if(data != undefined || data > 0 ){
-              myArray = data;
-            }
-            buildTable(myArray);
-          })
-          .catch(e => {
-              console.log(e);
-          });
-          //pulisco la form
-          document.getElementById("addTutor").reset();
-      }
-      else{
-        //error bad request
-        res.status(400).json({
-            message:
-              "ERRORE! I valori inseriti non sono validi.",
-            status: 400,
-          });
-      }
+      //pulisco la form
+      document.getElementById("addTutor").reset();
     }
     
     //FUNZIONE PER RICERCARE UN TUTOR
@@ -383,11 +371,6 @@
       else{
         alert("Nessun esame inserito!");
       }
-    }
-    
-    function validateNewTutor(tutor){
-      if(tutor.nome == "" || tutor.cognome == "" || tutor.universita == "" || tutor.corso == "" )
-        return false;
     }
     
     //funzione per settare filtro esame
