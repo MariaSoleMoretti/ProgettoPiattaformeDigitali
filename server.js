@@ -56,12 +56,14 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
   
   //facciamo la read del file per modificarlo
   let data = fs.readFileSync("tutors.json");
-  if(data != null ) {
+  
+  if(data != null) {
     //effettuo il parsing
     tutors = JSON.parse(data);
     
     switch(parseInt(filtriRicerca)){
       case 1:
+        console.log()
         //filtra tutti i tutor che hanno lo stesso nome
         tutorRicercati = tutors.filter(ricercaNome, valoreRicerca);
         break
