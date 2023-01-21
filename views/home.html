@@ -319,20 +319,17 @@
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
-      const action     = localStorage.action;
+      var action       = localStorage.action;
       var id           = localStorage.defaultIdTutor;
       var changeValue  = localStorage.defaultChangeValue;
-      
-      console.log(document.getElementById("id").value != "" || document.getElementById("valore").value);
-      
+            
       //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
-      if(document.getElementById("id").value != "" || document.getElementById("valore").value){
-        const id           = document.getElementById("id").value;
-        const changeValue  = document.getElementById("valore").value;
+      if(document.getElementById("id").value != "" && document.getElementById("valore").value){
+        id           = document.getElementById("id").value;
+        action       = sessionStorage.action;
+        changeValue  = document.getElementById("valore").value;
       }
-      
-      console.log(id);
-        console.log(changeValue); 
+
       //opzioni per la fetch
       const options = {
         method: 'PUT'
