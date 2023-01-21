@@ -141,7 +141,6 @@
     //valori di default nel momento del caricamento della pagina
     localStorage.setItem("defaultFilter", 0);
     localStorage.setItem("defaultSearchValue", " ");
-    localStorage.setItem("changeValue", undefined);
     
     sessionStorage.setItem("filter", localStorage.defaultFilter);
     sessionStorage.setItem("searchValue", "none");
@@ -170,6 +169,7 @@
         corso :      document.getElementById("corso").value,
         esami:       [] 
       })
+      
       //opzioni per la fetch
       const options = {
         method: 'POST',
@@ -270,6 +270,11 @@
     // FUNZIONE PER ELIMINARE UN TUTOR 
     async function deleteTutor(idTutor){
       sessionStorage.setItem("idTutor", document.getElementById("idTutor").value);
+      
+      if(sessionStorage.idTutor.length == 0)
+      {
+          sessionStorage.setItem("idTutor",null);
+      }
       //opzioni per la fetch
       const options = {
         method: 'DELETE'
@@ -304,9 +309,14 @@
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
-      const id         = document.getElementById("id").value;
-      const action     = sessionStorage.action;
-      const changeValue  = document.getElementById("valore").value;
+      var id             = document.getElementById("id").value;
+      const action       = sessionStorage.action;
+      var changeValue    = document.getElementById("valore").value;
+      
+      if(changeValue.length == 0 || id.length == 0){
+          changeValue = null;
+          id = null;
+      }
             
       //opzioni per la fetch
       const options = {
