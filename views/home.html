@@ -139,12 +139,12 @@
     const filtroEmail   = false;
     
     //valori di default nel momento del caricamento della pagina
-    localStorage.setItem("defaultFilter", 0);
-    localStorage.setItem("defaultSearchValue", " ");
-    localStorage.setItem("changeValue", undefined);
+    const defaultFilter = 0;
+    const defaultSearchValue = null;
+    const changeValue = null;;
     
-    sessionStorage.setItem("filter", localStorage.defaultFilter);
-    sessionStorage.setItem("searchValue", "none");
+    sessionStorage.setItem("filter", defaultFilter);
+    sessionStorage.setItem("searchValue", defaultSearchValue);
     sessionStorage.setItem("action", -1);
     
     //Realizzazione della tabella con jquery ajax
