@@ -145,7 +145,6 @@
     localStorage.setItem("defaultFilter", 0);
     localStorage.setItem("defaultSearchValue", null);
     localStorage.setItem("defaultAction", -1);
-    
     sessionStorage.setItem("action", localStorage.defaultAction);
 
     
@@ -205,7 +204,7 @@
     
     //FUNZIONE PER RICERCARE UN TUTOR
     async function searchTutors(){
-
+      
       //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
       if(document.getElementById("searchValue").value != ""){
         sessionStorage.setItem("searchValue", document.getElementById("searchValue").value);
@@ -241,6 +240,8 @@
       });
       //setto la variabile action l valore di default
       sessionStorage.setItem("searchValue", localStorage.defaultSearchValue);
+      //setto la variabile action l valore di default
+      sessionStorage.setItem("filter", localStorage.defaultFilter);
       //pulisce la form
       document.getElementById("searchTutor").reset();
     }
