@@ -44,7 +44,7 @@ app.post("/home/addTutor", (req, res) => {
     //error bad request
     res.status(400).json({
         message:
-          "ERRORE! I valori inseriti non sono validi.",
+          "ERRORE! L'email è associata ad un altro tutor.",
         status: 400,
       });
   } else {
