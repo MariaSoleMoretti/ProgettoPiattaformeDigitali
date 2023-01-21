@@ -141,11 +141,13 @@
     //valori di default nel momento del caricamento della pagina
     const defaultFilter = 0;
     const defaultSearchValue = null;
-    const changeValue = null;;
+    const changeValue = null;
+    localStorage.setItem("defaultIdTutor", 0)
     
     sessionStorage.setItem("filter", defaultFilter);
     sessionStorage.setItem("searchValue", defaultSearchValue);
     sessionStorage.setItem("action", -1);
+    sessionStorage.setItem("idTutor", 0);
     
     //Realizzazione della tabella con jquery ajax
     $.ajax({
