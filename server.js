@@ -27,8 +27,9 @@ app.post("/home/addTutor", (req, res) => {
   tutors = JSON.parse(data);
 
   //salvataggio del tutor del database
-  let esito = validazioneEmail(req.body.email, tutors);
-  if (esito == false) {
+  let esito_email = validazioneEmail(req.body.email, tutors);
+  let esito_input = validazioneInput(req.body);
+  if (esito_email == false || esito_input == false) {
     //error bad request
     res.status(400).json({
         message:
@@ -234,6 +235,12 @@ function validazioneNuovoEsame(nuovoEsame, e) {
   }
   //se non entra nell'if allora il nuovo esame è valido
   return esito;
+}
+
+function validazioneInput(body){
+  if(body.nome == "" || body.cognome == "" || body.università == "" || body.corso == "" ){
+    return false
+  }
 }
 
 //funzione che filtra i tutor in base alla email
