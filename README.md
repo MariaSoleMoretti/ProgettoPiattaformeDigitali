@@ -4,7 +4,7 @@
 #### Matricola: 305531
 
 ## Introduzione
-Il progetto P2P Tutoring rappresenta una Restful API con l'obiettivo di fornire e modificare informazioni sui vari tutor universitari d'Italia.  Per verificarne la funzionalità i dati relativi ai tutor sono puramente inventati. Il progetto è stato sviluppato su Glitch.
+Il progetto P2P Tutoring rappresenta una Restful API con l'obiettivo di fornire e modificare informazioni sui vari tutor universitari d'Italia.  Per verificarne la funzionalità i dati relativi ai tutor sono stati prodotti manualmente. Il progetto è stato sviluppato su Glitch.
 
 Link Live Site: https://p2p-tutoring.glitch.me/home
 
