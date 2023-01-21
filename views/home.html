@@ -203,8 +203,8 @@
     
     //FUNZIONE PER RICERCARE UN TUTOR
     async function searchTutors(){
-      console.log(document.getElementById("searchValue").value != "");
-      
+
+      //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
       if(document.getElementById("searchValue").value != ""){
         sessionStorage.setItem("searchValue", document.getElementById("searchValue").value);
       }
@@ -273,7 +273,12 @@
     
     // FUNZIONE PER ELIMINARE UN TUTOR 
     async function deleteTutor(idTutor){
-      sessionStorage.setItem("idTutor", document.getElementById("idTutor").value);
+      
+      //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
+      if(document.getElementById("idTutor").value != ""){
+        sessionStorage.setItem("idTutor", document.getElementById("idTutor").value);
+      }
+      
       //opzioni per la fetch
       const options = {
         method: 'DELETE'
@@ -308,9 +313,13 @@
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
-      const id         = document.getElementById("id").value;
       const action     = sessionStorage.action;
-      const changeValue  = document.getElementById("valore").value;
+      
+      //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
+      if(document.getElementById("id").value != "" || document.getElementById("valore").value){
+        const id         = document.getElementById("id").value;
+        const changeValue  = document.getElementById("valore").value;
+      }
             
       //opzioni per la fetch
       const options = {

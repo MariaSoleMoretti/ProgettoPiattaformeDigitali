@@ -63,7 +63,6 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
     
     switch(parseInt(filtriRicerca)){
       case 1:
-        console.log()
         //filtra tutti i tutor che hanno lo stesso nome
         tutorRicercati = tutors.filter(ricercaNome, valoreRicerca);
         break
@@ -81,6 +80,11 @@ app.get("/home/searchTutors/:filtro/:valore", (req, res) => {
       break;
       default:
         tutorRicercati = tutors;
+        res.status(400).json({
+        message:
+          "ERRORE! Inserire filtro di ricerca. ",
+        status: 400,
+      });
       return;
     }
   }
