@@ -188,5 +188,14 @@
     "universita": "Università degli Studi di Parma",
     "corso": "Informatica Applicata",
     "esami": []
+  },
+  {
+    "id": "1674290441754",
+    "nome": "Marco",
+    "cognome": "Menghini",
+    "email": "marchetto21@gmail.com",
+    "universita": "Università degli Studi di Modena e Reggio Emilia",
+    "corso": "Lingue e Culture Europee",
+    "esami": []
   }
 ]

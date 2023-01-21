@@ -26,14 +26,14 @@ app.post("/home/addTutor", (req, res) => {
   let data = fs.readFileSync("tutors.json");
   tutors = JSON.parse(data);
 
-  //salvataggio del tutor del database
+  //controllo che l'email non sia già associata ad un tutor e che i dati siano stati inseriti tutti
   let esito_email = validazioneEmail(req.body.email, tutors);
   let esito_input = validazioneInput(req.body);
   if (esito_email == false || esito_input == false) {
     //error bad request
     res.status(400).json({
         message:
-          "ERRORE! L'email inserita è già associata ad un altro tutor.",
+          "ERRORE! I valori inseriti non sono validi.",
         status: 400,
       });
   } else {
@@ -225,6 +225,7 @@ function validazioneEmail(email, t) {
   return esito;
 }
 
+//funzione per controllare che l'email non sia già associata ad un tutor
 function validazioneNuovoEsame(nuovoEsame, e) {
   let esito = true;
   let esami = e.filter(ricercaEsame, nuovoEsame);
@@ -237,6 +238,7 @@ function validazioneNuovoEsame(nuovoEsame, e) {
   return esito;
 }
 
+//funzione per controllare che siano state inserite tutti dati del nuovo tutor
 function validazioneInput(body){
   if(body.nome == "" || body.cognome == "" || body.università == "" || body.corso == "" ){
     return false
