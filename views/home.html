@@ -231,7 +231,7 @@
         //aggiorno la tabella
         if(data != undefined || data > 0 ){
           newArray = data;
-          //costruisco nuova tabella
+          //costruisco tabella temporanea
           buildTable(newArray);
         }
       })
@@ -324,7 +324,7 @@
       var changeValue  = localStorage.defaultChangeValue;
             
       //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
-      if(document.getElementById("id").value != "" && document.getElementById("valore").value){
+      if(document.getElementById("id").value != "" && document.getElementById("valore").value != ""){
         id           = document.getElementById("id").value;
         action       = sessionStorage.action;
         changeValue  = document.getElementById("valore").value;

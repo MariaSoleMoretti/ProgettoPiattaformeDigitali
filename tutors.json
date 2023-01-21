@@ -154,15 +154,6 @@
     "esami": []
   },
   {
-    "id": "1674201756771",
-    "nome": "Alida",
-    "cognome": "Giacomin",
-    "email": "giacomin.alida@gmail.com",
-    "universita": "Università degli Studi di Macerata",
-    "corso": "Scienze dell'Educazione",
-    "esami": []
-  },
-  {
     "id": "1674201919461",
     "nome": "Nicola",
     "cognome": "Tombolini",
@@ -190,5 +181,14 @@
     "esami": [
       "Linguistica"
     ]
+  },
+  {
+    "id": "1674295568847",
+    "nome": "Alida",
+    "cognome": "Giacomin",
+    "email": "alida.giacomin@gmail.com",
+    "universita": "Università degli Studi di Macerata",
+    "corso": "Lingue Moderne",
+    "esami": []
   }
 ]

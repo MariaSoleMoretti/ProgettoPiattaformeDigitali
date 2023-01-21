@@ -203,10 +203,10 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
     res.status(200).json(tutors);
   } else {
     //se l'id tutor non è esiste mando in risposta un messaggio di errore
-    res.status(404).json({
+    res.status(400).json({
       message:
         "ERRORE! I valori inseriti non sono validi. ",
-      status: 404,
+      status: 400,
     });
   }
 });
