@@ -146,7 +146,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
   let idTutor = tutors.findIndex((element) => element.id == req.params.id); 
   
   //controllo se l'id corrisponde ad un tutor nel database
-  if (idTutor != -1 && azione != -1 && req.params.modifica != "empty") {
+  if (idTutor != -1 && azione != -1 && req.params.modifica != null) {
     let tutorRicercato = tutors[idTutor];
     //in base al tipo di modifica eseguo una dei seguenti case
     switch (azione) {
@@ -195,7 +195,7 @@ app.put("/home/updateTutor/:id/:azione/:modifica", (req, res) => {
     //se l'id tutor non è esiste mando in risposta un messaggio di errore
     res.status(404).json({
       message:
-        "ERRORE! Non esiste nel database un utente con id " + req.params.id,
+        "ERRORE! I valori inseriti non sono validi. ",
       status: 404,
     });
   }

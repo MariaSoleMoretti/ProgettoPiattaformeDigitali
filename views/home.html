@@ -142,12 +142,12 @@
     const defaultFilter = 0;
     const defaultSearchValue = null;
     const changeValue = null;
-    localStorage.setItem("defaultIdTutor", 0)
     
-    sessionStorage.setItem("filter", defaultFilter);
-    sessionStorage.setItem("searchValue", defaultSearchValue);
-    sessionStorage.setItem("action", -1);
-    sessionStorage.setItem("idTutor", 0);
+    localStorage.setItem("defaultIdTutor", 0)
+    localStorage.setItem("filter", defaultFilter);
+    localStorage.setItem("searchValue", defaultSearchValue);
+    localStorage.setItem("action", -1);
+    localStorage.setItem("idTutor", 0);
     
     //Realizzazione della tabella con jquery ajax
     $.ajax({
@@ -275,10 +275,11 @@
     
     // FUNZIONE PER ELIMINARE UN TUTOR 
     async function deleteTutor(idTutor){
+      var idTutor = localStorage.defaultIdTutor;
       
       //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
       if(document.getElementById("idTutor").value != ""){
-        sessionStorage.setItem("idTutor", document.getElementById("idTutor").value);
+        idTutor = document.getElementById("idTutor").value;
       }
       
       //opzioni per la fetch
@@ -287,7 +288,7 @@
       };
       
       //eseguo la fetch
-      fetch('https://p2p-tutoring.glitch.me/home/deleteTutor/'+ sessionStorage.idTutor, options)
+      fetch('https://p2p-tutoring.glitch.me/home/deleteTutor/'+ idTutor, options)
       .then((response) => {
         if (response.ok) {
           alert("Tutor eliminato!");
@@ -315,7 +316,9 @@
     //FUNZIONE PER MODIFICARE UN TUTOR 
     async function updateTutor(){
       //definisco i vali paramentri da passare all'api
-      const action     = sessionStorage.action;
+      const action     = localStorage.action;
+      var id           = localStorage.defaultIdTutor;
+      var changeValue  = localStorage.defaultChangeValue;
       
       //controllo se è stato inserito il parametro della ricerca, in caso il valore rimane di default
       if(document.getElementById("id").value != "" || document.getElementById("valore").value){
